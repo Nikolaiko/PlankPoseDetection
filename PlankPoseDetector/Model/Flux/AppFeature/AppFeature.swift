@@ -11,8 +11,20 @@ import ComposableArchitecture
 struct AppFeature: ReducerProtocol {
 
     struct State: Equatable {
-        var workoutState: WorkoutFeature.State? = WorkoutFeature.State()
+        @BindableState var selectedTabId: MainViewTabEnum
+
+        var workoutState: WorkoutFeature.State? = nil
         var settingsState: SettingsFeature.State? = nil
+
+        init(selectedTabId: MainViewTabEnum) {
+            self.selectedTabId = selectedTabId
+            switch self.selectedTabId {
+            case .settings, .camera:
+                settingsState = SettingsFeature.State()
+            case .workout, .home:
+                workoutState = WorkoutFeature.State()
+            }
+        }
     }
 
     enum Action {
@@ -25,7 +37,8 @@ struct AppFeature: ReducerProtocol {
         Reduce { state, action in
             switch action {
             case .changeTab(let tabType):
-                return changeTabHandler(into: &state, tabType: tabType)
+                state.selectedTabId = tabType
+                return changeTabHandler(into: &state)
             default:
                 return .none
             }
@@ -38,15 +51,17 @@ struct AppFeature: ReducerProtocol {
         }
     }
 
-    private func changeTabHandler(into state: inout State, tabType: MainViewTabEnum) -> Effect<Action, Never> {
+    private func changeTabHandler(into state: inout State) -> Effect<Action, Never> {
         state.settingsState = nil
         state.workoutState = nil
 
-        switch tabType {
-        case .settings:
+        switch state.selectedTabId {
+        case .settings, .camera:
             state.settingsState = SettingsFeature.State()
-        case .workout:
+        case .workout, .home:
             state.workoutState = WorkoutFeature.State()
+        default:
+            print("Something")
         }
         return .none
     }

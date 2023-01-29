@@ -11,9 +11,11 @@ import UIKit
 
 struct WorkoutFeature: ReducerProtocol {
     struct State: Equatable {
-        var sourceImage: UIImage?
+        var sourceImage: UIImage
+        var resultImage: UIImage?
+        var isProcessing: Bool = false
 
-        init(sourceImage: UIImage? = nil) {
+        init() {
             let url = Bundle.main.url(forResource: "example", withExtension: "jpg")
             self.sourceImage = UIImage(contentsOfFile: url!.path)!
         }
@@ -25,20 +27,26 @@ struct WorkoutFeature: ReducerProtocol {
     }
 
     private let detector = VisionPoseDetection()
+    private let painter = CGImagePainter()
 
     func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
         switch action {
         case .processImage:
-            let image = state.sourceImage!
+            state.isProcessing = true
+            let image = state.sourceImage
             return .task {
-                .processImageResult(await detector.detectPoseOnImage(image: image))
+                let points = detector.detectPoseOnImage(image: image)
+                let resultImage = painter.drawPointsOnImage(sourceImage: image, points: points)
+
+                return .processImageResult(resultImage)
             }
         case .processImageResult(let imageResult):
             if let res = imageResult {
-                print("Success")
+                state.resultImage = res
             } else {
                 print("Failt")
             }
+            state.isProcessing = false
             return .none
         }
     }

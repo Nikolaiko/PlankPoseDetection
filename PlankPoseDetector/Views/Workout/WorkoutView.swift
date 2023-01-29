@@ -13,19 +13,26 @@ struct WorkoutView: View {
 
     var body: some View {
         WithViewStore(stateStore) { viewState in
-            VStack {
-                Spacer()
-                Text("Workout")
-                Button {
-                    let _ = print("click")
-                    viewState.send(.processImage)
-                } label: {
-                    Text("Test Vision")
+            ZStack {
+                VStack {
+                    Image(uiImage: viewState.resultImage != nil
+                          ? viewState.resultImage!
+                          : viewState.sourceImage
+                    )
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    Button {
+                        let _ = print("click")
+                        viewState.send(.processImage)
+                    } label: {
+                        Text("Test Vision")
+                    }
                 }
-
-                Spacer()
-
+                if viewState.isProcessing {
+                    ProgressView()
+                }
             }
+
         }
     }
 }

@@ -73,6 +73,15 @@
       }
     },
     {
+      "identity" : "swiftdeveloperpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ISSArt-LLC/SwiftDeveloperPackage",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0a3e90440c7aca207e078fa42bc7ae4f57e39d5e"
+      }
+    },
+    {
       "identity" : "swiftui-navigation",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swiftui-navigation",

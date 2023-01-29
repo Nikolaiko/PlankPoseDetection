@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 protocol PoseDetector {
-    func detectPoseOnImage(image: UIImage) async -> UIImage?
+    func detectPoseOnImage(image: UIImage) -> [PoseJoint]
     
 }
