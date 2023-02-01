@@ -8,26 +8,42 @@
 import Foundation
 import ComposableArchitecture
 import UIKit
+import Dependencies
+import AVFoundation
 
 struct WorkoutFeature: ReducerProtocol {
     struct State: Equatable {
         var sourceImage: UIImage
         var resultImage: UIImage?
         var isProcessing: Bool = false
+        var player: AVPlayer
+        var imageGenerator: AVAssetImageGenerator
+        var timer: Timer?
+
+        private var item: AVPlayerItem
 
         init() {
-            let url = Bundle.main.url(forResource: "example", withExtension: "jpg")
-            self.sourceImage = UIImage(contentsOfFile: url!.path)!
+            let imageUrl = Bundle.main.url(forResource: "example", withExtension: "jpg")
+            self.sourceImage = UIImage(contentsOfFile: imageUrl!.path)!
+
+            let videoUrl = Bundle.main.url(forResource: "video", withExtension: "mp4")
+            self.item = AVPlayerItem(url: videoUrl!)
+            self.player = AVPlayer(playerItem: item)
+            self.imageGenerator = AVAssetImageGenerator(asset: player.currentItem!.asset)
+            self.imageGenerator.appliesPreferredTrackTransform = true
         }
     }
 
     enum Action {
         case processImage
         case processImageResult(UIImage?)
+
+        case startPlayback
+        case getFrame
     }
 
-    private let detector = VisionPoseDetection()
-    private let painter = CGImagePainter()
+    @Dependency(\.poseDetector) var detector: PoseDetector
+    @Dependency(\.paintService) var painter: DrawImageService
 
     func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
         switch action {
@@ -48,12 +64,25 @@ struct WorkoutFeature: ReducerProtocol {
             }
             state.isProcessing = false
             return .none
+
+        case .startPlayback:
+            if state.player.rate == 0 {
+                state.player.play()
+            }
+            return .none
+        case .getFrame:
+            if state.player.rate != 0 {
+                let player = state.player
+                let generator = state.imageGenerator
+                return .task {
+                    let snapshot = try! await generator.image(at: player.currentTime())
+                    let points = detector.detectPoseOnImage(image: UIImage(cgImage: snapshot.image))
+                    let resultImage = painter.drawPointsOnImage(sourceImage: UIImage(cgImage: snapshot.image), points: points)
+                    return .processImageResult(resultImage)
+                }
+            } else {
+                return .none
+            }
         }
-    }
-
-    private func testProcess()  {
-
-
-
     }
 }

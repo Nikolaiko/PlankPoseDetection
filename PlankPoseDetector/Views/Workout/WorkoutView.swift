@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import AVKit
 
 struct WorkoutView: View {
     let stateStore: StoreOf<WorkoutFeature>
@@ -15,30 +16,43 @@ struct WorkoutView: View {
         WithViewStore(stateStore) { viewState in
             ZStack {
                 VStack {
-                    Image(uiImage: viewState.resultImage != nil
-                          ? viewState.resultImage!
-                          : viewState.sourceImage
-                    )
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    ZStack {
+                        VideoPlayer(player: viewState.player)
+                        if viewState.resultImage != nil {
+                            Image(uiImage: viewState.resultImage!)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
+                    }
+
                     Button {
-                        let _ = print("click")
                         viewState.send(.processImage)
                     } label: {
                         Text("Test Vision")
+                    }
+                    Button {
+                        viewState.send(.startPlayback)
+                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { currentTimer in
+                            viewState.send(.getFrame)
+                        })
+                    } label: {
+                        Text("Get Frame")
                     }
                 }
                 if viewState.isProcessing {
                     ProgressView()
                 }
             }
-
         }
     }
 }
 
-//struct WorkoutView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WorkoutView()
-//    }
-//}
+
+/*
+ Image(uiImage: viewState.resultImage != nil
+       ? viewState.resultImage!
+       : viewState.sourceImage
+ )
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ */

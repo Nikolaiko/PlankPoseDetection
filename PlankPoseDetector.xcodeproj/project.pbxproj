@@ -16,6 +16,10 @@
 		911C66CB29859DEB00E7D4D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66CA29859DEB00E7D4D4 /* AppColors.swift */; };
 		911C66CE29859ED000E7D4D4 /* SwiftDevPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 911C66CD29859ED000E7D4D4 /* SwiftDevPackage */; };
 		911C66D02985A18900E7D4D4 /* BottomBar_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66CF2985A18900E7D4D4 /* BottomBar_Previews.swift */; };
+		913059AD298ABF0E004155FD /* PoseDetectorDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */; };
+		913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059AE298AC140004155FD /* DrawServiceDependency.swift */; };
+		913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059B0298AC22A004155FD /* WorkoutView_Previews.swift */; };
+		913059B3298AC377004155FD /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 913059B2298AC377004155FD /* video.mp4 */; };
 		917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */; };
 		917BD074297EB49200F57E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD073297EB49200F57E6D /* Assets.xcassets */; };
 		917BD077297EB49200F57E6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD076297EB49200F57E6D /* Preview Assets.xcassets */; };
@@ -45,6 +49,10 @@
 		911C66C829859DC000E7D4D4 /* BottomBarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarColors.swift; sourceTree = "<group>"; };
 		911C66CA29859DEB00E7D4D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		911C66CF2985A18900E7D4D4 /* BottomBar_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar_Previews.swift; sourceTree = "<group>"; };
+		913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetectorDependency.swift; sourceTree = "<group>"; };
+		913059AE298AC140004155FD /* DrawServiceDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawServiceDependency.swift; sourceTree = "<group>"; };
+		913059B0298AC22A004155FD /* WorkoutView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView_Previews.swift; sourceTree = "<group>"; };
+		913059B2298AC377004155FD /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		917BD06C297EB49100F57E6D /* PlankPoseDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlankPoseDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPoseDetectorApp.swift; sourceTree = "<group>"; };
 		917BD073297EB49200F57E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +114,15 @@
 			path = BottomBar;
 			sourceTree = "<group>";
 		};
+		913059AB298ABED0004155FD /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */,
+				913059AE298AC140004155FD /* DrawServiceDependency.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		917BD063297EB49100F57E6D = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +174,7 @@
 		91A52F56297EEBAB007857CE /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				913059AB298ABED0004155FD /* Dependencies */,
 				91A52F5B297EECC1007857CE /* WorkoutFeature */,
 				91A52F5A297EECB7007857CE /* SettingsFeature */,
 				91A52F57297EEBBD007857CE /* AppFeature */,
@@ -264,6 +282,7 @@
 		91A52F76297EFBB1007857CE /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				913059B2298AC377004155FD /* video.mp4 */,
 				917BD073297EB49200F57E6D /* Assets.xcassets */,
 				91A52F77297EFBB1007857CE /* example.jpg */,
 			);
@@ -281,6 +300,7 @@
 		91D854F92986DF8200F82E11 /* Previews */ = {
 			isa = PBXGroup;
 			children = (
+				913059B0298AC22A004155FD /* WorkoutView_Previews.swift */,
 			);
 			path = Previews;
 			sourceTree = "<group>";
@@ -363,6 +383,7 @@
 				91A52F78297EFBB1007857CE /* example.jpg in Resources */,
 				917BD077297EB49200F57E6D /* Preview Assets.xcassets in Resources */,
 				917BD074297EB49200F57E6D /* Assets.xcassets in Resources */,
+				913059B3298AC377004155FD /* video.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,13 +406,16 @@
 				911C66CB29859DEB00E7D4D4 /* AppColors.swift in Sources */,
 				911C66D02985A18900E7D4D4 /* BottomBar_Previews.swift in Sources */,
 				91D854FC2986E2F600F82E11 /* DrawImageService.swift in Sources */,
+				913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */,
 				911C66C5298599F100E7D4D4 /* BottomBarImageNames.swift in Sources */,
 				91A52F75297EFA34007857CE /* VisionPoseDetection.swift in Sources */,
 				91A52F5D297EECEC007857CE /* SettingsFeature.swift in Sources */,
 				911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */,
 				91A52F69297EF253007857CE /* MainViewTabEnum.swift in Sources */,
+				913059AD298ABF0E004155FD /* PoseDetectorDependency.swift in Sources */,
 				91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */,
 				91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */,
+				913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */,
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
 				911C66C729859D4000E7D4D4 /* BottomBarIcon_Previews.swift in Sources */,
 				917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */,
