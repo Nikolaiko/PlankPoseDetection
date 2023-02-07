@@ -35,6 +35,13 @@
 		91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A52F72297EFA1F007857CE /* PoseDetector.swift */; };
 		91A52F75297EFA34007857CE /* VisionPoseDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A52F74297EFA34007857CE /* VisionPoseDetection.swift */; };
 		91A52F78297EFBB1007857CE /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91A52F77297EFBB1007857CE /* example.jpg */; };
+		91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE5D2992C9830011DECB /* CameraPlaybackFeature.swift */; };
+		91CBEE602992C9A20011DECB /* CameraFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE5F2992C9A20011DECB /* CameraFeature.swift */; };
+		91CBEE622992C9B30011DECB /* PoseDrawingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE612992C9B30011DECB /* PoseDrawingFeature.swift */; };
+		91CBEE652992D1BC0011DECB /* CameraPlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE642992D1BC0011DECB /* CameraPlaybackView.swift */; };
+		91CBEE682992D3590011DECB /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE672992D3590011DECB /* FrameView.swift */; };
+		91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE692992D4920011DECB /* CameraView.swift */; };
+		91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */; };
 		91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854F72986DAE300F82E11 /* PoseJoint.swift */; };
 		91D854FC2986E2F600F82E11 /* DrawImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854FB2986E2F600F82E11 /* DrawImageService.swift */; };
 		91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854FD2986E39800F82E11 /* CGImagePainter.swift */; };
@@ -68,6 +75,13 @@
 		91A52F72297EFA1F007857CE /* PoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetector.swift; sourceTree = "<group>"; };
 		91A52F74297EFA34007857CE /* VisionPoseDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPoseDetection.swift; sourceTree = "<group>"; };
 		91A52F77297EFBB1007857CE /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
+		91CBEE5D2992C9830011DECB /* CameraPlaybackFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPlaybackFeature.swift; sourceTree = "<group>"; };
+		91CBEE5F2992C9A20011DECB /* CameraFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeature.swift; sourceTree = "<group>"; };
+		91CBEE612992C9B30011DECB /* PoseDrawingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDrawingFeature.swift; sourceTree = "<group>"; };
+		91CBEE642992D1BC0011DECB /* CameraPlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPlaybackView.swift; sourceTree = "<group>"; };
+		91CBEE672992D3590011DECB /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		91CBEE692992D4920011DECB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurationState.swift; sourceTree = "<group>"; };
 		91D854F72986DAE300F82E11 /* PoseJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseJoint.swift; sourceTree = "<group>"; };
 		91D854FB2986E2F600F82E11 /* DrawImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawImageService.swift; sourceTree = "<group>"; };
 		91D854FD2986E39800F82E11 /* CGImagePainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePainter.swift; sourceTree = "<group>"; };
@@ -174,6 +188,7 @@
 		91A52F56297EEBAB007857CE /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				91CBEE5C2992C95C0011DECB /* CameraPlaybackFeature */,
 				913059AB298ABED0004155FD /* Dependencies */,
 				91A52F5B297EECC1007857CE /* WorkoutFeature */,
 				91A52F5A297EECB7007857CE /* SettingsFeature */,
@@ -209,6 +224,7 @@
 		91A52F60297EEEC9007857CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91CBEE632992D1A30011DECB /* CameraPlayback */,
 				91A52F6B297EF4AD007857CE /* Workout */,
 				91A52F6A297EF4A6007857CE /* Settings */,
 				91A52F61297EEED1007857CE /* MainView */,
@@ -240,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				91A52F68297EF253007857CE /* MainViewTabEnum.swift */,
+				91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -287,6 +304,34 @@
 				91A52F77297EFBB1007857CE /* example.jpg */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		91CBEE5C2992C95C0011DECB /* CameraPlaybackFeature */ = {
+			isa = PBXGroup;
+			children = (
+				91CBEE5D2992C9830011DECB /* CameraPlaybackFeature.swift */,
+				91CBEE5F2992C9A20011DECB /* CameraFeature.swift */,
+				91CBEE612992C9B30011DECB /* PoseDrawingFeature.swift */,
+			);
+			path = CameraPlaybackFeature;
+			sourceTree = "<group>";
+		};
+		91CBEE632992D1A30011DECB /* CameraPlayback */ = {
+			isa = PBXGroup;
+			children = (
+				91CBEE662992D34B0011DECB /* SubViews */,
+				91CBEE642992D1BC0011DECB /* CameraPlaybackView.swift */,
+			);
+			path = CameraPlayback;
+			sourceTree = "<group>";
+		};
+		91CBEE662992D34B0011DECB /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				91CBEE672992D3590011DECB /* FrameView.swift */,
+				91CBEE692992D4920011DECB /* CameraView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		91D854F62986DA9A00F82E11 /* Pose */ = {
@@ -401,20 +446,27 @@
 				91A52F6D297EF4C3007857CE /* WorkoutView.swift in Sources */,
 				91A52F6F297EF4D5007857CE /* SettingsView.swift in Sources */,
 				911C66C929859DC000E7D4D4 /* BottomBarColors.swift in Sources */,
+				91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */,
 				91A52F5F297EED96007857CE /* WorkoutFeature.swift in Sources */,
+				91CBEE652992D1BC0011DECB /* CameraPlaybackView.swift in Sources */,
 				91A52F66297EEF1A007857CE /* MainView_Preview.swift in Sources */,
 				911C66CB29859DEB00E7D4D4 /* AppColors.swift in Sources */,
+				91CBEE602992C9A20011DECB /* CameraFeature.swift in Sources */,
 				911C66D02985A18900E7D4D4 /* BottomBar_Previews.swift in Sources */,
 				91D854FC2986E2F600F82E11 /* DrawImageService.swift in Sources */,
+				91CBEE622992C9B30011DECB /* PoseDrawingFeature.swift in Sources */,
 				913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */,
 				911C66C5298599F100E7D4D4 /* BottomBarImageNames.swift in Sources */,
 				91A52F75297EFA34007857CE /* VisionPoseDetection.swift in Sources */,
+				91CBEE682992D3590011DECB /* FrameView.swift in Sources */,
 				91A52F5D297EECEC007857CE /* SettingsFeature.swift in Sources */,
 				911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */,
 				91A52F69297EF253007857CE /* MainViewTabEnum.swift in Sources */,
+				91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */,
 				913059AD298ABF0E004155FD /* PoseDetectorDependency.swift in Sources */,
 				91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */,
 				91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */,
+				91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */,
 				913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */,
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
 				911C66C729859D4000E7D4D4 /* BottomBarIcon_Previews.swift in Sources */,
@@ -550,6 +602,7 @@
 				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -582,6 +635,7 @@
 				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

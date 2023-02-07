@@ -58,7 +58,7 @@ struct WorkoutFeature: ReducerProtocol {
             }
         case .processImageResult(let imageResult):
             if let res = imageResult {
-                state.resultImage = res
+                //state.resultImage = res
             } else {
                 print("Failt")
             }

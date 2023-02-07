@@ -31,6 +31,14 @@ struct MainView: View {
                     ) { workoutStore in
                         WorkoutView(stateStore: workoutStore)
                     }
+                    IfLetStore(
+                        stateStore.scope(
+                            state: \.cameraState,
+                            action: AppFeature.Action.cameraActions
+                        )
+                    ) { cameraStore in
+                        CameraPlaybackView(stateStore: cameraStore)
+                    }
                     AppBottomBar(
                         geometry: geom,
                         selectedTabId: viewState.binding(
