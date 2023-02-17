@@ -21,6 +21,14 @@ struct CameraPlaybackView: View {
             ) { cameraStore in
                 CameraView(stateStore: cameraStore)
             }
+            IfLetStore(
+                stateStore.scope(
+                    state: \.drawingState,
+                    action: CameraPlaybackFeature.Action.poseDrawingAction
+                )
+            ) { drawingStore in
+                PoseView(stateStore: drawingStore)
+            }
         }
     }
 }

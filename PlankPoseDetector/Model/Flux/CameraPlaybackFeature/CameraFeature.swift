@@ -10,22 +10,26 @@ import AVFoundation
 import ComposableArchitecture
 
 struct CameraFeature: ReducerProtocol {
-    private let session = AVCaptureSession()
-    private let sessionQueue = DispatchQueue(label: "com.nikolai.SessionQ")
-    private let videoOutput = AVCaptureVideoDataOutput()
 
     struct State: Equatable {
         var cameraConfig: CameraConfigurationState = .unconfigured
+        let sessionQueue = DispatchQueue(label: "com.nikolai.SessionQ")
+        let session = AVCaptureSession()
+        let videoOutput = AVCaptureVideoDataOutput()
+
+        var currentFrame: CGImage?
     }
 
-    enum Action {
-        case prepare
+    enum Action: Equatable {
+        case checkPermissions
         case configure(CameraConfigurationState)
+        case processFrame(CGImage?)
+        case sendFrameToParent(CGImage?)
     }
 
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case .prepare:
+        case .checkPermissions:
             switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .notDetermined:
                 return .task {
@@ -43,9 +47,19 @@ struct CameraFeature: ReducerProtocol {
             }
         case .configure(let newConfigState):
             state.cameraConfig = newConfigState
-
             ConfigureSession(state: &state)
-            session.startRunning()
+
+            let queueState = state
+            if state.cameraConfig != .failed {
+                DispatchQueue(label:"sessionStart", qos: .userInitiated).async {
+                    queueState.session.startRunning()
+                }
+            }
+            return .none
+        case .processFrame(let frameImage):
+            state.currentFrame = frameImage
+            return Effect(value: .sendFrameToParent(frameImage))
+        default:
             return .none
         }
     }
@@ -53,13 +67,13 @@ struct CameraFeature: ReducerProtocol {
     private func ConfigureSession(state: inout State) {
         guard state.cameraConfig == .unconfigured else { return }
 
-        session.beginConfiguration()
-        defer { session.commitConfiguration() }
+        state.session.beginConfiguration()
+        defer { state.session.commitConfiguration() }
 
         let device = AVCaptureDevice.default(
             .builtInWideAngleCamera,
             for: .video,
-            position: .front
+            position: .back
         )
         guard let camera = device else {
             state.cameraConfig = .failed
@@ -68,8 +82,8 @@ struct CameraFeature: ReducerProtocol {
 
         do {
             let cameraInput = try AVCaptureDeviceInput(device: camera)
-            if session.canAddInput(cameraInput) {
-                session.addInput(cameraInput)
+            if state.session.canAddInput(cameraInput) {
+                state.session.addInput(cameraInput)
             } else {
                 state.cameraConfig = .failed
                 return
@@ -79,11 +93,13 @@ struct CameraFeature: ReducerProtocol {
             return
         }
 
-        if session.canAddOutput(videoOutput) {
-            session.addOutput(videoOutput)
-            videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+        if state.session.canAddOutput(state.videoOutput) {
+            state.session.addOutput(state.videoOutput)
 
-            let videoConnection = videoOutput.connection(with: .video)
+            state.videoOutput.setSampleBufferDelegate(FrameManager.shared, queue: state.sessionQueue)
+            state.videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+
+            let videoConnection = state.videoOutput.connection(with: .video)
             videoConnection?.videoOrientation = .portrait
         } else {
             state.cameraConfig = .failed
@@ -91,32 +107,4 @@ struct CameraFeature: ReducerProtocol {
         }
         state.cameraConfig = .configured
     }
-
-    //    private func checkPermissions() {
-    //      switch AVCaptureDevice.authorizationStatus(for: .video) {
-    //      case .notDetermined:
-    //        sessionQueue.suspend()
-    //        AVCaptureDevice.requestAccess(for: .video) { authorized in
-    //          if !authorized {
-    //            self.status = .unauthorized
-    //            self.set(error: .deniedAuthorization)
-    //          }
-    //          self.sessionQueue.resume()
-    //        }
-    //      // 4
-    //      case .restricted:
-    //        status = .unauthorized
-    //        set(error: .restrictedAuthorization)
-    //      case .denied:
-    //        status = .unauthorized
-    //        set(error: .deniedAuthorization)
-    //      // 5
-    //      case .authorized:
-    //        break
-    //      // 6
-    //      @unknown default:
-    //        status = .unauthorized
-    //        set(error: .unknownAuthorization)
-    //      }
-    //    }
 }

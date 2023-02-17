@@ -12,7 +12,7 @@ struct CameraPlaybackFeature: ReducerProtocol {
 
     struct State: Equatable {
         var cameraState: CameraFeature.State? = CameraFeature.State()
-        var drawingState: PoseDrawingFeature.State? = PoseDrawingFeature.State()
+        var drawingState: PoseDrawingFeature.State? = PoseDrawingFeature.State()        
     }
 
     enum Action {
@@ -24,6 +24,8 @@ struct CameraPlaybackFeature: ReducerProtocol {
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
+            case .cameraAction(let childAction):
+                return processCameraAction(state: &state, action: childAction)
             default:
                 return .none
             }
@@ -33,6 +35,18 @@ struct CameraPlaybackFeature: ReducerProtocol {
         }
         .ifLet(\.drawingState, action: /Action.poseDrawingAction) {
             PoseDrawingFeature()
+        }
+    }
+
+    private func processCameraAction(
+        state: inout CameraPlaybackFeature.State,
+        action: CameraFeature.Action
+    ) -> Effect<CameraPlaybackFeature.Action, Never> {
+        switch action {
+        case .sendFrameToParent(let image):
+            return Effect(value: CameraPlaybackFeature.Action.poseDrawingAction(.frameFromParent(image)))
+        default:
+            return .none
         }
     }
 

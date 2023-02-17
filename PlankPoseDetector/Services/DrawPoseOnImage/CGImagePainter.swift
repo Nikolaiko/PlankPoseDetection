@@ -23,16 +23,16 @@ struct CGImagePainter: DrawImageService {
         )
 
         let dstImage = renderer.image { rendererContext in
-            rendererContext.cgContext.saveGState()
-            rendererContext.cgContext.scaleBy(x: 1.0, y: -1.0)
-            let drawingRect = CGRect(
-                x: 0,
-                y: -cgSourceImage.height,
-                width: cgSourceImage.width,
-                height: cgSourceImage.height
-            )
-            rendererContext.cgContext.draw(cgSourceImage, in: drawingRect)
-            rendererContext.cgContext.restoreGState()
+//            rendererContext.cgContext.saveGState()
+//            rendererContext.cgContext.scaleBy(x: 1.0, y: -1.0)
+//            let drawingRect = CGRect(
+//                x: 0,
+//                y: -cgSourceImage.height,
+//                width: cgSourceImage.width,
+//                height: cgSourceImage.height
+//            )
+//            rendererContext.cgContext.draw(cgSourceImage, in: drawingRect)
+//            rendererContext.cgContext.restoreGState()
 
             points.forEach { point in
                 UIColor.red.setFill()

@@ -1,0 +1,26 @@
+//
+//  PoseView.swift
+//  PlankPoseDetector
+//
+//  Created by Nikolai Baklanov on 11.02.2023.
+//
+
+import SwiftUI
+import ComposableArchitecture
+
+struct PoseView: View {
+
+    let stateStore: StoreOf<PoseDrawingFeature>
+
+    var body: some View {
+        WithViewStore(stateStore) { viewStore in
+            FrameView(image: viewStore.currentFrame?.cgImage)
+        }
+    }
+}
+
+//struct PoseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PoseView()
+//    }
+//}

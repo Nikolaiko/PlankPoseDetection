@@ -12,6 +12,8 @@ import Dependencies
 import AVFoundation
 
 struct WorkoutFeature: ReducerProtocol {
+    
+
     struct State: Equatable {
         var sourceImage: UIImage
         var resultImage: UIImage?

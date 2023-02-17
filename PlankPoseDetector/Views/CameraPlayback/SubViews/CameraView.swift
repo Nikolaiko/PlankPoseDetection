@@ -8,14 +8,19 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct CameraView: View {
+struct CameraView: View {    
     let stateStore: StoreOf<CameraFeature>
+
+    init(stateStore: StoreOf<CameraFeature>) {
+        self.stateStore = stateStore
+        FrameManager.shared.setStore(store: stateStore)
+    }
 
     var body: some View {
         WithViewStore(stateStore) { viewStore in
-            FrameView(image: nil)
+            FrameView(image: viewStore.currentFrame)
                 .onAppear {
-                    viewStore.send(.prepare)
+                    viewStore.send(.checkPermissions)
                 }
         }
     }

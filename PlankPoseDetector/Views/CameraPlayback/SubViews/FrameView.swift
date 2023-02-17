@@ -10,13 +10,12 @@ import SwiftUI
 struct FrameView: View {
     let image: CGImage?
 
-    var body: some View {
+    var body: some View {        
         if let image = image {
           GeometryReader { geometry in
             Image(
                 image,
                 scale: 1.0,
-                orientation: .upMirrored,
                 label: Text("Image Label")
             )
             .resizable()
@@ -29,7 +28,7 @@ struct FrameView: View {
             .clipped()
           }
         } else {
-          Color.black
+            Color.black.opacity(0)
         }
     }
 }

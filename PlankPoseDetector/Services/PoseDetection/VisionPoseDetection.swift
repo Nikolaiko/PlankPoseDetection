@@ -24,10 +24,13 @@ class VisionPoseDetection: PoseDetector {
         }
 
         guard !results.isEmpty else { return [] }
-        return drawPoseOnImage(sourceImage: image.cgImage!, observation: results[0])
+        return convertObservationToJoint(sourceImage: image.cgImage!, observation: results[0])
     }
 
-    private func drawPoseOnImage(sourceImage: CGImage, observation: VNHumanBodyPoseObservation) -> [PoseJoint] {
+    private func convertObservationToJoint(
+        sourceImage: CGImage,
+        observation: VNHumanBodyPoseObservation
+    ) -> [PoseJoint] {
         guard let recognizedPoints =
                 try? observation.recognizedPoints(.all) else { return [] }
 
