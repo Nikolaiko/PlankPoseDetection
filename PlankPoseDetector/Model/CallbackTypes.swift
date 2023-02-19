@@ -6,5 +6,6 @@
 //
 
 import Foundation
+import UIKit
 
-typealias FrameCallback = (inout CameraPlaybackFeature.State) -> Void
+typealias FrameCallback = (CGImage?) -> Void

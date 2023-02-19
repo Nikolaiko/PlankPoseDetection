@@ -13,7 +13,6 @@ struct CameraView: View {
 
     init(stateStore: StoreOf<CameraFeature>) {
         self.stateStore = stateStore
-        FrameManager.shared.setStore(store: stateStore)
     }
 
     var body: some View {

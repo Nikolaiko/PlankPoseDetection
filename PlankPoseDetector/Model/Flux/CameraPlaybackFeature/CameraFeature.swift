@@ -27,6 +27,8 @@ struct CameraFeature: ReducerProtocol {
         case sendFrameToParent(CGImage?)
     }
 
+    @Dependency(\.cameraService) var cameraService: AsyncCameraService
+
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .checkPermissions:
@@ -55,7 +57,12 @@ struct CameraFeature: ReducerProtocol {
                     queueState.session.startRunning()
                 }
             }
-            return .none
+            return Effect.run { send in
+                cameraService.startListening()
+                for await currentFrame in cameraService.framesStream! {
+                    await send(.processFrame(currentFrame))
+                }
+            }
         case .processFrame(let frameImage):
             state.currentFrame = frameImage
             return Effect(value: .sendFrameToParent(frameImage))
@@ -96,7 +103,7 @@ struct CameraFeature: ReducerProtocol {
         if state.session.canAddOutput(state.videoOutput) {
             state.session.addOutput(state.videoOutput)
 
-            state.videoOutput.setSampleBufferDelegate(FrameManager.shared, queue: state.sessionQueue)
+            state.videoOutput.setSampleBufferDelegate(cameraService.frameDelegate, queue: state.sessionQueue)
             state.videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
 
             let videoConnection = state.videoOutput.connection(with: .video)

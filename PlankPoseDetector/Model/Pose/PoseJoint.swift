@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 
 class PoseJoint {
-    enum Name: Int, CaseIterable {
+    enum Name: String, CaseIterable {
         case nose
         case leftEye
         case rightEye
@@ -28,6 +28,8 @@ class PoseJoint {
         case rightKnee
         case leftAnkle
         case rightAnkle
+        case neck
+        case root
     }
 
     let name: Name

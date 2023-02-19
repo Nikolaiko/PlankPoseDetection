@@ -22,7 +22,7 @@
 		913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059B0298AC22A004155FD /* WorkoutView_Previews.swift */; };
 		913059B3298AC377004155FD /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 913059B2298AC377004155FD /* video.mp4 */; };
 		91442EBD299FE72000F1C501 /* CameraConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EBC299FE72000F1C501 /* CameraConstants.swift */; };
-		91442EBF299FF02300F1C501 /* FrameStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EBE299FF02300F1C501 /* FrameStateManager.swift */; };
+		91442EBF299FF02300F1C501 /* CameraFrameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */; };
 		91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC0299FF0A000F1C501 /* CallbackTypes.swift */; };
 		91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC2299FF74B00F1C501 /* FrameManager.swift */; };
 		917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */; };
@@ -50,6 +50,9 @@
 		91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854F72986DAE300F82E11 /* PoseJoint.swift */; };
 		91D854FC2986E2F600F82E11 /* DrawImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854FB2986E2F600F82E11 /* DrawImageService.swift */; };
 		91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854FD2986E39800F82E11 /* CGImagePainter.swift */; };
+		91E2DCE329A1288500755125 /* AsyncCameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2DCE229A1288500755125 /* AsyncCameraService.swift */; };
+		91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */; };
+		91E2DCE829A134EB00755125 /* PoseJointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2DCE729A134EB00755125 /* PoseJointExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +70,7 @@
 		913059B0298AC22A004155FD /* WorkoutView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView_Previews.swift; sourceTree = "<group>"; };
 		913059B2298AC377004155FD /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		91442EBC299FE72000F1C501 /* CameraConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConstants.swift; sourceTree = "<group>"; };
-		91442EBE299FF02300F1C501 /* FrameStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameStateManager.swift; sourceTree = "<group>"; };
+		91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrameDelegate.swift; sourceTree = "<group>"; };
 		91442EC0299FF0A000F1C501 /* CallbackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackTypes.swift; sourceTree = "<group>"; };
 		91442EC2299FF74B00F1C501 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
 		917BD06C297EB49100F57E6D /* PlankPoseDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlankPoseDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +98,9 @@
 		91D854F72986DAE300F82E11 /* PoseJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseJoint.swift; sourceTree = "<group>"; };
 		91D854FB2986E2F600F82E11 /* DrawImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawImageService.swift; sourceTree = "<group>"; };
 		91D854FD2986E39800F82E11 /* CGImagePainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePainter.swift; sourceTree = "<group>"; };
+		91E2DCE229A1288500755125 /* AsyncCameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCameraService.swift; sourceTree = "<group>"; };
+		91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServiceDependency.swift; sourceTree = "<group>"; };
+		91E2DCE729A134EB00755125 /* PoseJointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseJointExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,7 @@
 			children = (
 				913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */,
 				913059AE298AC140004155FD /* DrawServiceDependency.swift */,
+				91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 		91A52F55297EEB81007857CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91E2DCE629A134D400755125 /* Extensions */,
 				91D854F62986DA9A00F82E11 /* Pose */,
 				911C66BC298595AA00E7D4D4 /* Consts */,
 				91A52F67297EF23C007857CE /* Enums */,
@@ -331,7 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				91442EC2299FF74B00F1C501 /* FrameManager.swift */,
-				91442EBE299FF02300F1C501 /* FrameStateManager.swift */,
+				91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */,
+				91E2DCE229A1288500755125 /* AsyncCameraService.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -388,6 +397,14 @@
 				91D854FD2986E39800F82E11 /* CGImagePainter.swift */,
 			);
 			path = DrawPoseOnImage;
+			sourceTree = "<group>";
+		};
+		91E2DCE629A134D400755125 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				91E2DCE729A134EB00755125 /* PoseJointExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +494,7 @@
 				911C66C2298597F700E7D4D4 /* BottomBarIcon.swift in Sources */,
 				91A52F6D297EF4C3007857CE /* WorkoutView.swift in Sources */,
 				91A52F6F297EF4D5007857CE /* SettingsView.swift in Sources */,
+				91E2DCE829A134EB00755125 /* PoseJointExtensions.swift in Sources */,
 				911C66C929859DC000E7D4D4 /* BottomBarColors.swift in Sources */,
 				912797872997DD6300C07A4E /* PoseView.swift in Sources */,
 				91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */,
@@ -490,8 +508,9 @@
 				91CBEE622992C9B30011DECB /* PoseDrawingFeature.swift in Sources */,
 				913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */,
 				911C66C5298599F100E7D4D4 /* BottomBarImageNames.swift in Sources */,
+				91E2DCE329A1288500755125 /* AsyncCameraService.swift in Sources */,
 				91A52F75297EFA34007857CE /* VisionPoseDetection.swift in Sources */,
-				91442EBF299FF02300F1C501 /* FrameStateManager.swift in Sources */,
+				91442EBF299FF02300F1C501 /* CameraFrameDelegate.swift in Sources */,
 				91CBEE682992D3590011DECB /* FrameView.swift in Sources */,
 				91A52F5D297EECEC007857CE /* SettingsFeature.swift in Sources */,
 				911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */,
@@ -502,6 +521,7 @@
 				91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */,
 				91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */,
 				91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */,
+				91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */,
 				913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */,
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
 				911C66C729859D4000E7D4D4 /* BottomBarIcon_Previews.swift in Sources */,

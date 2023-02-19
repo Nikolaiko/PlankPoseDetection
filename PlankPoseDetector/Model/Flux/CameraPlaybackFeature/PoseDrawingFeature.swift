@@ -33,7 +33,7 @@ struct PoseDrawingFeature: ReducerProtocol {
                 return .task {
                     let uiImage = UIImage(cgImage: currentImage)
                     let points = detector.detectPoseOnImage(image: uiImage)
-                    let resultImage = painter.drawPointsOnImage(sourceImage: uiImage, points: points)
+                    let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: points)
                     return .processImageResult(resultImage)
                 }
             } else {

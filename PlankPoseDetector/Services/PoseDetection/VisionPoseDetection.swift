@@ -12,7 +12,7 @@ import UIKit
 class VisionPoseDetection: PoseDetector {
     private let humanBodyPoseRequest = VNDetectHumanBodyPoseRequest()
 
-    func detectPoseOnImage(image: UIImage) -> [PoseJoint] {
+    func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name : PoseJoint] {
         let visionRequestHandler = VNImageRequestHandler(cgImage: image.cgImage!)
         var results: [VNHumanBodyPoseObservation] = []
 
@@ -23,28 +23,37 @@ class VisionPoseDetection: PoseDetector {
             print("Human Pose Request failed: \(error)")
         }
 
-        guard !results.isEmpty else { return [] }
+        guard !results.isEmpty else { return [:] }
         return convertObservationToJoint(sourceImage: image.cgImage!, observation: results[0])
     }
 
     private func convertObservationToJoint(
         sourceImage: CGImage,
         observation: VNHumanBodyPoseObservation
-    ) -> [PoseJoint] {
+    ) -> [PoseJoint.Name : PoseJoint] {
         guard let recognizedPoints =
-                try? observation.recognizedPoints(.all) else { return [] }
+                try? observation.recognizedPoints(.all) else { return [:] }
 
-        let imagePoints: [PoseJoint] = recognizedPoints.compactMap { pair in
+
+
+        var imagePoints: [PoseJoint.Name : PoseJoint] = [:]
+        recognizedPoints.forEach { pair in
             let currentPoint = pair.value
-            guard currentPoint.confidence > 0 else { return nil }
+            let jointName = pair.key
+            print("Name : \(jointName), source : \(pair.key)")
+            guard
+                currentPoint.confidence > 0,
+                let jointType = PoseJoint.Name.fromVisionJoint(joint: jointName)
+            else { return }
+
             var normalized: CGPoint = VNImagePointForNormalizedPoint(
                 currentPoint.location,
                 sourceImage.width,
                 sourceImage.height
-            )
+            )            
             normalized.y = CGFloat(sourceImage.height) - normalized.y
-            return PoseJoint(
-                name: .leftEye,
+            imagePoints[jointType] = PoseJoint(
+                name: jointType,
                 position: normalized,
                 confidence: Double(currentPoint.confidence)
             )
