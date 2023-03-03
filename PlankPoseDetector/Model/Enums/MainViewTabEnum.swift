@@ -9,8 +9,8 @@ import Foundation
 
 enum MainViewTabEnum {
     case home
-    case camera
-    case workout
+    case gallery
+    case statistics
     case settings
 
     func getImageName(isSelected: Bool) -> String {
@@ -20,12 +20,12 @@ enum MainViewTabEnum {
                 ? BottomBarImageNames.profileSelectedIcon
                 : BottomBarImageNames.profileUnSelectedIcon
 
-        case .workout:
+        case .statistics:
             return isSelected
                 ? BottomBarImageNames.activitySelectedIcon
                 : BottomBarImageNames.activityUnSelectedIcon
 
-        case .camera:
+        case .gallery:
             return isSelected
                 ? BottomBarImageNames.cameraSelectedIcon
                 : BottomBarImageNames.cameraUnSelectedIcon

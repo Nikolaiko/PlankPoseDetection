@@ -25,6 +25,7 @@
 		91442EBF299FF02300F1C501 /* CameraFrameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */; };
 		91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC0299FF0A000F1C501 /* CallbackTypes.swift */; };
 		91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC2299FF74B00F1C501 /* FrameManager.swift */; };
+		914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F72D729B23F850038104E /* AppAVPlayerDependency.swift */; };
 		917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */; };
 		917BD074297EB49200F57E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD073297EB49200F57E6D /* Assets.xcassets */; };
 		917BD077297EB49200F57E6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD076297EB49200F57E6D /* Preview Assets.xcassets */; };
@@ -53,6 +54,14 @@
 		91E2DCE329A1288500755125 /* AsyncCameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2DCE229A1288500755125 /* AsyncCameraService.swift */; };
 		91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */; };
 		91E2DCE829A134EB00755125 /* PoseJointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2DCE729A134EB00755125 /* PoseJointExtensions.swift */; };
+		91E773F729A527B000E44C9D /* StatisticsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E773F629A527B000E44C9D /* StatisticsFeature.swift */; };
+		91E773F929A527D500E44C9D /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E773F829A527D500E44C9D /* HomeFeature.swift */; };
+		91E773FC29A5282B00E44C9D /* GalleryFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E773FB29A5282B00E44C9D /* GalleryFeature.swift */; };
+		91E7740329A528B300E44C9D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740229A528B300E44C9D /* HomeView.swift */; };
+		91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740429A5292200E44C9D /* StatisticsView.swift */; };
+		91E7740729A5294700E44C9D /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740629A5294700E44C9D /* GalleryView.swift */; };
+		91E7740A29A5370500E44C9D /* GalleryVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740929A5370500E44C9D /* GalleryVideoPlayer.swift */; };
+		91E7740C29A53BFB00E44C9D /* AppAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740B29A53BFB00E44C9D /* AppAVPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +82,7 @@
 		91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrameDelegate.swift; sourceTree = "<group>"; };
 		91442EC0299FF0A000F1C501 /* CallbackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackTypes.swift; sourceTree = "<group>"; };
 		91442EC2299FF74B00F1C501 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
+		914F72D729B23F850038104E /* AppAVPlayerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAVPlayerDependency.swift; sourceTree = "<group>"; };
 		917BD06C297EB49100F57E6D /* PlankPoseDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlankPoseDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPoseDetectorApp.swift; sourceTree = "<group>"; };
 		917BD073297EB49200F57E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +111,14 @@
 		91E2DCE229A1288500755125 /* AsyncCameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCameraService.swift; sourceTree = "<group>"; };
 		91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServiceDependency.swift; sourceTree = "<group>"; };
 		91E2DCE729A134EB00755125 /* PoseJointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseJointExtensions.swift; sourceTree = "<group>"; };
+		91E773F629A527B000E44C9D /* StatisticsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFeature.swift; sourceTree = "<group>"; };
+		91E773F829A527D500E44C9D /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
+		91E773FB29A5282B00E44C9D /* GalleryFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFeature.swift; sourceTree = "<group>"; };
+		91E7740229A528B300E44C9D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		91E7740429A5292200E44C9D /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		91E7740629A5294700E44C9D /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		91E7740929A5370500E44C9D /* GalleryVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVideoPlayer.swift; sourceTree = "<group>"; };
+		91E7740B29A53BFB00E44C9D /* AppAVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAVPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +169,7 @@
 				913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */,
 				913059AE298AC140004155FD /* DrawServiceDependency.swift */,
 				91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */,
+				914F72D729B23F850038104E /* AppAVPlayerDependency.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -216,10 +235,10 @@
 		91A52F56297EEBAB007857CE /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				91E773FD29A5283D00E44C9D /* MainTabs */,
 				91CBEE5C2992C95C0011DECB /* CameraPlaybackFeature */,
 				913059AB298ABED0004155FD /* Dependencies */,
 				91A52F5B297EECC1007857CE /* WorkoutFeature */,
-				91A52F5A297EECB7007857CE /* SettingsFeature */,
 				91A52F57297EEBBD007857CE /* AppFeature */,
 			);
 			path = Flux;
@@ -252,9 +271,9 @@
 		91A52F60297EEEC9007857CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91E773FE29A5285C00E44C9D /* MainTabs */,
 				91CBEE632992D1A30011DECB /* CameraPlayback */,
 				91A52F6B297EF4AD007857CE /* Workout */,
-				91A52F6A297EF4A6007857CE /* Settings */,
 				91A52F61297EEED1007857CE /* MainView */,
 			);
 			path = Views;
@@ -309,6 +328,7 @@
 		91A52F70297EFA03007857CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				91E7740829A536EE00E44C9D /* VideoPlayer */,
 				91B064652996BEDB007461A6 /* Camera */,
 				91D854FA2986E2D100F82E11 /* DrawPoseOnImage */,
 				91A52F71297EFA0A007857CE /* PoseDetection */,
@@ -407,6 +427,85 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		91E773F429A5276400E44C9D /* HomeFeature */ = {
+			isa = PBXGroup;
+			children = (
+				91E773F829A527D500E44C9D /* HomeFeature.swift */,
+			);
+			path = HomeFeature;
+			sourceTree = "<group>";
+		};
+		91E773F529A5277100E44C9D /* StatisticsFeature */ = {
+			isa = PBXGroup;
+			children = (
+				91E773F629A527B000E44C9D /* StatisticsFeature.swift */,
+			);
+			path = StatisticsFeature;
+			sourceTree = "<group>";
+		};
+		91E773FA29A527F100E44C9D /* GalleryFeature */ = {
+			isa = PBXGroup;
+			children = (
+				91E773FB29A5282B00E44C9D /* GalleryFeature.swift */,
+			);
+			path = GalleryFeature;
+			sourceTree = "<group>";
+		};
+		91E773FD29A5283D00E44C9D /* MainTabs */ = {
+			isa = PBXGroup;
+			children = (
+				91A52F5A297EECB7007857CE /* SettingsFeature */,
+				91E773FA29A527F100E44C9D /* GalleryFeature */,
+				91E773F529A5277100E44C9D /* StatisticsFeature */,
+				91E773F429A5276400E44C9D /* HomeFeature */,
+			);
+			path = MainTabs;
+			sourceTree = "<group>";
+		};
+		91E773FE29A5285C00E44C9D /* MainTabs */ = {
+			isa = PBXGroup;
+			children = (
+				91E7740129A5288B00E44C9D /* Gallery */,
+				91E7740029A5287900E44C9D /* Statistics */,
+				91E773FF29A5287100E44C9D /* Home */,
+				91A52F6A297EF4A6007857CE /* Settings */,
+			);
+			path = MainTabs;
+			sourceTree = "<group>";
+		};
+		91E773FF29A5287100E44C9D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				91E7740229A528B300E44C9D /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		91E7740029A5287900E44C9D /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				91E7740429A5292200E44C9D /* StatisticsView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		91E7740129A5288B00E44C9D /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				91E7740629A5294700E44C9D /* GalleryView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		91E7740829A536EE00E44C9D /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				91E7740929A5370500E44C9D /* GalleryVideoPlayer.swift */,
+				91E7740B29A53BFB00E44C9D /* AppAVPlayer.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,15 +591,19 @@
 				91A52F63297EEEE4007857CE /* MainView.swift in Sources */,
 				911C66BE298595C300E7D4D4 /* BottomBarCofficients.swift in Sources */,
 				911C66C2298597F700E7D4D4 /* BottomBarIcon.swift in Sources */,
+				91E7740329A528B300E44C9D /* HomeView.swift in Sources */,
 				91A52F6D297EF4C3007857CE /* WorkoutView.swift in Sources */,
 				91A52F6F297EF4D5007857CE /* SettingsView.swift in Sources */,
 				91E2DCE829A134EB00755125 /* PoseJointExtensions.swift in Sources */,
 				911C66C929859DC000E7D4D4 /* BottomBarColors.swift in Sources */,
+				91E773F929A527D500E44C9D /* HomeFeature.swift in Sources */,
 				912797872997DD6300C07A4E /* PoseView.swift in Sources */,
 				91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */,
 				91A52F5F297EED96007857CE /* WorkoutFeature.swift in Sources */,
+				91E773F729A527B000E44C9D /* StatisticsFeature.swift in Sources */,
 				91CBEE652992D1BC0011DECB /* CameraPlaybackView.swift in Sources */,
 				91A52F66297EEF1A007857CE /* MainView_Preview.swift in Sources */,
+				91E7740C29A53BFB00E44C9D /* AppAVPlayer.swift in Sources */,
 				911C66CB29859DEB00E7D4D4 /* AppColors.swift in Sources */,
 				91CBEE602992C9A20011DECB /* CameraFeature.swift in Sources */,
 				911C66D02985A18900E7D4D4 /* BottomBar_Previews.swift in Sources */,
@@ -515,14 +618,19 @@
 				91A52F5D297EECEC007857CE /* SettingsFeature.swift in Sources */,
 				911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */,
 				91A52F69297EF253007857CE /* MainViewTabEnum.swift in Sources */,
+				91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */,
 				91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */,
 				91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */,
 				913059AD298ABF0E004155FD /* PoseDetectorDependency.swift in Sources */,
+				91E773FC29A5282B00E44C9D /* GalleryFeature.swift in Sources */,
 				91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */,
 				91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */,
 				91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */,
+				91E7740729A5294700E44C9D /* GalleryView.swift in Sources */,
 				91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */,
+				91E7740A29A5370500E44C9D /* GalleryVideoPlayer.swift in Sources */,
 				913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */,
+				914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */,
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
 				911C66C729859D4000E7D4D4 /* BottomBarIcon_Previews.swift in Sources */,
 				917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */,

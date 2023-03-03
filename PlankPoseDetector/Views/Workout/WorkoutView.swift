@@ -17,12 +17,12 @@ struct WorkoutView: View {
             ZStack {
                 VStack {
                     ZStack {
-                        VideoPlayer(player: viewState.player)
-                        if viewState.resultImage != nil {
-                            Image(uiImage: viewState.resultImage!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        }
+//                        VideoPlayer(player: viewState.player)
+//                        if viewState.resultImage != nil {
+//                            VideoImage(uiImage: viewState.resultImage!)
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                        }
                     }
 
                     Button {

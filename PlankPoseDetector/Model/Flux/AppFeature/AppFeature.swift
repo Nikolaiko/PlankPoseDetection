@@ -13,67 +13,138 @@ struct AppFeature: ReducerProtocol {
     struct State: Equatable {
         @BindableState var selectedTabId: MainViewTabEnum
 
-        var workoutState: WorkoutFeature.State? = nil
+        var homeState: HomeFeature.State? = nil
+        var statsState: StatisticsFeature.State? = nil
+        var galleryState: GalleryFeature.State? = nil
         var settingsState: SettingsFeature.State? = nil
-        var cameraState: CameraPlaybackFeature.State? = nil
+
 
         init(selectedTabId: MainViewTabEnum) {
             self.selectedTabId = selectedTabId
             switch self.selectedTabId {
             case .settings:
                 settingsState = SettingsFeature.State()
-            case .workout, .home:
-                workoutState = WorkoutFeature.State()
-            case .camera:
-                cameraState = CameraPlaybackFeature.State()
+            case .statistics:
+                statsState = StatisticsFeature.State()
+            case .home:
+                homeState = HomeFeature.State()
+            case .gallery:
+                galleryState = GalleryFeature.State()
             }
         }
     }
 
     enum Action {
         case changeTab(MainViewTabEnum)
-        case settingsActions(SettingsFeature.Action)
-        case workoutActions(WorkoutFeature.Action)
-        case cameraActions(CameraPlaybackFeature.Action)
+        case settingsAction(SettingsFeature.Action)
+        case homeAction(HomeFeature.Action)
+        case galleryAction(GalleryFeature.Action)
+        case statisticsAction(StatisticsFeature.Action)
     }
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .changeTab(let tabType):
-                state.selectedTabId = tabType
-                return changeTabHandler(into: &state)
-            default:
-                return .none
+                guard state.selectedTabId != tabType else { return .none }
+                return prepareTabChange(into: &state, tabType: tabType)
+            case .galleryAction(let childAction):
+                return processGalleryActions(into: &state, childAction: childAction)
+            case .settingsAction(let childAction):
+                return processSettingsActions(into: &state, childAction: childAction)
+            case .statisticsAction(let childAction):
+                return processStatsActions(into: &state, childAction: childAction)
+            case .homeAction(let childAction):
+                return processHomeActions(into: &state, childAction: childAction)
             }
         }
-        .ifLet(\.workoutState, action: /Action.workoutActions) {
-            WorkoutFeature()
+        .ifLet(\.homeState, action: /Action.homeAction) {
+            HomeFeature()
         }
-        .ifLet(\.settingsState, action: /Action.settingsActions) {
+        .ifLet(\.settingsState, action: /Action.settingsAction) {
             SettingsFeature()
         }
-        .ifLet(\.cameraState, action: /Action.cameraActions) {
-            CameraPlaybackFeature()
+        .ifLet(\.statsState, action: /Action.statisticsAction) {
+            StatisticsFeature()
+        }
+        .ifLet(\.galleryState, action: /Action.galleryAction) {
+            GalleryFeature()
+        }
+    }
+
+    private func processHomeActions(into state: inout State, childAction: HomeFeature.Action) -> Effect<Action, Never> {
+        switch childAction {
+        case .readyToClose(let newTabId):
+            state.selectedTabId = newTabId
+            return changeTabHandler(into: &state)
+        default:
+            return .none
+        }
+    }
+
+    private func processStatsActions(into state: inout State, childAction: StatisticsFeature.Action) -> Effect<Action, Never> {
+        switch childAction {
+        case .readyToClose(let newTabId):
+            state.selectedTabId = newTabId
+            return changeTabHandler(into: &state)
+        default:
+            return .none
+        }
+    }
+
+    private func processSettingsActions(into state: inout State, childAction: SettingsFeature.Action) -> Effect<Action, Never> {
+        switch childAction {
+        case .readyToClose(let newTabId):
+            state.selectedTabId = newTabId
+            return changeTabHandler(into: &state)
+        default:
+            return .none
+        }
+    }
+
+    private func processGalleryActions(into state: inout State, childAction: GalleryFeature.Action) -> Effect<Action, Never> {
+        switch childAction {
+        case .readyToClose(let newTabId):
+            state.selectedTabId = newTabId
+            return changeTabHandler(into: &state)
+        default:
+            return .none
+        }
+    }
+
+    private func prepareTabChange(into state: inout State, tabType: MainViewTabEnum) -> Effect<Action, Never> {
+        switch state.selectedTabId {
+        case .gallery:
+            return Effect(value: .galleryAction(.prepareToClose(tabType)))
+        case .home:
+            return Effect(value: .homeAction(.prepareToClose(tabType)))
+        case .settings:
+            return Effect(value: .settingsAction(.prepareToClose(tabType)))
+        case .statistics:
+            return Effect(value: .statisticsAction(.prepareToClose(tabType)))
         }
     }
 
     private func changeTabHandler(into state: inout State) -> Effect<Action, Never> {
         state.settingsState = nil
-        state.workoutState = nil
-        state.cameraState = nil
-
+        state.galleryState = nil
+        state.statsState = nil
+        state.homeState = nil
+        
         switch state.selectedTabId {
-        case .camera:
-            state.cameraState = CameraPlaybackFeature.State()
+        case .gallery:
+            state.galleryState = GalleryFeature.State()
+            return .none
         case .settings:
             state.settingsState = SettingsFeature.State()
-        case .workout, .home:
-            state.workoutState = WorkoutFeature.State()
-        default:
-            print("Something")
+            return .none
+        case .statistics:
+            state.statsState = StatisticsFeature.State()
+            return .none
+        case .home:
+            state.homeState = HomeFeature.State()
+            return .none
         }
-        return .none
     }
 }
 

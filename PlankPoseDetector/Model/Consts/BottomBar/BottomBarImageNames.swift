@@ -19,4 +19,6 @@ struct BottomBarImageNames {
 
     static let profileUnSelectedIcon = "bottom_icon_profile"
     static let profileSelectedIcon = "bottom_icon_profile_selected"
+
+    static let workoutButton = "bottom_workout_button"
 }

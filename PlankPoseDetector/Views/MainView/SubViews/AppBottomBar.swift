@@ -22,13 +22,13 @@ struct AppBottomBar: View {
                 )
                 .onTapGesture { selectedTabId = .home }
 
-            BottomBarIcon(imageSide: iconsSide, iconType: .workout, selected: selectedTabId == .workout)
-                .onTapGesture { selectedTabId = .workout }
+            BottomBarIcon(imageSide: iconsSide, iconType: .statistics, selected: selectedTabId == .statistics)
+                .onTapGesture { selectedTabId = .statistics }
 
             Spacer()
 
-            BottomBarIcon(imageSide: iconsSide, iconType: .camera, selected: selectedTabId == .camera)
-                .onTapGesture { selectedTabId = .camera }
+            BottomBarIcon(imageSide: iconsSide, iconType: .gallery, selected: selectedTabId == .gallery)
+                .onTapGesture { selectedTabId = .gallery }
             
             BottomBarIcon(imageSide: iconsSide, iconType: .settings, selected: selectedTabId == .settings)
                 .padding(
@@ -45,5 +45,11 @@ struct AppBottomBar: View {
             .vertical,
             geometry.size.height * BottomBarCofficient.verticalPadding
         )
+        .overlay {
+            Image(BottomBarImageNames.workoutButton)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.bottom, 5)
+        }
     }
 }

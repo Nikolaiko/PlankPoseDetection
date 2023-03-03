@@ -15,7 +15,7 @@ struct AppBottomBar_Previews: PreviewProvider {
                 Spacer()
                 AppBottomBar(
                     geometry: geometry,
-                    selectedTabId: .constant(.workout)
+                    selectedTabId: .constant(.statistics)
                 )
             }
         }

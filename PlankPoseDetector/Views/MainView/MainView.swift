@@ -18,26 +18,34 @@ struct MainView: View {
                     IfLetStore(
                         stateStore.scope(
                             state: \.settingsState,
-                            action: AppFeature.Action.settingsActions
+                            action: AppFeature.Action.settingsAction
                         )
                     ) { settingsStore in
                         SettingsView(stateStore: settingsStore)
                     }
                     IfLetStore(
                         stateStore.scope(
-                            state: \.workoutState,
-                            action: AppFeature.Action.workoutActions
+                            state: \.statsState,
+                            action: AppFeature.Action.statisticsAction
                         )
-                    ) { workoutStore in
-                        WorkoutView(stateStore: workoutStore)
+                    ) { statsStore in
+                        StatisticsView(stateStore: statsStore)
                     }
                     IfLetStore(
                         stateStore.scope(
-                            state: \.cameraState,
-                            action: AppFeature.Action.cameraActions
+                            state: \.galleryState,
+                            action: AppFeature.Action.galleryAction
                         )
-                    ) { cameraStore in
-                        CameraPlaybackView(stateStore: cameraStore)
+                    ) { galleryStore in
+                        GalleryView(stateStore: galleryStore)
+                    }
+                    IfLetStore(
+                        stateStore.scope(
+                            state: \.homeState,
+                            action: AppFeature.Action.homeAction
+                        )
+                    ) { homeStore in
+                        HomeView(stateStore: homeStore)
                     }
                     AppBottomBar(
                         geometry: geom,
