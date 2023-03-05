@@ -56,6 +56,7 @@ struct MainView: View {
                     )
                 }
             }
+            .background(Color.white)
         }
     }
 }

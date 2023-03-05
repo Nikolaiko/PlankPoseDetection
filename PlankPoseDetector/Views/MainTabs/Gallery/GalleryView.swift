@@ -19,7 +19,13 @@ struct GalleryView: View {
         WithViewStore(stateStore) { viewStore in
             GeometryReader { geometry in
                 VStack {
-                    VideoPlayer(player: viewStore.activePlayer)
+                    ZStack {
+                        VideoPlayer(player: viewStore.activePlayer)
+                        FrameView(image: viewStore.bodyFrame)
+                        if viewStore.loadingVideo {
+                            ProgressView()
+                        }
+                    }
                     PhotosPicker(
                         selection: $selectedItem,
                         matching: .videos,
@@ -27,9 +33,10 @@ struct GalleryView: View {
                             Text("Выберите видео")
                         }
                         .onChange(of: selectedItem) { newItem in
+                            viewStore.send(.startLoadingVideoFromGallery)
                             Task {                                
                                 if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                    viewStore.send(.loadedVideoData(data))
+                                    viewStore.send(.loadedVideoDataFromGallery(data))                                    
                                 }
                             }
                         }

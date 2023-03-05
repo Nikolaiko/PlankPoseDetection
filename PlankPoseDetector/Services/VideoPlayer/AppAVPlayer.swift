@@ -15,11 +15,11 @@ class AppAVPlayer: GalleryVideoPlayer {
     private let fileManager = FileManager.default
 
     private var imageGenerator: AVAssetImageGenerator?
-    private var timer: Timer?
+    private var timer = RepeatingTimer(timeInterval: 0.01)
 
     func loadDataFromUrl(videoData: Data) -> Bool {
         let tempDirPath = fileManager.temporaryDirectory
-        let url = tempDirPath.appendingPathExtension("videfile.mp4")
+        let url = tempDirPath.appending(path: "videfile.mp4")
         var result = true
 
         do {
@@ -32,33 +32,31 @@ class AppAVPlayer: GalleryVideoPlayer {
             imageGenerator?.appliesPreferredTrackTransform = true
         } catch {
             result = false
-            print("Error during save temp file")
+            print("Error during save temp file: \(error)")
         }
         return result
     }
 
     func play() {
-//        framesStream = AsyncStream { [weak self] continuation in
-//            continuation.onTermination = { [weak self] termination in
-//                print("Terminating")
-//                self?.timer?.invalidate()
-//                self?.timer = nil
-//                continuation.finish()
-//            }
-//
-//            self?.timer = Timer(timeInterval: 0.0, repeats: true) { [unowned self] timer in
-//                print(self!.player.currentTime())
-//                let snapshot = try! self!.imageGenerator?.copyCGImage(at: self!.player.currentTime(), actualTime: nil)
-//                continuation.yield(snapshot)
-//            }
-//            RunLoop.main.add(self!.timer!, forMode: .default)
-//            self?.player.play()
-//
-//        }
-        player.play()
+        framesStream = AsyncStream { [weak self] continuation in
+            continuation.onTermination = { termination in                
+                continuation.finish()
+            }
+
+            self?.timer.eventHandler = {
+                let snapshot = try? self?.imageGenerator?.copyCGImage(
+                    at: self?.player.currentTime() ?? CMTime.zero,
+                    actualTime: nil
+                )
+                continuation.yield(snapshot)
+            }
+            self?.timer.resume()
+            self?.player.play()            
+        }
     }
 
     func stop() {
+        timer.suspend()
         player.pause()
     }
 }

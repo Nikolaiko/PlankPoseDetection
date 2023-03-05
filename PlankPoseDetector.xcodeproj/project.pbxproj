@@ -26,6 +26,8 @@
 		91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC0299FF0A000F1C501 /* CallbackTypes.swift */; };
 		91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC2299FF74B00F1C501 /* FrameManager.swift */; };
 		914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F72D729B23F850038104E /* AppAVPlayerDependency.swift */; };
+		9178EAEE29B506DA00ACC9F8 /* SourceTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */; };
+		9178EAF029B5073300ACC9F8 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EAEF29B5073300ACC9F8 /* RepeatingTimer.swift */; };
 		917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */; };
 		917BD074297EB49200F57E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD073297EB49200F57E6D /* Assets.xcassets */; };
 		917BD077297EB49200F57E6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD076297EB49200F57E6D /* Preview Assets.xcassets */; };
@@ -83,6 +85,8 @@
 		91442EC0299FF0A000F1C501 /* CallbackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackTypes.swift; sourceTree = "<group>"; };
 		91442EC2299FF74B00F1C501 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
 		914F72D729B23F850038104E /* AppAVPlayerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAVPlayerDependency.swift; sourceTree = "<group>"; };
+		9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTimerState.swift; sourceTree = "<group>"; };
+		9178EAEF29B5073300ACC9F8 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		917BD06C297EB49100F57E6D /* PlankPoseDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlankPoseDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPoseDetectorApp.swift; sourceTree = "<group>"; };
 		917BD073297EB49200F57E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +186,23 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		9178EAEB29B506A300ACC9F8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9178EAEC29B506AA00ACC9F8 /* DispatchSourceTimer */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9178EAEC29B506AA00ACC9F8 /* DispatchSourceTimer */ = {
+			isa = PBXGroup;
+			children = (
+				9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */,
+				9178EAEF29B5073300ACC9F8 /* RepeatingTimer.swift */,
+			);
+			path = DispatchSourceTimer;
+			sourceTree = "<group>";
+		};
 		917BD063297EB49100F57E6D = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +222,7 @@
 		917BD06E297EB49100F57E6D /* PlankPoseDetector */ = {
 			isa = PBXGroup;
 			children = (
+				9178EAEB29B506A300ACC9F8 /* Helpers */,
 				91A52F76297EFBB1007857CE /* SupportingFiles */,
 				91A52F70297EFA03007857CE /* Services */,
 				91A52F55297EEB81007857CE /* Model */,
@@ -601,6 +623,7 @@
 				91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */,
 				91A52F5F297EED96007857CE /* WorkoutFeature.swift in Sources */,
 				91E773F729A527B000E44C9D /* StatisticsFeature.swift in Sources */,
+				9178EAF029B5073300ACC9F8 /* RepeatingTimer.swift in Sources */,
 				91CBEE652992D1BC0011DECB /* CameraPlaybackView.swift in Sources */,
 				91A52F66297EEF1A007857CE /* MainView_Preview.swift in Sources */,
 				91E7740C29A53BFB00E44C9D /* AppAVPlayer.swift in Sources */,
@@ -634,6 +657,7 @@
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
 				911C66C729859D4000E7D4D4 /* BottomBarIcon_Previews.swift in Sources */,
 				917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */,
+				9178EAEE29B506DA00ACC9F8 /* SourceTimerState.swift in Sources */,
 				91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

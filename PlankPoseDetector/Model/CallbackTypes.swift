@@ -9,3 +9,4 @@ import Foundation
 import UIKit
 
 typealias FrameCallback = (CGImage?) -> Void
+typealias VoidCallback = () -> Void
