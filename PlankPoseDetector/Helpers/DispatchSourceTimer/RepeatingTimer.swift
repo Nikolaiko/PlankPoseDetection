@@ -14,15 +14,15 @@ class RepeatingTimer {
     private var state: SourceTimerState = .suspended
     private let timeInterval: TimeInterval
     private lazy var timer: DispatchSourceTimer = {
-        let t = DispatchSource.makeTimerSource()
-        t.schedule(
+        let sourceTimer = DispatchSource.makeTimerSource()
+        sourceTimer.schedule(
             deadline: .now() + self.timeInterval,
             repeating: self.timeInterval
         )
-        t.setEventHandler(handler: { [weak self] in
+        sourceTimer.setEventHandler(handler: { [weak self] in
             self?.eventHandler?()
         })
-        return t
+        return sourceTimer
     }()
 
     init(timeInterval: TimeInterval) {

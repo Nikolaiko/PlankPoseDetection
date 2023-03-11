@@ -13,7 +13,7 @@ import ComposableArchitecture
 struct GalleryView: View {
     let stateStore: StoreOf<GalleryFeature>
 
-    @State private var selectedItem: PhotosPickerItem? = nil
+    @State private var selectedItem: PhotosPickerItem?
 
     var body: some View {
         WithViewStore(stateStore) { viewStore in
@@ -36,7 +36,7 @@ struct GalleryView: View {
                             viewStore.send(.startLoadingVideoFromGallery)
                             Task {                                
                                 if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                    viewStore.send(.loadedVideoDataFromGallery(data))                                    
+                                    viewStore.send(.loadedVideoDataFromGallery(data))         
                                 }
                             }
                         }

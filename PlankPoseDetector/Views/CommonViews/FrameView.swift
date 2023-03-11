@@ -32,9 +32,3 @@ struct FrameView: View {
         }
     }
 }
-
-//struct FrameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FrameView()
-//    }
-//}

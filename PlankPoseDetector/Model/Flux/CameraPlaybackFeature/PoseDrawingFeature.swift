@@ -17,7 +17,6 @@ struct PoseDrawingFeature: ReducerProtocol {
     struct State: Equatable {
         var currentFrame: UIImage?
         var processingFrame = false
-        var frameCount = framesPerPoseDraw
     }
 
     enum Action {

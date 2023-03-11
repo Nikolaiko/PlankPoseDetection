@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 import ComposableArchitecture
 
-
 struct GalleryFeature: ReducerProtocol {
     struct State: Equatable {
         var activePlayer: AVPlayer?
@@ -80,5 +79,3 @@ struct GalleryFeature: ReducerProtocol {
         }
     }
 }
-
-

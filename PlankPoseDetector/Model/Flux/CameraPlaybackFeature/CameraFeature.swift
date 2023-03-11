@@ -49,11 +49,11 @@ struct CameraFeature: ReducerProtocol {
             }
         case .configure(let newConfigState):
             state.cameraConfig = newConfigState
-            ConfigureSession(state: &state)
+            configureSession(state: &state)
 
             let queueState = state
             if state.cameraConfig != .failed {
-                DispatchQueue(label:"sessionStart", qos: .userInitiated).async {
+                DispatchQueue(label: "sessionStart", qos: .userInitiated).async {
                     queueState.session.startRunning()
                 }
             }
@@ -71,7 +71,7 @@ struct CameraFeature: ReducerProtocol {
         }
     }
 
-    private func ConfigureSession(state: inout State) {
+    private func configureSession(state: inout State) {
         guard state.cameraConfig == .unconfigured else { return }
 
         state.session.beginConfiguration()

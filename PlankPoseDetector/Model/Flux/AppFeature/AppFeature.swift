@@ -13,11 +13,10 @@ struct AppFeature: ReducerProtocol {
     struct State: Equatable {
         @BindableState var selectedTabId: MainViewTabEnum
 
-        var homeState: HomeFeature.State? = nil
-        var statsState: StatisticsFeature.State? = nil
-        var galleryState: GalleryFeature.State? = nil
-        var settingsState: SettingsFeature.State? = nil
-
+        var homeState: HomeFeature.State?
+        var statsState: StatisticsFeature.State?
+        var galleryState: GalleryFeature.State?
+        var settingsState: SettingsFeature.State?
 
         init(selectedTabId: MainViewTabEnum) {
             self.selectedTabId = selectedTabId
@@ -82,7 +81,10 @@ struct AppFeature: ReducerProtocol {
         }
     }
 
-    private func processStatsActions(into state: inout State, childAction: StatisticsFeature.Action) -> Effect<Action, Never> {
+    private func processStatsActions(
+        into state: inout State,
+        childAction: StatisticsFeature.Action
+    ) -> Effect<Action, Never> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -92,7 +94,10 @@ struct AppFeature: ReducerProtocol {
         }
     }
 
-    private func processSettingsActions(into state: inout State, childAction: SettingsFeature.Action) -> Effect<Action, Never> {
+    private func processSettingsActions(
+        into state: inout State,
+        childAction: SettingsFeature.Action
+    ) -> Effect<Action, Never> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -102,7 +107,10 @@ struct AppFeature: ReducerProtocol {
         }
     }
 
-    private func processGalleryActions(into state: inout State, childAction: GalleryFeature.Action) -> Effect<Action, Never> {
+    private func processGalleryActions(
+        into state: inout State,
+        childAction: GalleryFeature.Action
+    ) -> Effect<Action, Never> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -147,4 +155,3 @@ struct AppFeature: ReducerProtocol {
         }
     }
 }
-

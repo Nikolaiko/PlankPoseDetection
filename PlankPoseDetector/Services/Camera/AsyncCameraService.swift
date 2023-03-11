@@ -14,7 +14,7 @@ class AsyncCameraService {
 
     func startListening() {
         framesStream = AsyncStream { [weak self] continuation in
-            continuation.onTermination = { termination in                
+            continuation.onTermination = { _ in                
                 continuation.finish()
             }
 

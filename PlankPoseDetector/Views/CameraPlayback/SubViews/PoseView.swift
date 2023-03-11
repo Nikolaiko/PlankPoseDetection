@@ -18,9 +18,3 @@ struct PoseView: View {
         }
     }
 }
-
-//struct PoseView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PoseView()
-//    }
-//}

@@ -20,7 +20,6 @@ struct CameraPlaybackFeature: ReducerProtocol {
         case poseDrawingAction(PoseDrawingFeature.Action)
     }
 
-    
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {

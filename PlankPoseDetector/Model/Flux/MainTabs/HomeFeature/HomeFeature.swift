@@ -27,5 +27,3 @@ struct HomeFeature: ReducerProtocol {
         }
     }
 }
-
-

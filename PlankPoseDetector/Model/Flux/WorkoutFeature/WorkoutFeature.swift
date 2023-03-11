@@ -12,7 +12,6 @@ import Dependencies
 import AVFoundation
 
 struct WorkoutFeature: ReducerProtocol {
-    
 
     struct State: Equatable {
         var sourceImage: UIImage
@@ -60,7 +59,7 @@ struct WorkoutFeature: ReducerProtocol {
             }
         case .processImageResult(let imageResult):
             if let res = imageResult {
-                //state.resultImage = res
+                // state.resultImage = res
             } else {
                 print("Failt")
             }
@@ -74,12 +73,17 @@ struct WorkoutFeature: ReducerProtocol {
             return .none
         case .getFrame:
             if state.player.rate != 0 {
-                let player = state.player
+                let currentTime = state.player.currentTime()
                 let generator = state.imageGenerator
                 return .task {
-                    let snapshot = try! await generator.image(at: player.currentTime())
-                    let points = detector.detectPoseOnImage(image: UIImage(cgImage: snapshot.image))
-                    let resultImage = painter.drawPointsOnImage(sourceImage: UIImage(cgImage: snapshot.image), points: points)
+                    var resultImage: UIImage?
+                    if let snapshot = try? await generator.image(at: currentTime) {
+                        let points = detector.detectPoseOnImage(image: UIImage(cgImage: snapshot.image))
+                        resultImage = painter.drawPointsOnImage(
+                            sourceImage: UIImage(cgImage: snapshot.image),
+                            points: points
+                        )
+                    }
                     return .processImageResult(resultImage)
                 }
             } else {

@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 protocol DrawImageService {
-    func drawPointsOnImage(sourceImage: UIImage, points: [PoseJoint.Name : PoseJoint]) -> UIImage
-    func drawPointsOnTransparentImage(sourceImage: UIImage, points: [PoseJoint.Name : PoseJoint]) -> UIImage
+    func drawPointsOnImage(sourceImage: UIImage, points: [PoseJoint.Name: PoseJoint]) -> UIImage
+    func drawPointsOnTransparentImage(sourceImage: UIImage, points: [PoseJoint.Name: PoseJoint]) -> UIImage
 }

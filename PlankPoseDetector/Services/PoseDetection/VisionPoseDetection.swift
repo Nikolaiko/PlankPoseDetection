@@ -12,7 +12,7 @@ import UIKit
 class VisionPoseDetection: PoseDetector {
     private let humanBodyPoseRequest = VNDetectHumanBodyPoseRequest()
 
-    func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name : PoseJoint] {
+    func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name: PoseJoint] {
         let visionRequestHandler = VNImageRequestHandler(cgImage: image.cgImage!)
         var results: [VNHumanBodyPoseObservation] = []
 
@@ -30,13 +30,11 @@ class VisionPoseDetection: PoseDetector {
     private func convertObservationToJoint(
         sourceImage: CGImage,
         observation: VNHumanBodyPoseObservation
-    ) -> [PoseJoint.Name : PoseJoint] {
+    ) -> [PoseJoint.Name: PoseJoint] {
         guard let recognizedPoints =
                 try? observation.recognizedPoints(.all) else { return [:] }
 
-
-
-        var imagePoints: [PoseJoint.Name : PoseJoint] = [:]
+        var imagePoints: [PoseJoint.Name: PoseJoint] = [:]
         recognizedPoints.forEach { pair in
             let currentPoint = pair.value
             let jointName = pair.key

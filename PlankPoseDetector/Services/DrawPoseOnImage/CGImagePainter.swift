@@ -11,7 +11,7 @@ import UIKit
 struct CGImagePainter: DrawImageService {
     private static let elipseSide: CGFloat = 10
 
-    func drawPointsOnImage(sourceImage: UIImage, points: [PoseJoint.Name : PoseJoint]) -> UIImage {
+    func drawPointsOnImage(sourceImage: UIImage, points: [PoseJoint.Name: PoseJoint]) -> UIImage {
         let cgSourceImage = sourceImage.cgImage!
         let dstImageSize = CGSize(width: cgSourceImage.width, height: cgSourceImage.height)
         let dstImageFormat = UIGraphicsImageRendererFormat()
@@ -49,7 +49,7 @@ struct CGImagePainter: DrawImageService {
         return dstImage
     }
 
-    func drawPointsOnTransparentImage(sourceImage: UIImage, points: [PoseJoint.Name : PoseJoint]) -> UIImage {
+    func drawPointsOnTransparentImage(sourceImage: UIImage, points: [PoseJoint.Name: PoseJoint]) -> UIImage {
         let cgSourceImage = sourceImage.cgImage!
         let dstImageSize = CGSize(width: cgSourceImage.width, height: cgSourceImage.height)
         let dstImageFormat = UIGraphicsImageRendererFormat()

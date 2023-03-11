@@ -32,7 +32,7 @@ struct WorkoutView: View {
                     }
                     Button {
                         viewState.send(.startPlayback)
-                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { currentTimer in
+                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
                             viewState.send(.getFrame)
                         })
                     } label: {
@@ -46,13 +46,3 @@ struct WorkoutView: View {
         }
     }
 }
-
-
-/*
- Image(uiImage: viewState.resultImage != nil
-       ? viewState.resultImage!
-       : viewState.sourceImage
- )
- .resizable()
- .aspectRatio(contentMode: .fit)
- */
