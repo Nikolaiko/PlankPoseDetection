@@ -8,5 +8,6 @@
 import Foundation
 import UIKit
 
+typealias SelectingFileCallback = (SavedVideoFile) -> Void
 typealias FrameCallback = (CGImage?) -> Void
 typealias VoidCallback = () -> Void

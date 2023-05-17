@@ -11,35 +11,39 @@ import AVFoundation
 class AppAVPlayer: GalleryVideoPlayer {
     var framesStream: AsyncStream<CGImage?>?
     let player: AVPlayer = AVPlayer()
-    
-    private let fileManager = FileManager.default
 
     private var imageGenerator: AVAssetImageGenerator?
     private var timer = RepeatingTimer(timeInterval: 0.01)
 
-    func loadDataFromUrl(videoData: Data) -> Bool {
-        let tempDirPath = fileManager.temporaryDirectory
-        let url = tempDirPath.appending(path: "videfile.mp4")
-        var result = true
+    func loadItemFromUrl(fileUrl: URL) {
+        let item = AVPlayerItem(url: fileUrl)
 
-        do {
-            try videoData.write(to: url)
-            let item = AVPlayerItem(url: url)
+        player.replaceCurrentItem(with: item)
 
-            player.replaceCurrentItem(with: item)
+        imageGenerator = AVAssetImageGenerator(asset: player.currentItem!.asset)
+        imageGenerator?.appliesPreferredTrackTransform = true
+    }
 
-            imageGenerator = AVAssetImageGenerator(asset: player.currentItem!.asset)
-            imageGenerator?.appliesPreferredTrackTransform = true
-        } catch {
-            result = false
-            print("Error during save temp file: \(error)")
-        }
-        return result
+    func isPlaying() -> Bool {
+        return player.isPlaying()
     }
 
     func play() {
+        if framesStream == nil {
+            initAsyncStream()
+        }
+        timer.resume()
+        player.play()
+    }
+
+    func stop() {
+        timer.suspend()
+        player.pause()
+    }
+
+    private func initAsyncStream() {
         framesStream = AsyncStream { [weak self] continuation in
-            continuation.onTermination = { _ in                
+            continuation.onTermination = { _ in
                 continuation.finish()
             }
 
@@ -50,13 +54,6 @@ class AppAVPlayer: GalleryVideoPlayer {
                 )
                 continuation.yield(snapshot)
             }
-            self?.timer.resume()
-            self?.player.play()            
         }
-    }
-
-    func stop() {
-        timer.suspend()
-        player.pause()
     }
 }

@@ -20,6 +20,7 @@ class RepeatingTimer {
             repeating: self.timeInterval
         )
         sourceTimer.setEventHandler(handler: { [weak self] in
+            print("Handling event!")
             self?.eventHandler?()
         })
         return sourceTimer

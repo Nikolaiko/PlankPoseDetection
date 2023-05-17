@@ -14,7 +14,8 @@ protocol GalleryVideoPlayer {
     var framesStream: AsyncStream<CGImage?>? { get }
     var player: AVPlayer { get }
 
-    func loadDataFromUrl(videoData: Data) -> Bool
+    func isPlaying() -> Bool
+    func loadItemFromUrl(fileUrl: URL)
     func play()
     func stop()
 }
