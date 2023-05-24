@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct AppFeature: ReducerProtocol {
 
     struct State: Equatable {
-        @BindableState var selectedTabId: MainViewTabEnum
+        @BindingState var selectedTabId: MainViewTabEnum
 
         var homeState: HomeFeature.State?
         var statsState: StatisticsFeature.State?

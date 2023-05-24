@@ -9,5 +9,6 @@ import Foundation
 
 protocol AppFileManager {
     func loadDataFromUrl(videoData: Data) -> URL?
+    func removeSavedFiles() throws
     func getSavedFiles() -> [SavedVideoFile]
 }

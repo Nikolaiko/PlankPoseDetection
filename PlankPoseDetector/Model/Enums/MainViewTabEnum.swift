@@ -17,8 +17,8 @@ enum MainViewTabEnum {
         switch self {
         case .settings:
             return isSelected
-                ? BottomBarImageNames.profileSelectedIcon
-                : BottomBarImageNames.profileUnSelectedIcon
+                ? BottomBarImageNames.settingsSelectedIcon
+                : BottomBarImageNames.settingsUnSelectedIcon
 
         case .statistics:
             return isSelected

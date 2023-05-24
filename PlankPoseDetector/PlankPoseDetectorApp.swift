@@ -10,6 +10,8 @@ import ComposableArchitecture
 
 @main
 struct PlankPoseDetectorApp: App {
+    @UIApplicationDelegateAdaptor var delegate: PlankAppDelegate
+
     var body: some Scene {
         WindowGroup {
             MainView(stateStore: Store(

@@ -12,6 +12,15 @@ import UIKit
 struct NativeFileManager: AppFileManager {
     private let fileManager = FileManager.default
 
+    func removeSavedFiles() throws {
+        let documentsDirPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let content = try fileManager.contentsOfDirectory(atPath: documentsDirPath.path())
+        for currentFile in content {
+            let fileUrl = documentsDirPath.appending(path: currentFile)
+            try fileManager.removeItem(at: fileUrl)
+        }
+    }
+
     func getSavedFiles() -> [SavedVideoFile] {
         let documentsDirPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         var filesList: [SavedVideoFile] = []

@@ -12,6 +12,4 @@ struct GalleryImageNames {
     static let playerPlayImageName = "player_play_button"
     static let playerPauseImageName = "player_pause_button"
     static let playerCloseImageName = "player_close_button"
-
-    
 }

@@ -12,10 +12,28 @@ struct SettingsView: View {
     let stateStore: StoreOf<SettingsFeature>
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Settings View")
-            Spacer()
+        WithViewStore(stateStore) { viewState in
+            VStack {
+                HStack {
+                    Text(SettingsViewStrings.removeDataTitle)
+                    Button {
+                        viewState.send(.showDeleteAlert)
+                    } label: {
+                        Text(SettingsViewStrings.clearTitle)
+                    }
+
+                }
+                Spacer()
+            }
+            .alert(isPresented: viewState.binding(get: \.deleteAlertShown, send: .hideDeleteAlert)) {
+                Alert(
+                    title: Text(SettingsViewStrings.removeDataAlertTitle),
+                    primaryButton: .destructive(Text(SettingsViewStrings.deleteTitle), action: {
+                        viewState.send(.deleteImportedVideos)
+                    }),
+                    secondaryButton: .cancel(Text(SettingsViewStrings.cancelTitle), action: {})
+                )
+            }.padding()
         }
     }
 }

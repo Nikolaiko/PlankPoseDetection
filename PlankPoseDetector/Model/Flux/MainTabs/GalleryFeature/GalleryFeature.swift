@@ -70,10 +70,8 @@ struct GalleryFeature: ReducerProtocol {
                 appAvPlayer.play()
                 return Effect.run { send in
                     for await currentFrame in appAvPlayer.framesStream! {
-                        print("Here!")
                         await send(.processFrame(currentFrame))
                     }
-                    print("After cycle!")
                 }
             } else {
                 print("Failed to save file to directory")

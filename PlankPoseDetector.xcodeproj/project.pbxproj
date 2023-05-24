@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9104AF602A1474CF004E0025 /* AVPlayer+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9104AF5F2A1474CF004E0025 /* AVPlayer+State.swift */; };
+		911329A72A19357E00BFF5CE /* PlankAppSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329A62A19357E00BFF5CE /* PlankAppSceneDelegate.swift */; };
+		911329A92A19392600BFF5CE /* PlankAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329A82A19392600BFF5CE /* PlankAppDelegate.swift */; };
+		911329AB2A193A6F00BFF5CE /* HUDWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329AA2A193A6F00BFF5CE /* HUDWindowView.swift */; };
+		911329B12A193D6E00BFF5CE /* HUDMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329B02A193D6E00BFF5CE /* HUDMessenger.swift */; };
+		911329B32A193DAF00BFF5CE /* HUDMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329B22A193DAF00BFF5CE /* HUDMessage.swift */; };
+		911329B52A193DE300BFF5CE /* StaticHUDMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329B42A193DE300BFF5CE /* StaticHUDMessenger.swift */; };
+		911329B72A193E4C00BFF5CE /* HUDMessengerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329B62A193E4C00BFF5CE /* HUDMessengerDelegate.swift */; };
+		911329BA2A193F3100BFF5CE /* HUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911329B92A193F3100BFF5CE /* HUDViewModel.swift */; };
 		911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66BA2985940C00E7D4D4 /* AppBottomBar.swift */; };
 		911C66BE298595C300E7D4D4 /* BottomBarCofficients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66BD298595C300E7D4D4 /* BottomBarCofficients.swift */; };
 		911C66C2298597F700E7D4D4 /* BottomBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66C1298597F700E7D4D4 /* BottomBarIcon.swift */; };
@@ -27,6 +35,8 @@
 		91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC0299FF0A000F1C501 /* CallbackTypes.swift */; };
 		91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC2299FF74B00F1C501 /* FrameManager.swift */; };
 		914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F72D729B23F850038104E /* AppAVPlayerDependency.swift */; };
+		916B08C52A15C7CC007E2FC8 /* SettingsView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */; };
+		916B08C82A15C9DB007E2FC8 /* SettingsViewStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */; };
 		9178EAEE29B506DA00ACC9F8 /* SourceTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */; };
 		9178EAF029B5073300ACC9F8 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EAEF29B5073300ACC9F8 /* RepeatingTimer.swift */; };
 		917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */; };
@@ -66,6 +76,9 @@
 		91CBEE682992D3590011DECB /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE672992D3590011DECB /* FrameView.swift */; };
 		91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE692992D4920011DECB /* CameraView.swift */; };
 		91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */; };
+		91D720612A1DA3D90097BD91 /* HUDMessagePriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D720602A1DA3D90097BD91 /* HUDMessagePriority.swift */; };
+		91D720632A1DA4FC0097BD91 /* HUDMessengerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D720622A1DA4FC0097BD91 /* HUDMessengerDependency.swift */; };
+		91D720652A1DA7740097BD91 /* HUDUIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D720642A1DA7740097BD91 /* HUDUIWindow.swift */; };
 		91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854F72986DAE300F82E11 /* PoseJoint.swift */; };
 		91D854FC2986E2F600F82E11 /* DrawImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854FB2986E2F600F82E11 /* DrawImageService.swift */; };
 		91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D854FD2986E39800F82E11 /* CGImagePainter.swift */; };
@@ -84,6 +97,15 @@
 
 /* Begin PBXFileReference section */
 		9104AF5F2A1474CF004E0025 /* AVPlayer+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+State.swift"; sourceTree = "<group>"; };
+		911329A42A1934BC00BFF5CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		911329A62A19357E00BFF5CE /* PlankAppSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankAppSceneDelegate.swift; sourceTree = "<group>"; };
+		911329A82A19392600BFF5CE /* PlankAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankAppDelegate.swift; sourceTree = "<group>"; };
+		911329AA2A193A6F00BFF5CE /* HUDWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDWindowView.swift; sourceTree = "<group>"; };
+		911329B02A193D6E00BFF5CE /* HUDMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessenger.swift; sourceTree = "<group>"; };
+		911329B22A193DAF00BFF5CE /* HUDMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessage.swift; sourceTree = "<group>"; };
+		911329B42A193DE300BFF5CE /* StaticHUDMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticHUDMessenger.swift; sourceTree = "<group>"; };
+		911329B62A193E4C00BFF5CE /* HUDMessengerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessengerDelegate.swift; sourceTree = "<group>"; };
+		911329B92A193F3100BFF5CE /* HUDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewModel.swift; sourceTree = "<group>"; };
 		911C66BA2985940C00E7D4D4 /* AppBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBottomBar.swift; sourceTree = "<group>"; };
 		911C66BD298595C300E7D4D4 /* BottomBarCofficients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarCofficients.swift; sourceTree = "<group>"; };
 		911C66C1298597F700E7D4D4 /* BottomBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarIcon.swift; sourceTree = "<group>"; };
@@ -102,6 +124,8 @@
 		91442EC0299FF0A000F1C501 /* CallbackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackTypes.swift; sourceTree = "<group>"; };
 		91442EC2299FF74B00F1C501 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
 		914F72D729B23F850038104E /* AppAVPlayerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAVPlayerDependency.swift; sourceTree = "<group>"; };
+		916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView_Previews.swift; sourceTree = "<group>"; };
+		916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewStrings.swift; sourceTree = "<group>"; };
 		9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTimerState.swift; sourceTree = "<group>"; };
 		9178EAEF29B5073300ACC9F8 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		917BD06C297EB49100F57E6D /* PlankPoseDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlankPoseDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +165,9 @@
 		91CBEE672992D3590011DECB /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		91CBEE692992D4920011DECB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurationState.swift; sourceTree = "<group>"; };
+		91D720602A1DA3D90097BD91 /* HUDMessagePriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessagePriority.swift; sourceTree = "<group>"; };
+		91D720622A1DA4FC0097BD91 /* HUDMessengerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessengerDependency.swift; sourceTree = "<group>"; };
+		91D720642A1DA7740097BD91 /* HUDUIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDUIWindow.swift; sourceTree = "<group>"; };
 		91D854F72986DAE300F82E11 /* PoseJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseJoint.swift; sourceTree = "<group>"; };
 		91D854FB2986E2F600F82E11 /* DrawImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawImageService.swift; sourceTree = "<group>"; };
 		91D854FD2986E39800F82E11 /* CGImagePainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePainter.swift; sourceTree = "<group>"; };
@@ -170,6 +197,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		911329A52A19356900BFF5CE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				911329A62A19357E00BFF5CE /* PlankAppSceneDelegate.swift */,
+				911329A82A19392600BFF5CE /* PlankAppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		911329AF2A193D4B00BFF5CE /* HUDMessenger */ = {
+			isa = PBXGroup;
+			children = (
+				911329B02A193D6E00BFF5CE /* HUDMessenger.swift */,
+				911329B42A193DE300BFF5CE /* StaticHUDMessenger.swift */,
+				91D720602A1DA3D90097BD91 /* HUDMessagePriority.swift */,
+			);
+			path = HUDMessenger;
+			sourceTree = "<group>";
+		};
+		911329B82A193F0F00BFF5CE /* HUDMessenger */ = {
+			isa = PBXGroup;
+			children = (
+				911329B62A193E4C00BFF5CE /* HUDMessengerDelegate.swift */,
+				911329B22A193DAF00BFF5CE /* HUDMessage.swift */,
+				91D720642A1DA7740097BD91 /* HUDUIWindow.swift */,
+			);
+			path = HUDMessenger;
+			sourceTree = "<group>";
+		};
 		911C66B9298593F700E7D4D4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +238,7 @@
 		911C66BC298595AA00E7D4D4 /* Consts */ = {
 			isa = PBXGroup;
 			children = (
+				916B08C62A15C9BF007E2FC8 /* Settings */,
 				91A30A1B2A0FAD4D0004F4E2 /* Gallery */,
 				91442EBB299FE70A00F1C501 /* Camera */,
 				911C66C3298599C900E7D4D4 /* BottomBar */,
@@ -218,9 +275,26 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		916B08C32A15C7AA007E2FC8 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
+		916B08C62A15C9BF007E2FC8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		9178EAEB29B506A300ACC9F8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				911329A52A19356900BFF5CE /* Delegates */,
 				9178EAEC29B506AA00ACC9F8 /* DispatchSourceTimer */,
 			);
 			path = Helpers;
@@ -254,6 +328,7 @@
 		917BD06E297EB49100F57E6D /* PlankPoseDetector */ = {
 			isa = PBXGroup;
 			children = (
+				911329A42A1934BC00BFF5CE /* Info.plist */,
 				9178EAEB29B506A300ACC9F8 /* Helpers */,
 				91A52F76297EFBB1007857CE /* SupportingFiles */,
 				91A52F70297EFA03007857CE /* Services */,
@@ -289,6 +364,7 @@
 				91E2DCE429A12D6400755125 /* CameraServiceDependency.swift */,
 				914F72D729B23F850038104E /* AppAVPlayerDependency.swift */,
 				91C3065D29C6275100D87948 /* AppFileManagerDependency.swift */,
+				91D720622A1DA4FC0097BD91 /* HUDMessengerDependency.swift */,
 			);
 			path = Prod;
 			sourceTree = "<group>";
@@ -313,6 +389,7 @@
 		919594E229BCDF6500BCB5C6 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				91D7205F2A1DA33B0097BD91 /* HUDWindow */,
 				919594E329BCDF7C00BCB5C6 /* Preview */,
 				91CBEE672992D3590011DECB /* FrameView.swift */,
 			);
@@ -338,6 +415,7 @@
 		91A52F55297EEB81007857CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				911329B82A193F0F00BFF5CE /* HUDMessenger */,
 				91C3065F29C6294200D87948 /* FileManagement */,
 				91E2DCE629A134D400755125 /* Extensions */,
 				91D854F62986DA9A00F82E11 /* Pose */,
@@ -429,6 +507,7 @@
 		91A52F6A297EF4A6007857CE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				916B08C32A15C7AA007E2FC8 /* Previews */,
 				91A52F6E297EF4D5007857CE /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -446,6 +525,7 @@
 		91A52F70297EFA03007857CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				911329AF2A193D4B00BFF5CE /* HUDMessenger */,
 				91C3065829C6248200D87948 /* FileStorageManager */,
 				91E7740829A536EE00E44C9D /* VideoPlayer */,
 				91B064652996BEDB007461A6 /* Camera */,
@@ -547,6 +627,15 @@
 				912797862997DD6300C07A4E /* PoseView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		91D7205F2A1DA33B0097BD91 /* HUDWindow */ = {
+			isa = PBXGroup;
+			children = (
+				911329B92A193F3100BFF5CE /* HUDViewModel.swift */,
+				911329AA2A193A6F00BFF5CE /* HUDWindowView.swift */,
+			);
+			path = HUDWindow;
 			sourceTree = "<group>";
 		};
 		91D854F62986DA9A00F82E11 /* Pose */ = {
@@ -769,13 +858,17 @@
 			files = (
 				91442EBD299FE72000F1C501 /* CameraConstants.swift in Sources */,
 				91A52F59297EEBE8007857CE /* AppFeature.swift in Sources */,
+				911329B72A193E4C00BFF5CE /* HUDMessengerDelegate.swift in Sources */,
 				91A52F63297EEEE4007857CE /* MainView.swift in Sources */,
 				911C66BE298595C300E7D4D4 /* BottomBarCofficients.swift in Sources */,
 				91A30A162A0FA8F70004F4E2 /* VideoPlayerOverlay.swift in Sources */,
 				911C66C2298597F700E7D4D4 /* BottomBarIcon.swift in Sources */,
+				91D720632A1DA4FC0097BD91 /* HUDMessengerDependency.swift in Sources */,
 				91E7740329A528B300E44C9D /* HomeView.swift in Sources */,
 				91A52F6D297EF4C3007857CE /* WorkoutView.swift in Sources */,
 				91A30A182A0FA98D0004F4E2 /* VideoPlayerOverlay_Preview.swift in Sources */,
+				911329B32A193DAF00BFF5CE /* HUDMessage.swift in Sources */,
+				911329A92A19392600BFF5CE /* PlankAppDelegate.swift in Sources */,
 				91A52F6F297EF4D5007857CE /* SettingsView.swift in Sources */,
 				91E2DCE829A134EB00755125 /* PoseJointExtensions.swift in Sources */,
 				911C66C929859DC000E7D4D4 /* BottomBarColors.swift in Sources */,
@@ -788,6 +881,7 @@
 				91C3066429C62EBD00D87948 /* SavedFilesExplorer.swift in Sources */,
 				91A52F5F297EED96007857CE /* WorkoutFeature.swift in Sources */,
 				91E773F729A527B000E44C9D /* StatisticsFeature.swift in Sources */,
+				911329B52A193DE300BFF5CE /* StaticHUDMessenger.swift in Sources */,
 				9178EAF029B5073300ACC9F8 /* RepeatingTimer.swift in Sources */,
 				91C3065C29C624C900D87948 /* NativeFileManager.swift in Sources */,
 				91CBEE652992D1BC0011DECB /* CameraPlaybackView.swift in Sources */,
@@ -797,6 +891,7 @@
 				91CBEE602992C9A20011DECB /* CameraFeature.swift in Sources */,
 				911C66D02985A18900E7D4D4 /* BottomBar_Previews.swift in Sources */,
 				91D854FC2986E2F600F82E11 /* DrawImageService.swift in Sources */,
+				91D720652A1DA7740097BD91 /* HUDUIWindow.swift in Sources */,
 				91CBEE622992C9B30011DECB /* PoseDrawingFeature.swift in Sources */,
 				913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */,
 				911C66C5298599F100E7D4D4 /* BottomBarImageNames.swift in Sources */,
@@ -807,11 +902,15 @@
 				91CBEE682992D3590011DECB /* FrameView.swift in Sources */,
 				91C3065A29C6249500D87948 /* AppFileManager.swift in Sources */,
 				91A52F5D297EECEC007857CE /* SettingsFeature.swift in Sources */,
+				916B08C82A15C9DB007E2FC8 /* SettingsViewStrings.swift in Sources */,
 				911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */,
 				91A52F69297EF253007857CE /* MainViewTabEnum.swift in Sources */,
+				916B08C52A15C7CC007E2FC8 /* SettingsView_Previews.swift in Sources */,
 				91A30A232A0FB3FE0004F4E2 /* AppImageNames.swift in Sources */,
 				91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */,
 				91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */,
+				91D720612A1DA3D90097BD91 /* HUDMessagePriority.swift in Sources */,
+				911329AB2A193A6F00BFF5CE /* HUDWindowView.swift in Sources */,
 				91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */,
 				913059AD298ABF0E004155FD /* PoseDetectorDependency.swift in Sources */,
 				919594DF29BCDE5A00BCB5C6 /* FrameView_Previews.swift in Sources */,
@@ -823,8 +922,11 @@
 				91E7740729A5294700E44C9D /* GalleryView.swift in Sources */,
 				91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */,
 				919594D929BCD76200BCB5C6 /* PoseDetectionServicePreview.swift in Sources */,
+				911329B12A193D6E00BFF5CE /* HUDMessenger.swift in Sources */,
+				911329A72A19357E00BFF5CE /* PlankAppSceneDelegate.swift in Sources */,
 				91C3066129C6296800D87948 /* SavedVideoFile.swift in Sources */,
 				91E7740A29A5370500E44C9D /* GalleryVideoPlayer.swift in Sources */,
+				911329BA2A193F3100BFF5CE /* HUDViewModel.swift in Sources */,
 				913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */,
 				914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */,
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
@@ -963,10 +1065,11 @@
 				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlankPoseDetector/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -996,10 +1099,11 @@
 				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlankPoseDetector/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
