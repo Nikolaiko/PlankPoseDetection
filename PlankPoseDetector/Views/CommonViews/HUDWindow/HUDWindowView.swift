@@ -13,22 +13,28 @@ struct HUDWindowView: View {
     var body: some View {
         GeometryReader { geom in
             if viewModel.currentErrorMessage != nil {
-                showErrorMessage()
+                showErrorMessage(geometry: geom)
             }
         }
         .background(Color.clear)
     }
 
-    private func showErrorMessage() -> some View {
-        VStack {
+    private func showErrorMessage(geometry: GeometryProxy) -> some View {
+        VStack(alignment: .center) {
             Spacer()
-            Text(viewModel.currentErrorMessage?.message ?? "")
+            HStack {
+                Spacer()
+                Text(viewModel.currentErrorMessage?.message ?? "")
+                    .padding(.vertical, 15)
+                Spacer()
+            }
+            .overlay(
+                RoundedRectangle(cornerRadius: 12.0)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+            .padding(.horizontal, geometry.size.width * 0.10)
+            .padding(.bottom, geometry.size.height * 0.10)
         }
     }
-}
-
-struct HUDWindowView_Previews: PreviewProvider {
-    static var previews: some View {
-        HUDWindowView()
-    }
+    
 }

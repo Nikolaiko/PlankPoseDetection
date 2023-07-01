@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HUDMessage {
+struct HUDMessage: Equatable {
     let message: String
     let priority: HUDMessagePriority
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 class HUDViewModel: ObservableObject, HUDMessengerDelegate {
     @Published var currentErrorMessage: HUDMessage?
+    let animationDuration: TimeInterval = 2
 
     private let messageQueue = DispatchQueue(label: "messages")
     private var messages: [HUDMessage] = []
@@ -32,7 +33,7 @@ class HUDViewModel: ObservableObject, HUDMessengerDelegate {
 
     private func showMessage(message: HUDMessage) {
         currentErrorMessage = message
-        messageQueue.asyncAfter(deadline: .now() + 2) { [weak self] in
+        messageQueue.asyncAfter(deadline: .now() + animationDuration) { [weak self] in
             self?.nextMessage()
         }
     }

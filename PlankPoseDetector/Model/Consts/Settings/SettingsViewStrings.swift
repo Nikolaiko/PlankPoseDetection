@@ -14,4 +14,6 @@ struct SettingsViewStrings {
     static let clearTitle = "Отчистить"
     static let deleteTitle = "Удалить"
     static let cancelTitle = "Отмена"
+
+    static let errorDuringClearingFiles = "Ошибка при удалении файлов!"
 }

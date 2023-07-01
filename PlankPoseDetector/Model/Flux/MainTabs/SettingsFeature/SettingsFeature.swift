@@ -32,7 +32,6 @@ struct SettingsFeature: ReducerProtocol {
             return .none
         case .showDeleteAlert:
             state.deleteAlertShown = true
-            hudMessenger.sendMessage(message: HUDMessage(message: "Test", priority: .normal))
             return .none
         case .hideDeleteAlert:
             state.deleteAlertShown = false
@@ -50,8 +49,12 @@ struct SettingsFeature: ReducerProtocol {
         do {
             try appFileManager.removeSavedFiles()
         } catch {
-            print(error)
-
+            hudMessenger.sendMessage(
+                message: HUDMessage(
+                    message: SettingsViewStrings.errorDuringClearingFiles,
+                    priority: .normal
+                )
+            )
         }
     }
 }

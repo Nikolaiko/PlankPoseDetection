@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol HUDMessengerDelegate {
+protocol HUDMessengerDelegate: AnyObject {
     func receiveMessage(message: HUDMessage)
 }
