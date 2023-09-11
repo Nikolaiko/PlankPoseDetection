@@ -48,6 +48,12 @@ struct SettingsFeature: ReducerProtocol {
     private func clearSavedFiles() {
         do {
             try appFileManager.removeSavedFiles()
+            hudMessenger.sendMessage(
+                message: HUDMessage(
+                    message: SettingsViewStrings.clearingFilesComplete,
+                    priority: .normal
+                )
+            )
         } catch {
             hudMessenger.sendMessage(
                 message: HUDMessage(

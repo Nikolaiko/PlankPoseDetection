@@ -35,6 +35,13 @@
 		91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC0299FF0A000F1C501 /* CallbackTypes.swift */; };
 		91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC2299FF74B00F1C501 /* FrameManager.swift */; };
 		914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F72D729B23F850038104E /* AppAVPlayerDependency.swift */; };
+		916656C22AADD60800B9CD6D /* FrameGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656BE2AADD60800B9CD6D /* FrameGetter.swift */; };
+		916656C32AADD60800B9CD6D /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656BF2AADD60800B9CD6D /* MessageBox.swift */; };
+		916656C42AADD60800B9CD6D /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656C12AADD60800B9CD6D /* MessageType.swift */; };
+		916656C72AADD70A00B9CD6D /* View+Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656C62AADD70A00B9CD6D /* View+Apply.swift */; };
+		916656C92AADDBB400B9CD6D /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656C82AADDBB400B9CD6D /* AlertView.swift */; };
+		916656CB2AADDC2200B9CD6D /* AlertMessage_Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656CA2AADDC2200B9CD6D /* AlertMessage_Preview.swift */; };
+		916656CD2AADE36C00B9CD6D /* LandscaprePose.png in Resources */ = {isa = PBXBuildFile; fileRef = 916656CC2AADE36C00B9CD6D /* LandscaprePose.png */; };
 		916B08C52A15C7CC007E2FC8 /* SettingsView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */; };
 		916B08C82A15C9DB007E2FC8 /* SettingsViewStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */; };
 		9178EAEE29B506DA00ACC9F8 /* SourceTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */; };
@@ -124,6 +131,13 @@
 		91442EC0299FF0A000F1C501 /* CallbackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackTypes.swift; sourceTree = "<group>"; };
 		91442EC2299FF74B00F1C501 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
 		914F72D729B23F850038104E /* AppAVPlayerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAVPlayerDependency.swift; sourceTree = "<group>"; };
+		916656BE2AADD60800B9CD6D /* FrameGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameGetter.swift; sourceTree = "<group>"; };
+		916656BF2AADD60800B9CD6D /* MessageBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
+		916656C12AADD60800B9CD6D /* MessageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
+		916656C62AADD70A00B9CD6D /* View+Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Apply.swift"; sourceTree = "<group>"; };
+		916656C82AADDBB400B9CD6D /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		916656CA2AADDC2200B9CD6D /* AlertMessage_Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage_Preview.swift; sourceTree = "<group>"; };
+		916656CC2AADE36C00B9CD6D /* LandscaprePose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LandscaprePose.png; sourceTree = "<group>"; };
 		916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView_Previews.swift; sourceTree = "<group>"; };
 		916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewStrings.swift; sourceTree = "<group>"; };
 		9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTimerState.swift; sourceTree = "<group>"; };
@@ -275,6 +289,32 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		916656BC2AADD60800B9CD6D /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				916656BD2AADD60800B9CD6D /* Modificators */,
+				916656C02AADD60800B9CD6D /* Model */,
+				916656BF2AADD60800B9CD6D /* MessageBox.swift */,
+			);
+			path = MessageBox;
+			sourceTree = "<group>";
+		};
+		916656BD2AADD60800B9CD6D /* Modificators */ = {
+			isa = PBXGroup;
+			children = (
+				916656BE2AADD60800B9CD6D /* FrameGetter.swift */,
+			);
+			path = Modificators;
+			sourceTree = "<group>";
+		};
+		916656C02AADD60800B9CD6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				916656C12AADD60800B9CD6D /* MessageType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		916B08C32A15C7AA007E2FC8 /* Previews */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +420,7 @@
 		919594DA29BCDAB300BCB5C6 /* PreviewData */ = {
 			isa = PBXGroup;
 			children = (
+				916656CC2AADE36C00B9CD6D /* LandscaprePose.png */,
 				919594E029BCDF3600BCB5C6 /* VideoPreviewImage.jpg */,
 				919594DB29BCDB8400BCB5C6 /* PosePreviewImage.jpg */,
 			);
@@ -389,6 +430,7 @@
 		919594E229BCDF6500BCB5C6 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				916656BC2AADD60800B9CD6D /* MessageBox */,
 				91D7205F2A1DA33B0097BD91 /* HUDWindow */,
 				919594E329BCDF7C00BCB5C6 /* Preview */,
 				91CBEE672992D3590011DECB /* FrameView.swift */,
@@ -400,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				919594DE29BCDE5A00BCB5C6 /* FrameView_Previews.swift */,
+				916656CA2AADDC2200B9CD6D /* AlertMessage_Preview.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -634,6 +677,7 @@
 			children = (
 				911329B92A193F3100BFF5CE /* HUDViewModel.swift */,
 				911329AA2A193A6F00BFF5CE /* HUDWindowView.swift */,
+				916656C82AADDBB400B9CD6D /* AlertView.swift */,
 			);
 			path = HUDWindow;
 			sourceTree = "<group>";
@@ -666,6 +710,7 @@
 		91E2DCE629A134D400755125 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				916656C62AADD70A00B9CD6D /* View+Apply.swift */,
 				91E2DCE729A134EB00755125 /* PoseJointExtensions.swift */,
 				9104AF5F2A1474CF004E0025 /* AVPlayer+State.swift */,
 			);
@@ -821,6 +866,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				919594E129BCDF3700BCB5C6 /* VideoPreviewImage.jpg in Resources */,
+				916656CD2AADE36C00B9CD6D /* LandscaprePose.png in Resources */,
 				91A52F78297EFBB1007857CE /* example.jpg in Resources */,
 				917BD077297EB49200F57E6D /* Preview Assets.xcassets in Resources */,
 				917BD074297EB49200F57E6D /* Assets.xcassets in Resources */,
@@ -861,6 +907,7 @@
 				911329B72A193E4C00BFF5CE /* HUDMessengerDelegate.swift in Sources */,
 				91A52F63297EEEE4007857CE /* MainView.swift in Sources */,
 				911C66BE298595C300E7D4D4 /* BottomBarCofficients.swift in Sources */,
+				916656C72AADD70A00B9CD6D /* View+Apply.swift in Sources */,
 				91A30A162A0FA8F70004F4E2 /* VideoPlayerOverlay.swift in Sources */,
 				911C66C2298597F700E7D4D4 /* BottomBarIcon.swift in Sources */,
 				91D720632A1DA4FC0097BD91 /* HUDMessengerDependency.swift in Sources */,
@@ -871,6 +918,7 @@
 				911329A92A19392600BFF5CE /* PlankAppDelegate.swift in Sources */,
 				91A52F6F297EF4D5007857CE /* SettingsView.swift in Sources */,
 				91E2DCE829A134EB00755125 /* PoseJointExtensions.swift in Sources */,
+				916656C42AADD60800B9CD6D /* MessageType.swift in Sources */,
 				911C66C929859DC000E7D4D4 /* BottomBarColors.swift in Sources */,
 				91A30A1D2A0FAD660004F4E2 /* GalleryImageNames.swift in Sources */,
 				91E773F929A527D500E44C9D /* HomeFeature.swift in Sources */,
@@ -909,6 +957,7 @@
 				91A30A232A0FB3FE0004F4E2 /* AppImageNames.swift in Sources */,
 				91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */,
 				91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */,
+				916656C22AADD60800B9CD6D /* FrameGetter.swift in Sources */,
 				91D720612A1DA3D90097BD91 /* HUDMessagePriority.swift in Sources */,
 				911329AB2A193A6F00BFF5CE /* HUDWindowView.swift in Sources */,
 				91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */,
@@ -916,6 +965,7 @@
 				919594DF29BCDE5A00BCB5C6 /* FrameView_Previews.swift in Sources */,
 				91E773FC29A5282B00E44C9D /* GalleryFeature.swift in Sources */,
 				91D854FE2986E39800F82E11 /* CGImagePainter.swift in Sources */,
+				916656CB2AADDC2200B9CD6D /* AlertMessage_Preview.swift in Sources */,
 				91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */,
 				91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */,
 				919594D529BCD6AB00BCB5C6 /* CameraPlaybackView_Previews.swift in Sources */,
@@ -928,11 +978,13 @@
 				91E7740A29A5370500E44C9D /* GalleryVideoPlayer.swift in Sources */,
 				911329BA2A193F3100BFF5CE /* HUDViewModel.swift in Sources */,
 				913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */,
+				916656C32AADD60800B9CD6D /* MessageBox.swift in Sources */,
 				914F72D829B23F850038104E /* AppAVPlayerDependency.swift in Sources */,
 				91D854F82986DAE300F82E11 /* PoseJoint.swift in Sources */,
 				911C66C729859D4000E7D4D4 /* BottomBarIcon_Previews.swift in Sources */,
 				917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */,
 				9178EAEE29B506DA00ACC9F8 /* SourceTimerState.swift in Sources */,
+				916656C92AADDBB400B9CD6D /* AlertView.swift in Sources */,
 				91442EC3299FF74B00F1C501 /* FrameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

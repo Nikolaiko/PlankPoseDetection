@@ -23,3 +23,12 @@ struct FrameViewVideoFramePreviews: PreviewProvider {
         FrameView(image: image?.cgImage)
     }
 }
+
+struct FrameViewLandscapeFramePreviews: PreviewProvider {
+    static var previews: some View {
+        let url = Bundle.main.url(forResource: "LandscaprePose", withExtension: "png")
+        let fileData: Data? = try? Data(contentsOf: url!)
+        let image = fileData == nil ? nil : UIImage(data: fileData!)
+        FrameView(image: image?.cgImage)
+    }
+}

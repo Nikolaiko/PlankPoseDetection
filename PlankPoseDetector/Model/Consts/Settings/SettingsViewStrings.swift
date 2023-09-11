@@ -16,4 +16,5 @@ struct SettingsViewStrings {
     static let cancelTitle = "Отмена"
 
     static let errorDuringClearingFiles = "Ошибка при удалении файлов!"
+    static let clearingFilesComplete = "Загруженные видео удалены!"
 }

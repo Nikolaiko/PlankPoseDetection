@@ -19,7 +19,7 @@ struct FrameView: View {
                 label: Text("Image Label")
             )
             .resizable()
-            .scaledToFill()
+            .scaledToFit()
             .frame(
                 width: geometry.size.width,
                 height: geometry.size.height,

@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 class HUDViewModel: ObservableObject, HUDMessengerDelegate {
-    @Published var currentErrorMessage: HUDMessage?
-    let animationDuration: TimeInterval = 2
+    private static let animationDuration: TimeInterval = 2
+
+    @Published var isPresented = false
+    var messages: [HUDMessage] = []
 
     private let messageQueue = DispatchQueue(label: "messages")
-    private var messages: [HUDMessage] = []
     private var messenger: HUDMessenger = StaticHUDMessenger.shared
 
     init() {
@@ -23,29 +24,28 @@ class HUDViewModel: ObservableObject, HUDMessengerDelegate {
     func receiveMessage(message: HUDMessage) {
         messageQueue.async { [weak self] in
             self?.messages.append(message)
-            if self?.messages.count == 1 {
-                DispatchQueue.main.async {
-                    self?.showMessage(message: message)
-                }
+            if self?.isPresented == false {
+                self?.showMessage(message: message)
             }
         }
     }
 
     private func showMessage(message: HUDMessage) {
-        currentErrorMessage = message
-        messageQueue.asyncAfter(deadline: .now() + animationDuration) { [weak self] in
+        DispatchQueue.main.async { [weak self] in
+            self?.isPresented = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + HUDViewModel.animationDuration) { [weak self] in
+            self?.isPresented = false
+        }
+        messageQueue.asyncAfter(deadline: .now() + HUDViewModel.animationDuration * 2) { [weak self] in
             self?.nextMessage()
         }
     }
 
     private func nextMessage() {
         messages.remove(at: 0)
-        !messages.isEmpty ? showMessage(message: messages.first!) : hideMessage()
-    }
-
-    private func hideMessage() {
-        DispatchQueue.main.async { [weak self] in
-            self?.currentErrorMessage = nil
+        if !messages.isEmpty {
+            showMessage(message: messages.first!)
         }
     }
 }
