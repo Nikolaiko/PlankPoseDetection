@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct CGImagePainter: DrawImageService {
-    private static let elipseSide: CGFloat = 10
+    private static let elipseSide: CGFloat = 20
 
     func drawPointsOnImage(sourceImage: UIImage, points: [PoseJoint.Name: PoseJoint]) -> UIImage {
         let cgSourceImage = sourceImage.cgImage!
@@ -35,8 +35,8 @@ struct CGImagePainter: DrawImageService {
             rendererContext.cgContext.restoreGState()
 
             points.forEach { pair in
-                UIColor.red.setFill()
-                UIColor.red.setStroke()
+                pair.value.validationStatus.color.setFill()
+                pair.value.validationStatus.color.setStroke()
                 let ellipse = CGRect(
                     x: pair.value.position.x,
                     y: pair.value.position.y,
@@ -62,8 +62,8 @@ struct CGImagePainter: DrawImageService {
 
         let dstImage = renderer.image { rendererContext in
             points.forEach { pair in
-                UIColor.red.setFill()
-                UIColor.red.setStroke()
+                pair.value.validationStatus.color.setFill()
+                pair.value.validationStatus.color.setStroke()
                 let ellipse = CGRect(
                     x: pair.value.position.x,
                     y: pair.value.position.y,
@@ -77,68 +77,68 @@ struct CGImagePainter: DrawImageService {
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftShoulder]?.position,
-                dest: points[PoseJoint.Name.rightShoulder]?.position
+                source: points[PoseJoint.Name.leftShoulder],
+                dest: points[PoseJoint.Name.rightShoulder]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.neck]?.position,
-                dest: points[PoseJoint.Name.root]?.position
+                source: points[PoseJoint.Name.neck],
+                dest: points[PoseJoint.Name.root]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.rightShoulder]?.position,
-                dest: points[PoseJoint.Name.rightElbow]?.position
+                source: points[PoseJoint.Name.rightShoulder],
+                dest: points[PoseJoint.Name.rightElbow]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.rightElbow]?.position,
-                dest: points[PoseJoint.Name.rightWrist]?.position
+                source: points[PoseJoint.Name.rightElbow],
+                dest: points[PoseJoint.Name.rightWrist]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftShoulder]?.position,
-                dest: points[PoseJoint.Name.leftElbow]?.position
+                source: points[PoseJoint.Name.leftShoulder],
+                dest: points[PoseJoint.Name.leftElbow]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftElbow]?.position,
-                dest: points[PoseJoint.Name.leftWrist]?.position
+                source: points[PoseJoint.Name.leftElbow],
+                dest: points[PoseJoint.Name.leftWrist]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.rightHip]?.position,
-                dest: points[PoseJoint.Name.rightKnee]?.position
+                source: points[PoseJoint.Name.rightHip],
+                dest: points[PoseJoint.Name.rightKnee]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.rightKnee]?.position,
-                dest: points[PoseJoint.Name.rightAnkle]?.position
+                source: points[PoseJoint.Name.rightKnee],
+                dest: points[PoseJoint.Name.rightAnkle]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftHip]?.position,
-                dest: points[PoseJoint.Name.leftKnee]?.position
+                source: points[PoseJoint.Name.leftHip],
+                dest: points[PoseJoint.Name.leftKnee]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftKnee]?.position,
-                dest: points[PoseJoint.Name.leftAnkle]?.position
+                source: points[PoseJoint.Name.leftKnee],
+                dest: points[PoseJoint.Name.leftAnkle]
             )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftHip]?.position,
-                dest: points[PoseJoint.Name.rightHip]?.position
+                source: points[PoseJoint.Name.leftHip],
+                dest: points[PoseJoint.Name.rightHip]
             )
 
             rendererContext.cgContext.drawPath(using: .fillStroke)
@@ -146,10 +146,21 @@ struct CGImagePainter: DrawImageService {
         return dstImage
     }
 
-    private func tryToDrawLine(context: CGContext, source: CGPoint?, dest: CGPoint?) {
+    private func tryToDrawLine(context: CGContext, source: PoseJoint?, dest: PoseJoint?) {
         if let source = source, let dest = dest {
-            context.move(to: source)
-            context.addLine(to: dest)
+            let lineColor = getLineColorForPoints(source: source, dest: dest)
+            context.setStrokeColor(lineColor.cgColor)
+            context.setFillColor(lineColor.cgColor)
+            context.move(to: source.position)
+            context.addLine(to: dest.position)
+            context.strokePath()
+
         }
+    }
+
+    private func getLineColorForPoints(source: PoseJoint, dest: PoseJoint) -> UIColor {
+        return source.validationStatus == .correct && dest.validationStatus == .correct
+            ? PoseJoint.Validation.correct.color
+            : PoseJoint.Validation.wrong.color
     }
 }

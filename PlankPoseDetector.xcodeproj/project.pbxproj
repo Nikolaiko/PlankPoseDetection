@@ -76,6 +76,9 @@
 		91C3065E29C6275100D87948 /* AppFileManagerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3065D29C6275100D87948 /* AppFileManagerDependency.swift */; };
 		91C3066129C6296800D87948 /* SavedVideoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3066029C6296800D87948 /* SavedVideoFile.swift */; };
 		91C3066429C62EBD00D87948 /* SavedFilesExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3066329C62EBD00D87948 /* SavedFilesExplorer.swift */; };
+		91C8707F2AB0C4F700267A0A /* PoseEstimationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8707E2AB0C4F700267A0A /* PoseEstimationService.swift */; };
+		91C870812AB0C56600267A0A /* PlankPoseEstimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C870802AB0C56600267A0A /* PlankPoseEstimation.swift */; };
+		91C870832AB0C5D400267A0A /* PoseEstimationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C870822AB0C5D400267A0A /* PoseEstimationDependency.swift */; };
 		91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE5D2992C9830011DECB /* CameraPlaybackFeature.swift */; };
 		91CBEE602992C9A20011DECB /* CameraFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE5F2992C9A20011DECB /* CameraFeature.swift */; };
 		91CBEE622992C9B30011DECB /* PoseDrawingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE612992C9B30011DECB /* PoseDrawingFeature.swift */; };
@@ -172,6 +175,9 @@
 		91C3065D29C6275100D87948 /* AppFileManagerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileManagerDependency.swift; sourceTree = "<group>"; };
 		91C3066029C6296800D87948 /* SavedVideoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVideoFile.swift; sourceTree = "<group>"; };
 		91C3066329C62EBD00D87948 /* SavedFilesExplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFilesExplorer.swift; sourceTree = "<group>"; };
+		91C8707E2AB0C4F700267A0A /* PoseEstimationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseEstimationService.swift; sourceTree = "<group>"; };
+		91C870802AB0C56600267A0A /* PlankPoseEstimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPoseEstimation.swift; sourceTree = "<group>"; };
+		91C870822AB0C5D400267A0A /* PoseEstimationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseEstimationDependency.swift; sourceTree = "<group>"; };
 		91CBEE5D2992C9830011DECB /* CameraPlaybackFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPlaybackFeature.swift; sourceTree = "<group>"; };
 		91CBEE5F2992C9A20011DECB /* CameraFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeature.swift; sourceTree = "<group>"; };
 		91CBEE612992C9B30011DECB /* PoseDrawingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDrawingFeature.swift; sourceTree = "<group>"; };
@@ -405,6 +411,7 @@
 				914F72D729B23F850038104E /* AppAVPlayerDependency.swift */,
 				91C3065D29C6275100D87948 /* AppFileManagerDependency.swift */,
 				91D720622A1DA4FC0097BD91 /* HUDMessengerDependency.swift */,
+				91C870822AB0C5D400267A0A /* PoseEstimationDependency.swift */,
 			);
 			path = Prod;
 			sourceTree = "<group>";
@@ -568,6 +575,7 @@
 		91A52F70297EFA03007857CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				91C8707D2AB0C4CB00267A0A /* PoseEstimation */,
 				911329AF2A193D4B00BFF5CE /* HUDMessenger */,
 				91C3065829C6248200D87948 /* FileStorageManager */,
 				91E7740829A536EE00E44C9D /* VideoPlayer */,
@@ -641,6 +649,15 @@
 				91A30A152A0FA8F70004F4E2 /* VideoPlayerOverlay.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		91C8707D2AB0C4CB00267A0A /* PoseEstimation */ = {
+			isa = PBXGroup;
+			children = (
+				91C8707E2AB0C4F700267A0A /* PoseEstimationService.swift */,
+				91C870802AB0C56600267A0A /* PlankPoseEstimation.swift */,
+			);
+			path = PoseEstimation;
 			sourceTree = "<group>";
 		};
 		91CBEE5C2992C95C0011DECB /* CameraPlaybackFeature */ = {
@@ -931,6 +948,7 @@
 				91E773F729A527B000E44C9D /* StatisticsFeature.swift in Sources */,
 				911329B52A193DE300BFF5CE /* StaticHUDMessenger.swift in Sources */,
 				9178EAF029B5073300ACC9F8 /* RepeatingTimer.swift in Sources */,
+				91C870832AB0C5D400267A0A /* PoseEstimationDependency.swift in Sources */,
 				91C3065C29C624C900D87948 /* NativeFileManager.swift in Sources */,
 				91CBEE652992D1BC0011DECB /* CameraPlaybackView.swift in Sources */,
 				91A52F66297EEF1A007857CE /* MainView_Preview.swift in Sources */,
@@ -956,6 +974,7 @@
 				916B08C52A15C7CC007E2FC8 /* SettingsView_Previews.swift in Sources */,
 				91A30A232A0FB3FE0004F4E2 /* AppImageNames.swift in Sources */,
 				91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */,
+				91C870812AB0C56600267A0A /* PlankPoseEstimation.swift in Sources */,
 				91CBEE5E2992C9830011DECB /* CameraPlaybackFeature.swift in Sources */,
 				916656C22AADD60800B9CD6D /* FrameGetter.swift in Sources */,
 				91D720612A1DA3D90097BD91 /* HUDMessagePriority.swift in Sources */,
@@ -969,6 +988,7 @@
 				91A52F73297EFA1F007857CE /* PoseDetector.swift in Sources */,
 				91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */,
 				919594D529BCD6AB00BCB5C6 /* CameraPlaybackView_Previews.swift in Sources */,
+				91C8707F2AB0C4F700267A0A /* PoseEstimationService.swift in Sources */,
 				91E7740729A5294700E44C9D /* GalleryView.swift in Sources */,
 				91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */,
 				919594D929BCD76200BCB5C6 /* PoseDetectionServicePreview.swift in Sources */,

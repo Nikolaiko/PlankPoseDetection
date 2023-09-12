@@ -37,8 +37,7 @@ class VisionPoseDetection: PoseDetector {
         var imagePoints: [PoseJoint.Name: PoseJoint] = [:]
         recognizedPoints.forEach { pair in
             let currentPoint = pair.value
-            let jointName = pair.key
-            print("Name : \(jointName), source : \(pair.key)")
+            let jointName = pair.key            
             guard
                 currentPoint.confidence > 0,
                 let jointType = PoseJoint.Name.fromVisionJoint(joint: jointName)

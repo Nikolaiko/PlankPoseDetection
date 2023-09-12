@@ -19,8 +19,7 @@ class RepeatingTimer {
             deadline: .now() + self.timeInterval,
             repeating: self.timeInterval
         )
-        sourceTimer.setEventHandler(handler: { [weak self] in
-            print("Handling event!")
+        sourceTimer.setEventHandler(handler: { [weak self] in            
             self?.eventHandler?()
         })
         return sourceTimer

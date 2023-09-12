@@ -43,6 +43,7 @@ struct GalleryFeature: ReducerProtocol {
     @Dependency(\.appFileManagerPlayer) var appFileManager: AppFileManager
     @Dependency(\.poseDetector) var detector: PoseDetector
     @Dependency(\.paintService) var painter: DrawImageService
+    @Dependency(\.poseEstimation) var poseEstimation: PoseEstimationService
 
     func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
         switch action {
@@ -83,7 +84,8 @@ struct GalleryFeature: ReducerProtocol {
                 return .task {
                     let uiImage = UIImage(cgImage: currentImage)
                     let points = detector.detectPoseOnImage(image: uiImage)
-                    let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: points)
+                    let estimated = poseEstimation.estimatePoseJoints(joints: points)
+                    let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: estimated)
                     return .processFrameResult(resultImage)
                 }
             } else {
