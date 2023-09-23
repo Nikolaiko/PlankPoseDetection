@@ -30,6 +30,7 @@
 		913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059AE298AC140004155FD /* DrawServiceDependency.swift */; };
 		913059B1298AC22A004155FD /* WorkoutView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059B0298AC22A004155FD /* WorkoutView_Previews.swift */; };
 		913059B3298AC377004155FD /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 913059B2298AC377004155FD /* video.mp4 */; };
+		9136AF892ABBCFD5005B3BD6 /* MathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136AF882ABBCFD5005B3BD6 /* MathHelper.swift */; };
 		91442EBD299FE72000F1C501 /* CameraConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EBC299FE72000F1C501 /* CameraConstants.swift */; };
 		91442EBF299FF02300F1C501 /* CameraFrameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */; };
 		91442EC1299FF0A000F1C501 /* CallbackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91442EC0299FF0A000F1C501 /* CallbackTypes.swift */; };
@@ -49,6 +50,7 @@
 		917BD070297EB49100F57E6D /* PlankPoseDetectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */; };
 		917BD074297EB49200F57E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD073297EB49200F57E6D /* Assets.xcassets */; };
 		917BD077297EB49200F57E6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917BD076297EB49200F57E6D /* Preview Assets.xcassets */; };
+		918EAC7E2ABE0A82003598D4 /* PlankPoseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EAC7D2ABE0A82003598D4 /* PlankPoseType.swift */; };
 		919594D529BCD6AB00BCB5C6 /* CameraPlaybackView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919594D429BCD6AB00BCB5C6 /* CameraPlaybackView_Previews.swift */; };
 		919594D929BCD76200BCB5C6 /* PoseDetectionServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919594D829BCD76200BCB5C6 /* PoseDetectionServicePreview.swift */; };
 		919594DD29BCDD8900BCB5C6 /* PosePreviewImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 919594DB29BCDB8400BCB5C6 /* PosePreviewImage.jpg */; };
@@ -129,6 +131,7 @@
 		913059AE298AC140004155FD /* DrawServiceDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawServiceDependency.swift; sourceTree = "<group>"; };
 		913059B0298AC22A004155FD /* WorkoutView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView_Previews.swift; sourceTree = "<group>"; };
 		913059B2298AC377004155FD /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		9136AF882ABBCFD5005B3BD6 /* MathHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathHelper.swift; sourceTree = "<group>"; };
 		91442EBC299FE72000F1C501 /* CameraConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConstants.swift; sourceTree = "<group>"; };
 		91442EBE299FF02300F1C501 /* CameraFrameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrameDelegate.swift; sourceTree = "<group>"; };
 		91442EC0299FF0A000F1C501 /* CallbackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackTypes.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		917BD06F297EB49100F57E6D /* PlankPoseDetectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPoseDetectorApp.swift; sourceTree = "<group>"; };
 		917BD073297EB49200F57E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		917BD076297EB49200F57E6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		918EAC7D2ABE0A82003598D4 /* PlankPoseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPoseType.swift; sourceTree = "<group>"; };
 		919594D429BCD6AB00BCB5C6 /* CameraPlaybackView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPlaybackView_Previews.swift; sourceTree = "<group>"; };
 		919594D829BCD76200BCB5C6 /* PoseDetectionServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetectionServicePreview.swift; sourceTree = "<group>"; };
 		919594DB29BCDB8400BCB5C6 /* PosePreviewImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PosePreviewImage.jpg; sourceTree = "<group>"; };
@@ -287,6 +291,14 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		9136AF872ABBCFC4005B3BD6 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				9136AF882ABBCFD5005B3BD6 /* MathHelper.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
 		91442EBB299FE70A00F1C501 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +352,7 @@
 		9178EAEB29B506A300ACC9F8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9136AF872ABBCFC4005B3BD6 /* Math */,
 				911329A52A19356900BFF5CE /* Delegates */,
 				9178EAEC29B506AA00ACC9F8 /* DispatchSourceTimer */,
 			);
@@ -703,6 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				91D854F72986DAE300F82E11 /* PoseJoint.swift */,
+				918EAC7D2ABE0A82003598D4 /* PlankPoseType.swift */,
 			);
 			path = Pose;
 			sourceTree = "<group>";
@@ -925,6 +939,7 @@
 				91A52F63297EEEE4007857CE /* MainView.swift in Sources */,
 				911C66BE298595C300E7D4D4 /* BottomBarCofficients.swift in Sources */,
 				916656C72AADD70A00B9CD6D /* View+Apply.swift in Sources */,
+				918EAC7E2ABE0A82003598D4 /* PlankPoseType.swift in Sources */,
 				91A30A162A0FA8F70004F4E2 /* VideoPlayerOverlay.swift in Sources */,
 				911C66C2298597F700E7D4D4 /* BottomBarIcon.swift in Sources */,
 				91D720632A1DA4FC0097BD91 /* HUDMessengerDependency.swift in Sources */,
@@ -972,6 +987,7 @@
 				911C66BB2985940C00E7D4D4 /* AppBottomBar.swift in Sources */,
 				91A52F69297EF253007857CE /* MainViewTabEnum.swift in Sources */,
 				916B08C52A15C7CC007E2FC8 /* SettingsView_Previews.swift in Sources */,
+				9136AF892ABBCFD5005B3BD6 /* MathHelper.swift in Sources */,
 				91A30A232A0FB3FE0004F4E2 /* AppImageNames.swift in Sources */,
 				91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */,
 				91C870812AB0C56600267A0A /* PlankPoseEstimation.swift in Sources */,

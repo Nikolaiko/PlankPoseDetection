@@ -43,6 +43,14 @@ class VisionPoseDetection: PoseDetector {
                 let jointType = PoseJoint.Name.fromVisionJoint(joint: jointName)
             else { return }
 
+            if jointName == .leftWrist {
+                print("Left W Not Normalized : \(currentPoint.location)")
+            }
+
+            if jointName == .leftShoulder {
+                print("Left S Not Normalized : \(currentPoint.location)")
+            }
+
             var normalized: CGPoint = VNImagePointForNormalizedPoint(
                 currentPoint.location,
                 sourceImage.width,

@@ -8,5 +8,8 @@
 import Foundation
 
 protocol PoseEstimationService {
-    func estimatePoseJoints(joints: [PoseJoint.Name: PoseJoint]) -> [PoseJoint.Name: PoseJoint]
+    func estimatePoseJoints(
+        joints: [PoseJoint.Name: PoseJoint],
+        imageSize: CGSize
+    ) -> [PoseJoint.Name: PoseJoint]
 }

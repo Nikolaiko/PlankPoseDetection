@@ -33,15 +33,18 @@ class PoseJoint {
     }
 
     enum Validation: String {
+        case unchecked
         case correct
         case wrong
 
         var color: UIColor {
             switch self {
             case .correct:
-                return UIColor.green
+                return .green
             case .wrong:
-                return UIColor.red
+                return .red
+            case .unchecked:
+                return .orange
             }
         }
     }
@@ -55,7 +58,7 @@ class PoseJoint {
         name: Name,
         position: CGPoint = .zero,
         confidence: Double = 0,
-        validationStatus: Validation = .wrong
+        validationStatus: Validation = .unchecked
     ) {
         self.name = name
         self.position = position

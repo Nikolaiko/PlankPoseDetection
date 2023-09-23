@@ -84,7 +84,7 @@ struct GalleryFeature: ReducerProtocol {
                 return .task {
                     let uiImage = UIImage(cgImage: currentImage)
                     let points = detector.detectPoseOnImage(image: uiImage)
-                    let estimated = poseEstimation.estimatePoseJoints(joints: points)
+                    let estimated = poseEstimation.estimatePoseJoints(joints: points, imageSize: uiImage.size)
                     let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: estimated)
                     return .processFrameResult(resultImage)
                 }
