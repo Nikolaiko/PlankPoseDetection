@@ -88,6 +88,8 @@
 		91CBEE682992D3590011DECB /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE672992D3590011DECB /* FrameView.swift */; };
 		91CBEE6A2992D4920011DECB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE692992D4920011DECB /* CameraView.swift */; };
 		91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */; };
+		91D241952ACBB8530081BC1C /* LineMath in Frameworks */ = {isa = PBXBuildFile; productRef = 91D241942ACBB8530081BC1C /* LineMath */; };
+		91D241972ACBBEA30081BC1C /* PointMath in Frameworks */ = {isa = PBXBuildFile; productRef = 91D241962ACBBEA30081BC1C /* PointMath */; };
 		91D720612A1DA3D90097BD91 /* HUDMessagePriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D720602A1DA3D90097BD91 /* HUDMessagePriority.swift */; };
 		91D720632A1DA4FC0097BD91 /* HUDMessengerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D720622A1DA4FC0097BD91 /* HUDMessengerDependency.swift */; };
 		91D720652A1DA7740097BD91 /* HUDUIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D720642A1DA7740097BD91 /* HUDUIWindow.swift */; };
@@ -189,6 +191,7 @@
 		91CBEE672992D3590011DECB /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		91CBEE692992D4920011DECB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		91CBEE6B2992D5D00011DECB /* CameraConfigurationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurationState.swift; sourceTree = "<group>"; };
+		91D241922ACBB1020081BC1C /* Math */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Math; path = Modules/Math; sourceTree = "<group>"; };
 		91D720602A1DA3D90097BD91 /* HUDMessagePriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessagePriority.swift; sourceTree = "<group>"; };
 		91D720622A1DA4FC0097BD91 /* HUDMessengerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDMessengerDependency.swift; sourceTree = "<group>"; };
 		91D720642A1DA7740097BD91 /* HUDUIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDUIWindow.swift; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D241952ACBB8530081BC1C /* LineMath in Frameworks */,
+				91D241972ACBBEA30081BC1C /* PointMath in Frameworks */,
 				91A52F54297EEB31007857CE /* ComposableArchitecture in Frameworks */,
 				911C66CE29859ED000E7D4D4 /* SwiftDevPackage in Frameworks */,
 			);
@@ -371,8 +376,10 @@
 		917BD063297EB49100F57E6D = {
 			isa = PBXGroup;
 			children = (
+				91D241922ACBB1020081BC1C /* Math */,
 				917BD06E297EB49100F57E6D /* PlankPoseDetector */,
 				917BD06D297EB49100F57E6D /* Products */,
+				91D241932ACBB8530081BC1C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -702,6 +709,13 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		91D241932ACBB8530081BC1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91D7205F2A1DA33B0097BD91 /* HUDWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,6 +863,8 @@
 			packageProductDependencies = (
 				91A52F53297EEB31007857CE /* ComposableArchitecture */,
 				911C66CD29859ED000E7D4D4 /* SwiftDevPackage */,
+				91D241942ACBB8530081BC1C /* LineMath */,
+				91D241962ACBBEA30081BC1C /* PointMath */,
 			);
 			productName = PlankPoseDetector;
 			productReference = 917BD06C297EB49100F57E6D /* PlankPoseDetector.app */;
@@ -1262,6 +1278,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91A52F52297EEB31007857CE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		91D241942ACBB8530081BC1C /* LineMath */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LineMath;
+		};
+		91D241962ACBBEA30081BC1C /* PointMath */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PointMath;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

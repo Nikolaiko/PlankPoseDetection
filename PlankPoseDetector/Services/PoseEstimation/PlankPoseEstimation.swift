@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PointMath
 
 class PlankPoseEstimation: PoseEstimationService {
     private static let acceptedVariationPercent: Double = 3
@@ -29,12 +30,34 @@ class PlankPoseEstimation: PoseEstimationService {
 
         guard poseType != .undefined else { return joints }
 
-        
+        checkBack(joints: joints, poseType: poseType)
+
     return joints
 }
 
-    private func checkBack(joints: [PoseJoint.Name: PoseJoint]) {
+    private func checkBack(joints: [PoseJoint.Name: PoseJoint], poseType: PlankPoseType) {
+        switch poseType {
+        case .elbow:
+            checkBackForElbowPose(joints: joints)
+        case .straitHands:
+            print("Strait")
+        case .undefined:
+            return
+        }
+    }
 
+    private func checkBackForElbowPose(joints: [PoseJoint.Name: PoseJoint]) {
+        guard let neckPos = joints[.neck]?.position,
+              let rootPos = joints[.root]?.position else { return }
+        
+        if PointMath.isPointsNearEnougthY(
+            first: neckPos,
+            second: rootPos,
+            value: acceptedVariationValue
+        ) {
+            joints[.neck]?.validationStatus = .correct
+            joints[.root]?.validationStatus = .correct
+        }
     }
 
     private func checkStraitPoseHands(joints: [PoseJoint.Name: PoseJoint]) -> Bool {
@@ -45,7 +68,7 @@ class PlankPoseEstimation: PoseEstimationService {
         if let leftWristPos = joints[.leftWrist]?.position,
            let leftShoulderPos = joints[.leftShoulder]?.position {
 
-            if MathHelper.isPointsNearEnougthX(
+            if PointMath.isPointsNearEnougthX(
                 first: leftWristPos,
                 second: leftShoulderPos,
                 value: acceptedVariationValue
@@ -59,7 +82,7 @@ class PlankPoseEstimation: PoseEstimationService {
         if let rightWristPos = joints[.leftWrist]?.position,
             let rightShoulderPos = joints[.leftShoulder]?.position {
 
-            if MathHelper.isPointsNearEnougthX(
+            if PointMath.isPointsNearEnougthX(
                 first: rightWristPos,
                 second: rightShoulderPos,
                 value: acceptedVariationValue
@@ -102,11 +125,11 @@ class PlankPoseEstimation: PoseEstimationService {
            let leftShoulderPos = joints[.leftShoulder]?.position,
            let leftElbowPos = joints[.leftElbow]?.position {
 
-            if MathHelper.isPointsNearEnougthY(
+            if PointMath.isPointsNearEnougthY(
                 first: leftWristPos,
                 second: leftElbowPos,
                 value: acceptedVariationValue
-            ) && MathHelper.isPointsNearEnougthX(
+            ) && PointMath.isPointsNearEnougthX(
                 first: leftShoulderPos,
                 second: leftElbowPos,
                 value: acceptedVariationValue
@@ -121,11 +144,11 @@ class PlankPoseEstimation: PoseEstimationService {
            let rightShoulderPos = joints[.leftShoulder]?.position,
            let rightElbowPos = joints[.rightElbow]?.position {
 
-            if MathHelper.isPointsNearEnougthY(
+            if PointMath.isPointsNearEnougthY(
                 first: rightWristPos,
                 second: rightElbowPos,
                 value: acceptedVariationValue
-            ) && MathHelper.isPointsNearEnougthX(
+            ) && PointMath.isPointsNearEnougthX(
                 first: rightShoulderPos,
                 second: rightElbowPos,
                 value: acceptedVariationValue
@@ -135,6 +158,7 @@ class PlankPoseEstimation: PoseEstimationService {
                 rightCheckState = .wrong
             }
         }
+
         if rightCheckState == .correct ||
             leftCheckState == .correct {
             poseWasDetected = true
