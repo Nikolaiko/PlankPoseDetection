@@ -14,4 +14,16 @@ final class LineMathTests: XCTestCase {
         let expectedParameters = LineParameters(a: 3, b: -1)
         XCTAssertEqual(parameters, expectedParameters, "Line Parameters not equal")
     }
+
+    func testNearestPointCalculation() {
+        let lineParameters = testLine1
+        let startPoint = testPoint3
+
+        let actualNearestPoint = LineMath.findNearestPointFromStartOnLine(
+            line: lineParameters,
+            start: startPoint
+        )
+        let expectedPoint = CGPoint(x: 180.125, y: 409.625)
+        XCTAssertEqual(expectedPoint, actualNearestPoint, "Points are not equal!")
+    }
 }

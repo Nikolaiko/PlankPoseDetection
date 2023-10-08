@@ -7,4 +7,10 @@ public enum LineMath {
         let bCoff = point1.y - aCoff * point1.x
         return LineParameters(a: aCoff, b: bCoff)
     }
+
+    public static func findNearestPointFromStartOnLine(line: LineParameters, start: CGPoint) -> CGPoint {
+        let nearestX = (start.x + line.a * start.y - line.a * line.b) / (line.a * line.a + 1)
+        let nearestY = line.a * nearestX + line.b
+        return CGPoint(x: nearestX, y: nearestY)
+    }
 }
