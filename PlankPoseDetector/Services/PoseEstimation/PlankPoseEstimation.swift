@@ -7,6 +7,7 @@
 
 import Foundation
 import PointMath
+import LineMath
 
 class PlankPoseEstimation: PoseEstimationService {
     private static let acceptedVariationPercent: Double = 3
@@ -32,24 +33,60 @@ class PlankPoseEstimation: PoseEstimationService {
 
         checkBack(joints: joints, poseType: poseType)
 
-    return joints
-}
+        return joints
+    }
 
     private func checkBack(joints: [PoseJoint.Name: PoseJoint], poseType: PlankPoseType) {
         switch poseType {
         case .elbow:
             checkBackForElbowPose(joints: joints)
         case .straitHands:
-            print("Strait")
+            checkBodyForStraitPose(joints: joints)
         case .undefined:
             return
+        }
+    }
+
+    private func checkBodyForStraitPose(joints: [PoseJoint.Name: PoseJoint]) {
+        guard let anklePos = joints[.leftAnkle]?.position ?? joints[.rightAnkle]?.position else { return }
+        guard let neckPos = joints[.neck]?.position,
+              let rootPos = joints[.root]?.position,
+              let leftKnee = joints[.leftKnee]?.position,
+              let rightKnee = joints[.rightKnee]?.position else { return }
+
+        let bodyLine = LineMath.calculateLineParameters(point1: anklePos, point2: neckPos)
+        var crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: rootPos)
+        var vector = PointMath.vectorBetweenPoints(first: rootPos, second: crossPoint)
+        var variation = PointMath.vectorLength(vectorCoors: vector)
+
+        if variation <= acceptedVariationValue {
+            joints[.neck]?.validationStatus = .correct
+            joints[.root]?.validationStatus = .correct
+        }
+
+        crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: leftKnee)
+        vector = PointMath.vectorBetweenPoints(first: leftKnee, second: crossPoint)
+        variation = PointMath.vectorLength(vectorCoors: vector)
+
+        if variation <= acceptedVariationValue {
+            joints[.leftKnee]?.validationStatus = .correct
+            joints[.leftAnkle]?.validationStatus = .correct
+        }
+
+        crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: rightKnee)
+        vector = PointMath.vectorBetweenPoints(first: rightKnee, second: crossPoint)
+        variation = PointMath.vectorLength(vectorCoors: vector)
+
+        if variation <= acceptedVariationValue {
+            joints[.rightKnee]?.validationStatus = .correct
+            joints[.rightAnkle]?.validationStatus = .correct
         }
     }
 
     private func checkBackForElbowPose(joints: [PoseJoint.Name: PoseJoint]) {
         guard let neckPos = joints[.neck]?.position,
               let rootPos = joints[.root]?.position else { return }
-        
+
         if PointMath.isPointsNearEnougthY(
             first: neckPos,
             second: rootPos,
@@ -80,7 +117,7 @@ class PlankPoseEstimation: PoseEstimationService {
         }
 
         if let rightWristPos = joints[.leftWrist]?.position,
-            let rightShoulderPos = joints[.leftShoulder]?.position {
+           let rightShoulderPos = joints[.leftShoulder]?.position {
 
             if PointMath.isPointsNearEnougthX(
                 first: rightWristPos,

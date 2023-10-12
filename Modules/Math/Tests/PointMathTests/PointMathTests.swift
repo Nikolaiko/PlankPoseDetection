@@ -30,5 +30,21 @@ final class PointMathTests: XCTestCase {
         XCTAssertFalse(xNear, "Points are near on X axis, but shouldn't be")
         XCTAssertFalse(yNear, "Points are near on Y axis, but shouldn't be")
     }
+
+    func testVectorCoorsCalculation() {
+        let start = testPoint1
+        let end = testPoint2
+        let expected = CGPoint(x: 2, y: 6)
+
+        let vectorCoors = PointMath.vectorBetweenPoints(first: start, second: end)
+        XCTAssertEqual(vectorCoors, expected, "Wrong vector coors!")
+    }
+
+    func testVectorLength() {
+        let testVectorCoors = CGPoint(x: 3, y: 4)
+        let expectedLength: Double = 5
+        let actualLength = PointMath.vectorLength(vectorCoors: testVectorCoors)
+        XCTAssertEqual(actualLength, expectedLength, "Lengths not equal!")
+    }
 }
 

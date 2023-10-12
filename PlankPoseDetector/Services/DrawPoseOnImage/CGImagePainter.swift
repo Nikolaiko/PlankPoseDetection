@@ -75,11 +75,11 @@ struct CGImagePainter: DrawImageService {
 
             rendererContext.cgContext.setLineWidth(5)
 
-            tryToDrawLine(
-                context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftShoulder],
-                dest: points[PoseJoint.Name.rightShoulder]
-            )
+//            tryToDrawLine(
+//                context: rendererContext.cgContext,
+//                source: points[PoseJoint.Name.leftShoulder],
+//                dest: points[PoseJoint.Name.rightShoulder]
+//            )
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
@@ -113,7 +113,7 @@ struct CGImagePainter: DrawImageService {
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.rightHip],
+                source: points[PoseJoint.Name.root],
                 dest: points[PoseJoint.Name.rightKnee]
             )
 
@@ -125,7 +125,7 @@ struct CGImagePainter: DrawImageService {
 
             tryToDrawLine(
                 context: rendererContext.cgContext,
-                source: points[PoseJoint.Name.leftHip],
+                source: points[PoseJoint.Name.root],
                 dest: points[PoseJoint.Name.leftKnee]
             )
 

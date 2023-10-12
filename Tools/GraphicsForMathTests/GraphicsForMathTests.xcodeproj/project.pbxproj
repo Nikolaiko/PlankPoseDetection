@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911116742AD7A3C000B6BF02 /* LineMath in Frameworks */ = {isa = PBXBuildFile; productRef = 911116732AD7A3C000B6BF02 /* LineMath */; };
+		911116762AD7A3C000B6BF02 /* PointMath in Frameworks */ = {isa = PBXBuildFile; productRef = 911116752AD7A3C000B6BF02 /* PointMath */; };
 		912738402AD2334D002A3320 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127383F2AD2334D002A3320 /* AppDelegate.swift */; };
 		912738422AD2334D002A3320 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912738412AD2334D002A3320 /* SceneDelegate.swift */; };
 		912738442AD2334D002A3320 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912738432AD2334D002A3320 /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 			files = (
 				9127385A2AD23466002A3320 /* PointMath in Frameworks */,
 				912738582AD23466002A3320 /* LineMath in Frameworks */,
+				911116762AD7A3C000B6BF02 /* PointMath in Frameworks */,
+				911116742AD7A3C000B6BF02 /* LineMath in Frameworks */,
 				912738552AD23384002A3320 /* LineMath in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +97,8 @@
 				912738542AD23384002A3320 /* LineMath */,
 				912738572AD23466002A3320 /* LineMath */,
 				912738592AD23466002A3320 /* PointMath */,
+				911116732AD7A3C000B6BF02 /* LineMath */,
+				911116752AD7A3C000B6BF02 /* PointMath */,
 			);
 			productName = GraphicsForMathTests;
 			productReference = 9127383C2AD2334D002A3320 /* GraphicsForMathTests.app */;
@@ -123,7 +129,7 @@
 			);
 			mainGroup = 912738332AD2334D002A3320;
 			packageReferences = (
-				912738562AD23466002A3320 /* XCLocalSwiftPackageReference "../../Modules/Math" */,
+				911116722AD7A3C000B6BF02 /* XCLocalSwiftPackageReference "../../Modules/Math" */,
 			);
 			productRefGroup = 9127383D2AD2334D002A3320 /* Products */;
 			projectDirPath = "";
@@ -385,13 +391,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		912738562AD23466002A3320 /* XCLocalSwiftPackageReference "../../Modules/Math" */ = {
+		911116722AD7A3C000B6BF02 /* XCLocalSwiftPackageReference "../../Modules/Math" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../Modules/Math;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		911116732AD7A3C000B6BF02 /* LineMath */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LineMath;
+		};
+		911116752AD7A3C000B6BF02 /* PointMath */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PointMath;
+		};
 		912738542AD23384002A3320 /* LineMath */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LineMath;
