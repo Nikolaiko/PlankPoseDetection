@@ -7,8 +7,8 @@
 
 import Foundation
 import UIKit
+import PoseDetection
 
 protocol PoseDetector {
     func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name: PoseJoint]
-    
 }

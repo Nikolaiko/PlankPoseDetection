@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import ComposableArchitecture
+import PoseDetection
 
 struct PoseDrawingFeature: ReducerProtocol {
 

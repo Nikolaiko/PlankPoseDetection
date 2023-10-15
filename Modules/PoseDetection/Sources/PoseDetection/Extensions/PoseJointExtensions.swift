@@ -9,7 +9,7 @@ import Foundation
 import Vision
 
 extension PoseJoint.Name {
-    static func fromVisionJoint(joint: VNHumanBodyPoseObservation.JointName) -> PoseJoint.Name? {
+    public static func fromVisionJoint(joint: VNHumanBodyPoseObservation.JointName) -> PoseJoint.Name? {
         switch joint {
         case .leftShoulder:
             return .leftShoulder

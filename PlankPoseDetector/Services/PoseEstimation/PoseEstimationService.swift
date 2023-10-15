@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PoseDetection
 
 protocol PoseEstimationService {
     func estimatePoseJoints(

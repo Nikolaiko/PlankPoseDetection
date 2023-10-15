@@ -6,11 +6,11 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 import CoreGraphics
 
-class PoseJoint {
-    enum Name: String, CaseIterable {
+final public class PoseJoint {
+    public enum Name: String, CaseIterable {
         case nose
         case leftEye
         case rightEye
@@ -32,12 +32,12 @@ class PoseJoint {
         case root
     }
 
-    enum Validation: String {
+    public enum Validation: String {
         case unchecked
         case correct
         case wrong
 
-        var color: UIColor {
+        public var color: Color {
             switch self {
             case .correct:
                 return .green
@@ -49,12 +49,12 @@ class PoseJoint {
         }
     }
 
-    let name: Name
-    var position: CGPoint
-    var confidence: Double
-    var validationStatus: Validation
+    public let name: Name
+    public var position: CGPoint
+    public var confidence: Double
+    public var validationStatus: Validation
 
-    init(
+    public init(
         name: Name,
         position: CGPoint = .zero,
         confidence: Double = 0,

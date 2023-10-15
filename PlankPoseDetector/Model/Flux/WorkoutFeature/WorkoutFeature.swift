@@ -10,6 +10,7 @@ import ComposableArchitecture
 import UIKit
 import Dependencies
 import AVFoundation
+import PoseDetection
 
 struct WorkoutFeature: ReducerProtocol {
 

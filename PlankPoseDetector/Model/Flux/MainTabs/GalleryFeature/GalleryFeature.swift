@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import ComposableArchitecture
+import PoseDetection
 
 struct GalleryFeature: ReducerProtocol {
     struct State: Equatable {

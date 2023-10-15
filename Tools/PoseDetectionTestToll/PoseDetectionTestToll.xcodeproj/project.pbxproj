@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		915D56CD2ADB833E0000482C /* PoseDetectionTestTollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915D56CC2ADB833E0000482C /* PoseDetectionTestTollApp.swift */; };
+		915D56CF2ADB833E0000482C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915D56CE2ADB833E0000482C /* ContentView.swift */; };
+		915D56D12ADB833F0000482C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915D56D02ADB833F0000482C /* Assets.xcassets */; };
+		915D56D42ADB833F0000482C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915D56D32ADB833F0000482C /* Preview Assets.xcassets */; };
+		915D56DD2ADB83880000482C /* PoseDetection in Frameworks */ = {isa = PBXBuildFile; productRef = 915D56DC2ADB83880000482C /* PoseDetection */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		915D56C92ADB833E0000482C /* PoseDetectionTestToll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoseDetectionTestToll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		915D56CC2ADB833E0000482C /* PoseDetectionTestTollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetectionTestTollApp.swift; sourceTree = "<group>"; };
+		915D56CE2ADB833E0000482C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		915D56D02ADB833F0000482C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		915D56D32ADB833F0000482C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		915D56D52ADB833F0000482C /* PoseDetectionTestToll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoseDetectionTestToll.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		915D56C62ADB833E0000482C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915D56DD2ADB83880000482C /* PoseDetection in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		915D56C02ADB833E0000482C = {
+			isa = PBXGroup;
+			children = (
+				915D56CB2ADB833E0000482C /* PoseDetectionTestToll */,
+				915D56CA2ADB833E0000482C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		915D56CA2ADB833E0000482C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				915D56C92ADB833E0000482C /* PoseDetectionTestToll.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		915D56CB2ADB833E0000482C /* PoseDetectionTestToll */ = {
+			isa = PBXGroup;
+			children = (
+				915D56CC2ADB833E0000482C /* PoseDetectionTestTollApp.swift */,
+				915D56CE2ADB833E0000482C /* ContentView.swift */,
+				915D56D02ADB833F0000482C /* Assets.xcassets */,
+				915D56D52ADB833F0000482C /* PoseDetectionTestToll.entitlements */,
+				915D56D22ADB833F0000482C /* Preview Content */,
+			);
+			path = PoseDetectionTestToll;
+			sourceTree = "<group>";
+		};
+		915D56D22ADB833F0000482C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				915D56D32ADB833F0000482C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		915D56C82ADB833E0000482C /* PoseDetectionTestToll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915D56D82ADB833F0000482C /* Build configuration list for PBXNativeTarget "PoseDetectionTestToll" */;
+			buildPhases = (
+				915D56C52ADB833E0000482C /* Sources */,
+				915D56C62ADB833E0000482C /* Frameworks */,
+				915D56C72ADB833E0000482C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoseDetectionTestToll;
+			packageProductDependencies = (
+				915D56DC2ADB83880000482C /* PoseDetection */,
+			);
+			productName = PoseDetectionTestToll;
+			productReference = 915D56C92ADB833E0000482C /* PoseDetectionTestToll.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		915D56C12ADB833E0000482C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					915D56C82ADB833E0000482C = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 915D56C42ADB833E0000482C /* Build configuration list for PBXProject "PoseDetectionTestToll" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 915D56C02ADB833E0000482C;
+			packageReferences = (
+				915D56DB2ADB83880000482C /* XCLocalSwiftPackageReference "../../Modules/PoseDetection" */,
+			);
+			productRefGroup = 915D56CA2ADB833E0000482C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				915D56C82ADB833E0000482C /* PoseDetectionTestToll */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		915D56C72ADB833E0000482C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915D56D42ADB833F0000482C /* Preview Assets.xcassets in Resources */,
+				915D56D12ADB833F0000482C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		915D56C52ADB833E0000482C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915D56CF2ADB833E0000482C /* ContentView.swift in Sources */,
+				915D56CD2ADB833E0000482C /* PoseDetectionTestTollApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		915D56D62ADB833F0000482C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		915D56D72ADB833F0000482C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		915D56D92ADB833F0000482C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PoseDetectionTestToll/PoseDetectionTestToll.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PoseDetectionTestToll/Preview Content\"";
+				DEVELOPMENT_TEAM = ZWXN4J2VCP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = swift.nikolai.PoseDetectionTestToll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		915D56DA2ADB833F0000482C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PoseDetectionTestToll/PoseDetectionTestToll.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PoseDetectionTestToll/Preview Content\"";
+				DEVELOPMENT_TEAM = ZWXN4J2VCP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = swift.nikolai.PoseDetectionTestToll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		915D56C42ADB833E0000482C /* Build configuration list for PBXProject "PoseDetectionTestToll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915D56D62ADB833F0000482C /* Debug */,
+				915D56D72ADB833F0000482C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915D56D82ADB833F0000482C /* Build configuration list for PBXNativeTarget "PoseDetectionTestToll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915D56D92ADB833F0000482C /* Debug */,
+				915D56DA2ADB833F0000482C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		915D56DB2ADB83880000482C /* XCLocalSwiftPackageReference "../../Modules/PoseDetection" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../Modules/PoseDetection;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		915D56DC2ADB83880000482C /* PoseDetection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PoseDetection;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 915D56C12ADB833E0000482C /* Project object */;
+}

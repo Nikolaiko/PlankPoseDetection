@@ -8,6 +8,7 @@
 import Foundation
 import PointMath
 import LineMath
+import PoseDetection
 
 class PlankPoseEstimation: PoseEstimationService {
     private static let acceptedVariationPercent: Double = 3
@@ -39,11 +40,39 @@ class PlankPoseEstimation: PoseEstimationService {
     private func checkBack(joints: [PoseJoint.Name: PoseJoint], poseType: PlankPoseType) {
         switch poseType {
         case .elbow:
-            checkBackForElbowPose(joints: joints)
+            checkBodyForElbowPose(joints: joints)
         case .straitHands:
             checkBodyForStraitPose(joints: joints)
         case .undefined:
             return
+        }
+    }
+
+    private func checkBodyForElbowPose(joints: [PoseJoint.Name: PoseJoint]) {
+        checkBackForElbowPose(joints: joints)
+
+        guard let anklePos = joints[.leftAnkle]?.position ?? joints[.rightAnkle]?.position else { return }
+        guard let rootPos = joints[.root]?.position,
+              let leftKnee = joints[.leftKnee]?.position,
+              let rightKnee = joints[.rightKnee]?.position else { return }
+
+        let bodyLine = LineMath.calculateLineParameters(point1: anklePos, point2: rootPos)
+        var crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: leftKnee)
+        var vector = PointMath.vectorBetweenPoints(first: leftKnee, second: crossPoint)
+        var variation = PointMath.vectorLength(vectorCoors: vector)
+
+        if variation <= acceptedVariationValue {
+            joints[.leftKnee]?.validationStatus = .correct
+            joints[.leftAnkle]?.validationStatus = .correct
+        }
+
+        crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: rightKnee)
+        vector = PointMath.vectorBetweenPoints(first: rightKnee, second: crossPoint)
+        variation = PointMath.vectorLength(vectorCoors: vector)
+
+        if variation <= acceptedVariationValue {
+            joints[.rightKnee]?.validationStatus = .correct
+            joints[.rightAnkle]?.validationStatus = .correct
         }
     }
 

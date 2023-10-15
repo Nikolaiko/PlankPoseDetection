@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import PoseDetection
 
 protocol DrawImageService {
     func drawPointsOnImage(sourceImage: UIImage, points: [PoseJoint.Name: PoseJoint]) -> UIImage

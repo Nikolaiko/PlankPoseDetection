@@ -9,10 +9,12 @@ import Foundation
 import Vision
 import UIKit
 
-class VisionPoseDetection: PoseDetector {
+final public class VisionPoseDetection {
     private let humanBodyPoseRequest = VNDetectHumanBodyPoseRequest()
 
-    func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name: PoseJoint] {
+    public init() {}
+
+    public func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name: PoseJoint] {
         let visionRequestHandler = VNImageRequestHandler(cgImage: image.cgImage!)
         var results: [VNHumanBodyPoseObservation] = []
 

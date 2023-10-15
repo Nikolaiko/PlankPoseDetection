@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import PoseDetection
 
 struct CGImagePainter: DrawImageService {
     private static let elipseSide: CGFloat = 20
@@ -35,8 +36,8 @@ struct CGImagePainter: DrawImageService {
             rendererContext.cgContext.restoreGState()
 
             points.forEach { pair in
-                pair.value.validationStatus.color.setFill()
-                pair.value.validationStatus.color.setStroke()
+                pair.value.validationStatus.color.toUIColor().setFill()
+                pair.value.validationStatus.color.toUIColor().setStroke()
                 let ellipse = CGRect(
                     x: pair.value.position.x,
                     y: pair.value.position.y,
@@ -62,8 +63,8 @@ struct CGImagePainter: DrawImageService {
 
         let dstImage = renderer.image { rendererContext in
             points.forEach { pair in
-                pair.value.validationStatus.color.setFill()
-                pair.value.validationStatus.color.setStroke()
+                pair.value.validationStatus.color.toUIColor().setFill()
+                pair.value.validationStatus.color.toUIColor().setStroke()
                 let ellipse = CGRect(
                     x: pair.value.position.x,
                     y: pair.value.position.y,
@@ -160,7 +161,7 @@ struct CGImagePainter: DrawImageService {
 
     private func getLineColorForPoints(source: PoseJoint, dest: PoseJoint) -> UIColor {
         return source.validationStatus == .correct && dest.validationStatus == .correct
-            ? PoseJoint.Validation.correct.color
-            : PoseJoint.Validation.wrong.color
+            ? PoseJoint.Validation.correct.color.toUIColor()
+            : PoseJoint.Validation.wrong.color.toUIColor()
     }
 }
