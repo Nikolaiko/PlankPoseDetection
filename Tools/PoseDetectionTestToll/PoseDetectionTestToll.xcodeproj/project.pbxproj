@@ -7,20 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913511D72AE5942F000ED3BA /* DrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913511D62AE5942F000ED3BA /* DrawService.swift */; };
 		915D56CD2ADB833E0000482C /* PoseDetectionTestTollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915D56CC2ADB833E0000482C /* PoseDetectionTestTollApp.swift */; };
 		915D56CF2ADB833E0000482C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915D56CE2ADB833E0000482C /* ContentView.swift */; };
 		915D56D12ADB833F0000482C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915D56D02ADB833F0000482C /* Assets.xcassets */; };
 		915D56D42ADB833F0000482C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915D56D32ADB833F0000482C /* Preview Assets.xcassets */; };
 		915D56DD2ADB83880000482C /* PoseDetection in Frameworks */ = {isa = PBXBuildFile; productRef = 915D56DC2ADB83880000482C /* PoseDetection */; };
+		9193E4092AE58DD9001D8A5B /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9193E4052AE58DD9001D8A5B /* image3.png */; };
+		9193E40A2AE58DD9001D8A5B /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9193E4062AE58DD9001D8A5B /* image2.png */; };
+		9193E40B2AE58DD9001D8A5B /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9193E4072AE58DD9001D8A5B /* image1.png */; };
+		9193E40C2AE58DD9001D8A5B /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9193E4082AE58DD9001D8A5B /* image4.png */; };
+		9193E40F2AE58FC9001D8A5B /* DetectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193E40E2AE58FC9001D8A5B /* DetectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		913511D62AE5942F000ED3BA /* DrawService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawService.swift; sourceTree = "<group>"; };
 		915D56C92ADB833E0000482C /* PoseDetectionTestToll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoseDetectionTestToll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		915D56CC2ADB833E0000482C /* PoseDetectionTestTollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetectionTestTollApp.swift; sourceTree = "<group>"; };
 		915D56CE2ADB833E0000482C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		915D56D02ADB833F0000482C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		915D56D32ADB833F0000482C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		915D56D52ADB833F0000482C /* PoseDetectionTestToll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoseDetectionTestToll.entitlements; sourceTree = "<group>"; };
+		9193E4052AE58DD9001D8A5B /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
+		9193E4062AE58DD9001D8A5B /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		9193E4072AE58DD9001D8A5B /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		9193E4082AE58DD9001D8A5B /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
+		9193E40E2AE58FC9001D8A5B /* DetectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		913511D52AE59408000ED3BA /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				913511D62AE5942F000ED3BA /* DrawService.swift */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
 		915D56C02ADB833E0000482C = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +74,9 @@
 		915D56CB2ADB833E0000482C /* PoseDetectionTestToll */ = {
 			isa = PBXGroup;
 			children = (
+				913511D52AE59408000ED3BA /* Draw */,
+				9193E40D2AE58FB7001D8A5B /* ViewModel */,
+				9193E4042AE58D4B001D8A5B /* TestImages */,
 				915D56CC2ADB833E0000482C /* PoseDetectionTestTollApp.swift */,
 				915D56CE2ADB833E0000482C /* ContentView.swift */,
 				915D56D02ADB833F0000482C /* Assets.xcassets */,
@@ -69,6 +92,25 @@
 				915D56D32ADB833F0000482C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9193E4042AE58D4B001D8A5B /* TestImages */ = {
+			isa = PBXGroup;
+			children = (
+				9193E4072AE58DD9001D8A5B /* image1.png */,
+				9193E4062AE58DD9001D8A5B /* image2.png */,
+				9193E4052AE58DD9001D8A5B /* image3.png */,
+				9193E4082AE58DD9001D8A5B /* image4.png */,
+			);
+			path = TestImages;
+			sourceTree = "<group>";
+		};
+		9193E40D2AE58FB7001D8A5B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9193E40E2AE58FC9001D8A5B /* DetectViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +177,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9193E40C2AE58DD9001D8A5B /* image4.png in Resources */,
+				9193E4092AE58DD9001D8A5B /* image3.png in Resources */,
+				9193E40B2AE58DD9001D8A5B /* image1.png in Resources */,
+				9193E40A2AE58DD9001D8A5B /* image2.png in Resources */,
 				915D56D42ADB833F0000482C /* Preview Assets.xcassets in Resources */,
 				915D56D12ADB833F0000482C /* Assets.xcassets in Resources */,
 			);
@@ -148,7 +194,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				915D56CF2ADB833E0000482C /* ContentView.swift in Sources */,
+				9193E40F2AE58FC9001D8A5B /* DetectViewModel.swift in Sources */,
 				915D56CD2ADB833E0000482C /* PoseDetectionTestTollApp.swift in Sources */,
+				913511D72AE5942F000ED3BA /* DrawService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PoseDetectionTestToll/PoseDetectionTestToll.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -306,6 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PoseDetectionTestToll/PoseDetectionTestToll.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

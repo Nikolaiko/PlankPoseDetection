@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @StateObject var viewModel = DetectViewModel()
 
-#Preview {
-    ContentView()
+    var body: some View {
+        GeometryReader { geom in
+            VStack {
+                ZStack {
+                    Image("image1")
+                        .resizable()
+                    if viewModel.result != nil {
+                        Image(nsImage: viewModel.result!)
+                            .resizable()
+                    }
+                }
+                Button(action: { viewModel.detect() },
+                       label: { Text("Detect") }
+                )
+            }
+        }
+    }
 }
