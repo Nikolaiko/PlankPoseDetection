@@ -13,7 +13,7 @@ struct WorkoutView: View {
     let stateStore: StoreOf<WorkoutFeature>
 
     var body: some View {
-        WithViewStore(stateStore) { viewState in
+        WithViewStore(stateStore, observe: { $0 }) { viewState in
             ZStack {
                 VStack {
                     ZStack {

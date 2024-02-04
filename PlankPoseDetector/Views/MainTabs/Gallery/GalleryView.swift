@@ -16,7 +16,7 @@ struct GalleryView: View {
     @State private var selectedItem: PhotosPickerItem?
 
     var body: some View {
-        WithViewStore(stateStore) { viewStore in            
+        WithViewStore(stateStore, observe: { $0 }) { viewStore in            
             GeometryReader { geometry in
                 VStack {
                     ZStack {

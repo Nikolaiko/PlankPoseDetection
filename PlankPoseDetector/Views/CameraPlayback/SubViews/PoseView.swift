@@ -13,7 +13,7 @@ struct PoseView: View {
     let stateStore: StoreOf<PoseDrawingFeature>
 
     var body: some View {
-        WithViewStore(stateStore) { viewStore in
+        WithViewStore(stateStore, observe: { $0 }) { viewStore in
             FrameView(image: viewStore.currentFrame?.cgImage)
         }
     }

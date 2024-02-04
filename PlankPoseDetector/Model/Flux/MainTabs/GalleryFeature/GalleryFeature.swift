@@ -11,7 +11,7 @@ import AVFoundation
 import ComposableArchitecture
 import PoseDetection
 
-struct GalleryFeature: ReducerProtocol {
+struct GalleryFeature: Reducer {
     struct State: Equatable {
         var activePlayer: AVPlayer?
         var bodyFrame: CGImage?
@@ -46,12 +46,12 @@ struct GalleryFeature: ReducerProtocol {
     @Dependency(\.paintService) var painter: DrawImageService
     @Dependency(\.poseEstimation) var poseEstimation: PoseEstimationService
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .startLoadingFilesList:
             state.loadingFilesList = true
-            return .task {
-                .loadingFilesListResult(appFileManager.getSavedFiles())
+            return Effect.run { send in
+                await send(.loadingFilesListResult(appFileManager.getSavedFiles()))
             }
         case .loadingFilesListResult(let loadedFiles):
             state.loadingFilesList = false
@@ -61,8 +61,8 @@ struct GalleryFeature: ReducerProtocol {
             state.loadingVideo = true
             return .none
         case .loadedVideoDataFromGallery(let videoData):
-            return .task {
-                .saveDataToTempFolderResult(appFileManager.loadDataFromUrl(videoData: videoData))
+            return Effect.run { send in
+                await send(.saveDataToTempFolderResult(appFileManager.loadDataFromUrl(videoData: videoData)))
             }
         case .saveDataToTempFolderResult(let urlResult):
             state.loadingVideo = false
@@ -82,12 +82,12 @@ struct GalleryFeature: ReducerProtocol {
         case .processFrame(let image):
             if let currentImage = image, state.processingImage == false {
                 state.processingImage = true
-                return .task {
+                return Effect.run { send in
                     let uiImage = UIImage(cgImage: currentImage)
                     let points = detector.detectPoseOnImage(image: uiImage)
                     let estimated = poseEstimation.estimatePoseJoints(joints: points, imageSize: uiImage.size)
                     let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: estimated)
-                    return .processFrameResult(resultImage)
+                    await send(.processFrameResult(resultImage))
                 }
             } else {
                 return .none
@@ -106,10 +106,10 @@ struct GalleryFeature: ReducerProtocol {
         case .backToGallery:
             appAvPlayer.stop()
             state.bodyFrame = nil
-            return Effect(value: .startLoadingFilesList)
+            return Effect.send(.startLoadingFilesList)
         case .prepareToClose(let newTabId):
             appAvPlayer.stop()
-            return Effect(value: .readyToClose(newTabId))
+            return Effect.send(.readyToClose(newTabId))
         default:
             return .none
         }

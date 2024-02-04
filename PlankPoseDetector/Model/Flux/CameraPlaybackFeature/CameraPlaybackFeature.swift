@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-struct CameraPlaybackFeature: ReducerProtocol {
+struct CameraPlaybackFeature: Reducer {
 
     struct State: Equatable {
         var cameraState: CameraFeature.State? = CameraFeature.State()
@@ -20,7 +20,7 @@ struct CameraPlaybackFeature: ReducerProtocol {
         case poseDrawingAction(PoseDrawingFeature.Action)
     }
 
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .cameraAction(let childAction):
@@ -40,10 +40,10 @@ struct CameraPlaybackFeature: ReducerProtocol {
     private func processCameraAction(
         state: inout CameraPlaybackFeature.State,
         action: CameraFeature.Action
-    ) -> Effect<CameraPlaybackFeature.Action, Never> {
+    ) -> Effect<CameraPlaybackFeature.Action> {
         switch action {
         case .sendFrameToParent(let image):
-            return Effect(value: CameraPlaybackFeature.Action.poseDrawingAction(.frameFromParent(image)))
+            return Effect.send(CameraPlaybackFeature.Action.poseDrawingAction(.frameFromParent(image)))
         default:
             return .none
         }

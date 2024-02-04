@@ -13,7 +13,7 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView(stateStore: Store(
             initialState: AppFeature.State(selectedTabId: .home),
-            reducer: AppFeature())
+            reducer: { AppFeature() })
         )
     }
 }

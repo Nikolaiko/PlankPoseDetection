@@ -14,7 +14,7 @@ struct WorkoutView_Previews: PreviewProvider {
         WorkoutView(
             stateStore: Store(
                 initialState: WorkoutFeature.State(),
-                reducer: WorkoutFeature()
+                reducer: { WorkoutFeature() }
             )
         )
     }

@@ -8,10 +8,12 @@
 import Foundation
 import ComposableArchitecture
 
-struct AppFeature: ReducerProtocol {
+@Reducer
+struct AppFeature {
 
+    @ObservableState
     struct State: Equatable {
-        @BindingState var selectedTabId: MainViewTabEnum
+        var selectedTabId: MainViewTabEnum
 
         var homeState: HomeFeature.State?
         var statsState: StatisticsFeature.State?
@@ -41,7 +43,7 @@ struct AppFeature: ReducerProtocol {
         case statisticsAction(StatisticsFeature.Action)
     }
 
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .changeTab(let tabType):
@@ -71,7 +73,7 @@ struct AppFeature: ReducerProtocol {
         }
     }
 
-    private func processHomeActions(into state: inout State, childAction: HomeFeature.Action) -> Effect<Action, Never> {
+    private func processHomeActions(into state: inout State, childAction: HomeFeature.Action) -> Effect<Action> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -84,7 +86,7 @@ struct AppFeature: ReducerProtocol {
     private func processStatsActions(
         into state: inout State,
         childAction: StatisticsFeature.Action
-    ) -> Effect<Action, Never> {
+    ) -> Effect<Action> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -97,7 +99,7 @@ struct AppFeature: ReducerProtocol {
     private func processSettingsActions(
         into state: inout State,
         childAction: SettingsFeature.Action
-    ) -> Effect<Action, Never> {
+    ) -> Effect<Action> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -110,7 +112,7 @@ struct AppFeature: ReducerProtocol {
     private func processGalleryActions(
         into state: inout State,
         childAction: GalleryFeature.Action
-    ) -> Effect<Action, Never> {
+    ) -> Effect<Action> {
         switch childAction {
         case .readyToClose(let newTabId):
             state.selectedTabId = newTabId
@@ -120,20 +122,20 @@ struct AppFeature: ReducerProtocol {
         }
     }
 
-    private func prepareTabChange(into state: inout State, tabType: MainViewTabEnum) -> Effect<Action, Never> {
+    private func prepareTabChange(into state: inout State, tabType: MainViewTabEnum) -> Effect<Action> {
         switch state.selectedTabId {
         case .gallery:
-            return Effect(value: .galleryAction(.prepareToClose(tabType)))
+            return Effect.send(.galleryAction(.prepareToClose(tabType)))
         case .home:
-            return Effect(value: .homeAction(.prepareToClose(tabType)))
+            return Effect.send(.homeAction(.prepareToClose(tabType)))
         case .settings:
-            return Effect(value: .settingsAction(.prepareToClose(tabType)))
+            return Effect.send(.settingsAction(.prepareToClose(tabType)))
         case .statistics:
-            return Effect(value: .statisticsAction(.prepareToClose(tabType)))
+            return Effect.send(.statisticsAction(.prepareToClose(tabType)))
         }
     }
 
-    private func changeTabHandler(into state: inout State) -> Effect<Action, Never> {
+    private func changeTabHandler(into state: inout State) -> Effect<Action> {
         state.settingsState = nil
         state.galleryState = nil
         state.statsState = nil

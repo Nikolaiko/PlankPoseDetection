@@ -12,7 +12,7 @@ import Dependencies
 import AVFoundation
 import PoseDetection
 
-struct WorkoutFeature: ReducerProtocol {
+struct WorkoutFeature: Reducer {
 
     struct State: Equatable {
         var sourceImage: UIImage
@@ -47,16 +47,15 @@ struct WorkoutFeature: ReducerProtocol {
     @Dependency(\.poseDetector) var detector: PoseDetector
     @Dependency(\.paintService) var painter: DrawImageService
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .processImage:
             state.isProcessing = true
             let image = state.sourceImage
-            return .task {
+            return Effect.run { send in
                 let points = detector.detectPoseOnImage(image: image)
                 let resultImage = painter.drawPointsOnImage(sourceImage: image, points: points)
-
-                return .processImageResult(resultImage)
+                await send(.processImageResult(resultImage))
             }
         case .processImageResult(let imageResult):
             if let res = imageResult {
@@ -76,7 +75,7 @@ struct WorkoutFeature: ReducerProtocol {
             if state.player.rate != 0 {
                 let currentTime = state.player.currentTime()
                 let generator = state.imageGenerator
-                return .task {
+                return Effect.run { send in
                     var resultImage: UIImage?
                     if let snapshot = try? await generator.image(at: currentTime) {
                         let points = detector.detectPoseOnImage(image: UIImage(cgImage: snapshot.image))
@@ -85,7 +84,7 @@ struct WorkoutFeature: ReducerProtocol {
                             points: points
                         )
                     }
-                    return .processImageResult(resultImage)
+                    await send(.processImageResult(resultImage))                    
                 }
             } else {
                 return .none

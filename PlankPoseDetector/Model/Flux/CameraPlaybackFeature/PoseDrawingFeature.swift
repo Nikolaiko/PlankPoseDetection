@@ -10,7 +10,7 @@ import UIKit
 import ComposableArchitecture
 import PoseDetection
 
-struct PoseDrawingFeature: ReducerProtocol {
+struct PoseDrawingFeature: Reducer {
 
     @Dependency(\.poseDetector) var detector: PoseDetector
     @Dependency(\.paintService) var painter: DrawImageService
@@ -25,16 +25,16 @@ struct PoseDrawingFeature: ReducerProtocol {
         case processImageResult(UIImage?)
     }
 
-    func reduce(into state: inout State, action: Action) -> ComposableArchitecture.EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .frameFromParent(let image):
             if let currentImage = image, state.processingFrame == false {
                 state.processingFrame = true
-                return .task {
+                return Effect.run { send in
                     let uiImage = UIImage(cgImage: currentImage)
                     let points = detector.detectPoseOnImage(image: uiImage)
                     let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: points)
-                    return .processImageResult(resultImage)
+                    await send(.processImageResult(resultImage))
                 }
             } else {
                 return .none

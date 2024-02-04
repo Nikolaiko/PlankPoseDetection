@@ -9,10 +9,10 @@ import SwiftUI
 import ComposableArchitecture
 
 struct MainView: View {
-    let stateStore: StoreOf<AppFeature>
+    @Perception.Bindable var stateStore: StoreOf<AppFeature>
 
     var body: some View {
-        WithViewStore(stateStore) { viewState in
+        WithPerceptionTracking {
             GeometryReader { geom in
                 VStack {
                     IfLetStore(
@@ -49,10 +49,7 @@ struct MainView: View {
                     }
                     AppBottomBar(
                         geometry: geom,
-                        selectedTabId: viewState.binding(
-                            get: \.selectedTabId,
-                            send: AppFeature.Action.changeTab
-                        )
+                        selectedTabId: $stateStore.selectedTabId.sending(\.changeTab)
                     )
                 }
             }

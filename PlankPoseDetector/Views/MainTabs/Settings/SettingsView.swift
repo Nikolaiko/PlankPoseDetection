@@ -12,7 +12,7 @@ struct SettingsView: View {
     let stateStore: StoreOf<SettingsFeature>
 
     var body: some View {
-        WithViewStore(stateStore) { viewState in
+        WithViewStore(stateStore, observe: { $0 }) { viewState in
             VStack {
                 HStack {
                     Text(SettingsViewStrings.removeDataTitle)

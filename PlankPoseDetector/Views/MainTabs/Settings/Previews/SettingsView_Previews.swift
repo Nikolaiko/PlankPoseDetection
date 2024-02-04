@@ -16,7 +16,7 @@ struct SettingsViewPreview: PreviewProvider {
                 SettingsView(
                     stateStore: Store(
                         initialState: SettingsFeature.State(),
-                        reducer: SettingsFeature()
+                        reducer: { SettingsFeature() }
                     )
                 )
             }

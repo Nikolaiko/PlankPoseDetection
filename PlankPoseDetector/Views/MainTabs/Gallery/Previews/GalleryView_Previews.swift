@@ -14,7 +14,7 @@ struct GalleryViewPreviews: PreviewProvider {
         GalleryView(
             stateStore: Store(
                 initialState: GalleryFeature.State(),
-                reducer: GalleryFeature()
+                reducer: { GalleryFeature() }
             )
         )
     }

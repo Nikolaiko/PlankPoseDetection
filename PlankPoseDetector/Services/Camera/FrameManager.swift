@@ -18,7 +18,7 @@ class FrameManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     private override init() {}
 
     func setStore(store: StoreOf<CameraFeature>) {
-        viewStore = ViewStoreOf<CameraFeature>(store)
+        viewStore = ViewStoreOf<CameraFeature>(store, observe: { $0 })
     }
 
     func captureOutput(

@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 import ComposableArchitecture
 
-struct CameraFeature: ReducerProtocol {
+struct CameraFeature: Reducer {
 
     struct State: Equatable {
         var cameraConfig: CameraConfigurationState = .unconfigured
@@ -29,23 +29,23 @@ struct CameraFeature: ReducerProtocol {
 
     @Dependency(\.cameraService) var cameraService: AsyncCameraService
 
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .checkPermissions:
             switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .notDetermined:
-                return .task {
+                return Effect.run { send in
                     let authorized = await AVCaptureDevice.requestAccess(for: .video)
-                    return .configure(authorized ? .unconfigured : .unauthorized)
+                    await send(.configure(authorized ? .unconfigured : .unauthorized))
                 }
             case .restricted:
-                return EffectTask(value: .configure(.unauthorized))
+                return Effect.send(.configure(.unauthorized))
             case .denied:
-                return EffectTask(value: .configure(.unauthorized))
+                return Effect.send(.configure(.unauthorized))
             case .authorized:
-                return EffectTask(value: .configure(.unconfigured))
+                return Effect.send(.configure(.unconfigured))
             @unknown default:
-                return EffectTask(value: .configure(.unauthorized))
+                return Effect.send(.configure(.unconfigured))
             }
         case .configure(let newConfigState):
             state.cameraConfig = newConfigState
@@ -65,7 +65,7 @@ struct CameraFeature: ReducerProtocol {
             }
         case .processFrame(let frameImage):
             state.currentFrame = frameImage
-            return Effect(value: .sendFrameToParent(frameImage))
+            return Effect.send(.sendFrameToParent(frameImage))
         default:
             return .none
         }

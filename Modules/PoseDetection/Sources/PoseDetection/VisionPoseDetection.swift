@@ -7,6 +7,7 @@
 
 import Foundation
 import Vision
+import UIKit
 
 final public class VisionPoseDetection {
     private let humanBodyPoseRequest = VNDetectHumanBodyPoseRequest()
@@ -26,6 +27,10 @@ final public class VisionPoseDetection {
 
         guard !results.isEmpty else { return [:] }
         return convertObservationToJoint(sourceImage: image, observation: results[0])
+    }
+
+    public func detectPoseOnImage(image: UIImage) -> [PoseJoint.Name: PoseJoint] {
+        [:]
     }
 
     private func convertObservationToJoint(

@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-struct HomeFeature: ReducerProtocol {
+struct HomeFeature: Reducer {
     struct State: Equatable {
 
     }
@@ -18,10 +18,10 @@ struct HomeFeature: ReducerProtocol {
         case readyToClose(MainViewTabEnum)
     }
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .prepareToClose(let newTabId):
-            return Effect(value: .readyToClose(newTabId))
+            return Effect.send(.readyToClose(newTabId))
         default:
             return .none
         }

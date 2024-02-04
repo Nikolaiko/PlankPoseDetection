@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-struct SettingsFeature: ReducerProtocol {
+struct SettingsFeature: Reducer {
     struct State: Equatable {
         @BindingState var deleteAlertShown: Bool = false
     }
@@ -25,7 +25,7 @@ struct SettingsFeature: ReducerProtocol {
     @Dependency(\.appFileManagerPlayer) var appFileManager: AppFileManager
     @Dependency(\.hudMessenger) var hudMessenger: HUDMessenger
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .deleteImportedVideos:
             clearSavedFiles()
@@ -37,7 +37,7 @@ struct SettingsFeature: ReducerProtocol {
             state.deleteAlertShown = false
             return .none
         case .prepareToClose(let newTabId):
-            return Effect(value: .readyToClose(newTabId))
+            return Effect.send(.readyToClose(newTabId))
         case .binding:
             return .none
         default:

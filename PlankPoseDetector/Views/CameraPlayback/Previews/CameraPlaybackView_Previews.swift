@@ -14,7 +14,7 @@ struct PoseViewInitialPreviews: PreviewProvider {
         PoseView(
             stateStore: Store(
                 initialState: PoseDrawingFeature.State(),
-                reducer: PoseDrawingFeature()
+                reducer: { PoseDrawingFeature() }
             )
         )
     }
@@ -32,7 +32,7 @@ struct PoseViewDrawPosePreviews: PreviewProvider {
         PoseView(
             stateStore: Store(
                 initialState: initialState,
-                reducer: PoseDrawingFeature()
+                reducer: { PoseDrawingFeature() }
             )
         )
     }
