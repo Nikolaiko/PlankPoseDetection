@@ -19,20 +19,6 @@ struct AppFeature {
         var statsState: StatisticsFeature.State?
         var galleryState: GalleryFeature.State?
         var settingsState: SettingsFeature.State?
-
-        init(selectedTabId: MainViewTabEnum) {
-            self.selectedTabId = selectedTabId
-            switch self.selectedTabId {
-            case .settings:
-                settingsState = SettingsFeature.State()
-            case .statistics:
-                statsState = StatisticsFeature.State()
-            case .home:
-                homeState = HomeFeature.State()
-            case .gallery:
-                galleryState = GalleryFeature.State()
-            }
-        }
     }
 
     enum Action {
@@ -46,31 +32,40 @@ struct AppFeature {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .changeTab(let tabType):
-                guard state.selectedTabId != tabType else { return .none }
-                return prepareTabChange(into: &state, tabType: tabType)
-            case .galleryAction(let childAction):
-                return processGalleryActions(into: &state, childAction: childAction)
-            case .settingsAction(let childAction):
-                return processSettingsActions(into: &state, childAction: childAction)
-            case .statisticsAction(let childAction):
-                return processStatsActions(into: &state, childAction: childAction)
-            case .homeAction(let childAction):
-                return processHomeActions(into: &state, childAction: childAction)
+            case .changeTab(let newTabId):
+                state.selectedTabId = newTabId
+                return changeTabHandler(into: &state)
+            default:
+                return .none
             }
         }
-        .ifLet(\.homeState, action: /Action.homeAction) {
+        .ifLet(\.homeState, action: \.homeAction) {
             HomeFeature()
         }
-        .ifLet(\.settingsState, action: /Action.settingsAction) {
-            SettingsFeature()
-        }
-        .ifLet(\.statsState, action: /Action.statisticsAction) {
+        .ifLet(\.statsState, action: \.statisticsAction) {
             StatisticsFeature()
         }
-        .ifLet(\.galleryState, action: /Action.galleryAction) {
+        .ifLet(\.galleryState, action: \.galleryAction) {
             GalleryFeature()
         }
+        .ifLet(\.settingsState, action: \.settingsAction) {
+            SettingsFeature()
+        }
+//        Reduce { state, action in
+//            switch action {
+//            case .changeTab(let tabType):
+//                guard state.selectedTabId != tabType else { return .none }
+//                return prepareTabChange(into: &state, tabType: tabType)
+//            case .galleryAction(let childAction):
+//                return processGalleryActions(into: &state, childAction: childAction)
+//            case .settingsAction(let childAction):
+//                return processSettingsActions(into: &state, childAction: childAction)
+//            case .statisticsAction(let childAction):
+//                return processStatsActions(into: &state, childAction: childAction)
+//            case .homeAction(let childAction):
+//                return processHomeActions(into: &state, childAction: childAction)
+//            }
+//        }
     }
 
     private func processHomeActions(into state: inout State, childAction: HomeFeature.Action) -> Effect<Action> {
@@ -140,7 +135,7 @@ struct AppFeature {
         state.galleryState = nil
         state.statsState = nil
         state.homeState = nil
-        
+
         switch state.selectedTabId {
         case .gallery:
             state.galleryState = GalleryFeature.State()

@@ -32,9 +32,3 @@ struct CameraPlaybackView: View {
         }
     }
 }
-
-//struct CameraPlaybackView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CameraPlaybackView()
-//    }
-//}

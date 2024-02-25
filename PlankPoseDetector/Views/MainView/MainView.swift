@@ -15,37 +15,27 @@ struct MainView: View {
         WithPerceptionTracking {
             GeometryReader { geom in
                 VStack {
-                    IfLetStore(
-                        stateStore.scope(
-                            state: \.settingsState,
-                            action: AppFeature.Action.settingsAction
-                        )
-                    ) { settingsStore in
-                        SettingsView(stateStore: settingsStore)
-                    }
-                    IfLetStore(
-                        stateStore.scope(
-                            state: \.statsState,
-                            action: AppFeature.Action.statisticsAction
-                        )
-                    ) { statsStore in
-                        StatisticsView(stateStore: statsStore)
-                    }
-                    IfLetStore(
-                        stateStore.scope(
-                            state: \.galleryState,
-                            action: AppFeature.Action.galleryAction
-                        )
-                    ) { galleryStore in
-                        GalleryView(stateStore: galleryStore)
-                    }
-                    IfLetStore(
-                        stateStore.scope(
-                            state: \.homeState,
-                            action: AppFeature.Action.homeAction
-                        )
-                    ) { homeStore in
-                        HomeView(stateStore: homeStore)
+                    switch stateStore.selectedTabId {
+                    case .home:
+                        if let store = stateStore.scope(state: \.homeState, action: \.homeAction) {
+                            //HomeView(stateStore: store)
+                            EmptyView()
+                        }
+                    case .statistics:
+                        if let store = stateStore.scope(state: \.statsState, action: \.statisticsAction) {
+                            //StatisticsView(stateStore: store)
+                            EmptyView()
+                        }
+                    case .gallery:
+                        if let store = stateStore.scope(state: \.galleryState, action: \.galleryAction) {
+                            //GalleryView(stateStore: store)
+                            EmptyView()
+                        }
+                    case .settings:
+                        if let store = stateStore.scope(state: \.settingsState, action: \.settingsAction) {
+                            //SettingsView(stateStore: store)
+                            EmptyView()
+                        }
                     }
                     AppBottomBar(
                         geometry: geom,
