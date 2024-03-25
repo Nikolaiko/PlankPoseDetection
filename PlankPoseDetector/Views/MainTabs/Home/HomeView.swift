@@ -13,9 +13,9 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
-            Spacer()
+            let _ = print("Home")
             Text("Home View")
-            Spacer()
         }
+        .background(Color.red)
     }
 }

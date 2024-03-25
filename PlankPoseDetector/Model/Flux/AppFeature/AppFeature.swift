@@ -1,10 +1,3 @@
-//
-//  AppFeature.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 23.01.2023.
-//
-
 import Foundation
 import ComposableArchitecture
 
@@ -12,143 +5,30 @@ import ComposableArchitecture
 struct AppFeature {
 
     @ObservableState
-    struct State: Equatable {
-        var selectedTabId: MainViewTabEnum
-
-        var homeState: HomeFeature.State?
-        var statsState: StatisticsFeature.State?
-        var galleryState: GalleryFeature.State?
-        var settingsState: SettingsFeature.State?
+    struct State {
+        @Presents var destination: AppFeatureDestination.State?
     }
 
     enum Action {
-        case changeTab(MainViewTabEnum)
-        case settingsAction(SettingsFeature.Action)
-        case homeAction(HomeFeature.Action)
-        case galleryAction(GalleryFeature.Action)
-        case statisticsAction(StatisticsFeature.Action)
+        case destination(PresentationAction<AppFeatureDestination.Action>)
+        case goToOnboarding
+        case goToMainView
     }
 
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .changeTab(let newTabId):
-                state.selectedTabId = newTabId
-                return changeTabHandler(into: &state)
+            case .goToOnboarding:
+                state.destination = .onBoarding(StatisticsFeature.State())
+                return .none
+            case .goToMainView:
+                state.destination = .mainView(HomeFeature.State())
+                return .none
             default:
                 return .none
             }
         }
-        .ifLet(\.homeState, action: \.homeAction) {
-            HomeFeature()
-        }
-        .ifLet(\.statsState, action: \.statisticsAction) {
-            StatisticsFeature()
-        }
-        .ifLet(\.galleryState, action: \.galleryAction) {
-            GalleryFeature()
-        }
-        .ifLet(\.settingsState, action: \.settingsAction) {
-            SettingsFeature()
-        }
-//        Reduce { state, action in
-//            switch action {
-//            case .changeTab(let tabType):
-//                guard state.selectedTabId != tabType else { return .none }
-//                return prepareTabChange(into: &state, tabType: tabType)
-//            case .galleryAction(let childAction):
-//                return processGalleryActions(into: &state, childAction: childAction)
-//            case .settingsAction(let childAction):
-//                return processSettingsActions(into: &state, childAction: childAction)
-//            case .statisticsAction(let childAction):
-//                return processStatsActions(into: &state, childAction: childAction)
-//            case .homeAction(let childAction):
-//                return processHomeActions(into: &state, childAction: childAction)
-//            }
-//        }
+        .ifLet(\.$destination, action: \.destination) 
     }
 
-    private func processHomeActions(into state: inout State, childAction: HomeFeature.Action) -> Effect<Action> {
-        switch childAction {
-        case .readyToClose(let newTabId):
-            state.selectedTabId = newTabId
-            return changeTabHandler(into: &state)
-        default:
-            return .none
-        }
-    }
-
-    private func processStatsActions(
-        into state: inout State,
-        childAction: StatisticsFeature.Action
-    ) -> Effect<Action> {
-        switch childAction {
-        case .readyToClose(let newTabId):
-            state.selectedTabId = newTabId
-            return changeTabHandler(into: &state)
-        default:
-            return .none
-        }
-    }
-
-    private func processSettingsActions(
-        into state: inout State,
-        childAction: SettingsFeature.Action
-    ) -> Effect<Action> {
-        switch childAction {
-        case .readyToClose(let newTabId):
-            state.selectedTabId = newTabId
-            return changeTabHandler(into: &state)
-        default:
-            return .none
-        }
-    }
-
-    private func processGalleryActions(
-        into state: inout State,
-        childAction: GalleryFeature.Action
-    ) -> Effect<Action> {
-        switch childAction {
-        case .readyToClose(let newTabId):
-            state.selectedTabId = newTabId
-            return changeTabHandler(into: &state)
-        default:
-            return .none
-        }
-    }
-
-    private func prepareTabChange(into state: inout State, tabType: MainViewTabEnum) -> Effect<Action> {
-        switch state.selectedTabId {
-        case .gallery:
-            return Effect.send(.galleryAction(.prepareToClose(tabType)))
-        case .home:
-            return Effect.send(.homeAction(.prepareToClose(tabType)))
-        case .settings:
-            return Effect.send(.settingsAction(.prepareToClose(tabType)))
-        case .statistics:
-            return Effect.send(.statisticsAction(.prepareToClose(tabType)))
-        }
-    }
-
-    private func changeTabHandler(into state: inout State) -> Effect<Action> {
-        state.settingsState = nil
-        state.galleryState = nil
-        state.statsState = nil
-        state.homeState = nil
-
-        switch state.selectedTabId {
-        case .gallery:
-            state.galleryState = GalleryFeature.State()
-            return .none
-        case .settings:
-            state.settingsState = SettingsFeature.State()
-            return .none
-        case .statistics:
-            state.statsState = StatisticsFeature.State()
-            return .none
-        case .home:
-            state.homeState = HomeFeature.State()
-            return .none
-        }
-    }
 }

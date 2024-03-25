@@ -15,7 +15,7 @@ struct PlankPoseDetectorApp: App {
     var body: some Scene {
         WindowGroup {
             MainView(stateStore: Store(
-                initialState: AppFeature.State(selectedTabId: .home),
+                initialState: AppFeature.State(),
                 reducer: { AppFeature() }
             ))
         }

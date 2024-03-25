@@ -25,7 +25,6 @@
 		911C66CB29859DEB00E7D4D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66CA29859DEB00E7D4D4 /* AppColors.swift */; };
 		911C66CE29859ED000E7D4D4 /* SwiftDevPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 911C66CD29859ED000E7D4D4 /* SwiftDevPackage */; };
 		911C66D02985A18900E7D4D4 /* BottomBar_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C66CF2985A18900E7D4D4 /* BottomBar_Previews.swift */; };
-		911F3FF32B7934C300EF4876 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 911F3FF22B7934C300EF4876 /* ComposableArchitecture */; };
 		912797872997DD6300C07A4E /* PoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912797862997DD6300C07A4E /* PoseView.swift */; };
 		913059AD298ABF0E004155FD /* PoseDetectorDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */; };
 		913059AF298AC140004155FD /* DrawServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913059AE298AC140004155FD /* DrawServiceDependency.swift */; };
@@ -48,6 +47,8 @@
 		916656C92AADDBB400B9CD6D /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656C82AADDBB400B9CD6D /* AlertView.swift */; };
 		916656CB2AADDC2200B9CD6D /* AlertMessage_Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916656CA2AADDC2200B9CD6D /* AlertMessage_Preview.swift */; };
 		916656CD2AADE36C00B9CD6D /* LandscaprePose.png in Resources */ = {isa = PBXBuildFile; fileRef = 916656CC2AADE36C00B9CD6D /* LandscaprePose.png */; };
+		91670B532BB09C0C00E18CEB /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 91670B522BB09C0C00E18CEB /* ComposableArchitecture */; };
+		91670B552BB0ADB500E18CEB /* AppFeatureDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91670B542BB0ADB500E18CEB /* AppFeatureDestination.swift */; };
 		916B08C52A15C7CC007E2FC8 /* SettingsView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */; };
 		916B08C82A15C9DB007E2FC8 /* SettingsViewStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */; };
 		9178EAEE29B506DA00ACC9F8 /* SourceTimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */; };
@@ -128,7 +129,6 @@
 		911C66C829859DC000E7D4D4 /* BottomBarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarColors.swift; sourceTree = "<group>"; };
 		911C66CA29859DEB00E7D4D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		911C66CF2985A18900E7D4D4 /* BottomBar_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar_Previews.swift; sourceTree = "<group>"; };
-		911F3FF42B793AC100EF4876 /* TCA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TCA; path = ../TCA; sourceTree = "<group>"; };
 		912797862997DD6300C07A4E /* PoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseView.swift; sourceTree = "<group>"; };
 		913059AC298ABF0E004155FD /* PoseDetectorDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetectorDependency.swift; sourceTree = "<group>"; };
 		913059AE298AC140004155FD /* DrawServiceDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawServiceDependency.swift; sourceTree = "<group>"; };
@@ -151,6 +151,7 @@
 		916656C82AADDBB400B9CD6D /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		916656CA2AADDC2200B9CD6D /* AlertMessage_Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage_Preview.swift; sourceTree = "<group>"; };
 		916656CC2AADE36C00B9CD6D /* LandscaprePose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LandscaprePose.png; sourceTree = "<group>"; };
+		91670B542BB0ADB500E18CEB /* AppFeatureDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatureDestination.swift; sourceTree = "<group>"; };
 		916B08C42A15C7CC007E2FC8 /* SettingsView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView_Previews.swift; sourceTree = "<group>"; };
 		916B08C72A15C9DB007E2FC8 /* SettingsViewStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewStrings.swift; sourceTree = "<group>"; };
 		9178EAED29B506DA00ACC9F8 /* SourceTimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTimerState.swift; sourceTree = "<group>"; };
@@ -217,7 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				911F3FF32B7934C300EF4876 /* ComposableArchitecture in Frameworks */,
+				91670B532BB09C0C00E18CEB /* ComposableArchitecture in Frameworks */,
 				91D241952ACBB8530081BC1C /* LineMath in Frameworks */,
 				915D56BB2ADB7F8A0000482C /* PoseDetection in Frameworks */,
 				91D241972ACBBEA30081BC1C /* PointMath in Frameworks */,
@@ -378,7 +379,6 @@
 		917BD063297EB49100F57E6D = {
 			isa = PBXGroup;
 			children = (
-				911F3FF42B793AC100EF4876 /* TCA */,
 				915D56B92ADB7DB50000482C /* PoseDetection */,
 				91D241922ACBB1020081BC1C /* Math */,
 				917BD06E297EB49100F57E6D /* PlankPoseDetector */,
@@ -517,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				91A52F58297EEBE8007857CE /* AppFeature.swift */,
+				91670B542BB0ADB500E18CEB /* AppFeatureDestination.swift */,
 			);
 			path = AppFeature;
 			sourceTree = "<group>";
@@ -868,7 +869,7 @@
 				91D241942ACBB8530081BC1C /* LineMath */,
 				91D241962ACBBEA30081BC1C /* PointMath */,
 				915D56BA2ADB7F8A0000482C /* PoseDetection */,
-				911F3FF22B7934C300EF4876 /* ComposableArchitecture */,
+				91670B522BB09C0C00E18CEB /* ComposableArchitecture */,
 			);
 			productName = PlankPoseDetector;
 			productReference = 917BD06C297EB49100F57E6D /* PlankPoseDetector.app */;
@@ -900,6 +901,7 @@
 			mainGroup = 917BD063297EB49100F57E6D;
 			packageReferences = (
 				911C66CC29859ED000E7D4D4 /* XCRemoteSwiftPackageReference "SwiftDeveloperPackage" */,
+				91670B512BB09C0C00E18CEB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 917BD06D297EB49100F57E6D /* Products */;
 			projectDirPath = "";
@@ -1023,6 +1025,7 @@
 				916656CB2AADDC2200B9CD6D /* AlertMessage_Preview.swift in Sources */,
 				91CBEE6C2992D5D00011DECB /* CameraConfigurationState.swift in Sources */,
 				919594D529BCD6AB00BCB5C6 /* CameraPlaybackView_Previews.swift in Sources */,
+				91670B552BB0ADB500E18CEB /* AppFeatureDestination.swift in Sources */,
 				91C8707F2AB0C4F700267A0A /* PoseEstimationService.swift in Sources */,
 				91E7740729A5294700E44C9D /* GalleryView.swift in Sources */,
 				91E2DCE529A12D6400755125 /* CameraServiceDependency.swift in Sources */,
@@ -1174,11 +1177,10 @@
 				INFOPLIST_FILE = PlankPoseDetector/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1209,11 +1211,10 @@
 				INFOPLIST_FILE = PlankPoseDetector/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1262,6 +1263,14 @@
 				kind = branch;
 			};
 		};
+		91670B512BB09C0C00E18CEB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1270,13 +1279,14 @@
 			package = 911C66CC29859ED000E7D4D4 /* XCRemoteSwiftPackageReference "SwiftDeveloperPackage" */;
 			productName = SwiftDevPackage;
 		};
-		911F3FF22B7934C300EF4876 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ComposableArchitecture;
-		};
 		915D56BA2ADB7F8A0000482C /* PoseDetection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PoseDetection;
+		};
+		91670B522BB09C0C00E18CEB /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91670B512BB09C0C00E18CEB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		91D241942ACBB8530081BC1C /* LineMath */ = {
 			isa = XCSwiftPackageProductDependency;
