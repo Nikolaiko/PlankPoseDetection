@@ -3,7 +3,6 @@ import ComposableArchitecture
 
 struct MainView: View {
     @Bindable var stateStore: StoreOf<AppFeature>
-
     var body: some View {
         Group {
             ProgressView()
@@ -17,11 +16,11 @@ struct MainView: View {
                     state: \.destination?.onBoarding,
                     action: \.destination.onBoarding
                 )) { store in
-                    StatisticsView(stateStore: store)
+                    OnBoardingView(store: store)
                 }
         }
         .onAppear {
-            stateStore.send(.goToOnboarding)
+            stateStore.send(.checkOnboardingState)
         }
 
     }
