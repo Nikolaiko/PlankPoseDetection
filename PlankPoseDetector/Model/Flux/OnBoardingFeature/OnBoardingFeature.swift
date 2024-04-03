@@ -6,7 +6,7 @@ struct OnBoardingFeature {
 
     @ObservableState
     struct State {
-        var currentPageIndex = 0
+        var currentPageIndex: OnBoardingPageIndex = .first
     }
 
     enum Action {
@@ -19,12 +19,12 @@ struct OnBoardingFeature {
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .nextPage:
-            if state.currentPageIndex + 1 > Config.maxPageCount {
+            if let nextPage = state.currentPageIndex.nextPage {
+                state.currentPageIndex = nextPage
+                return .none
+            } else {
                 userDataService.setOnBoardingStatus(completed: true)
                 return .send(.complete)
-            } else {
-                state.currentPageIndex += 1
-                return .none
             }
         default:
             return .none

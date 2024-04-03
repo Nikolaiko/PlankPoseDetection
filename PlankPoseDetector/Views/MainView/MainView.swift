@@ -10,7 +10,7 @@ struct MainView: View {
                     state: \.destination?.mainView,
                     action: \.destination.mainView
                 )) { store in
-                    HomeView(stateStore: store)
+                    AppTabsView(store: store)
                 }
                 .fullScreenCover(item: $stateStore.scope(
                     state: \.destination?.onBoarding,

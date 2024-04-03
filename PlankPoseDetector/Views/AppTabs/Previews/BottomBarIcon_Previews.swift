@@ -1,10 +1,3 @@
-//
-//  BottomBarIcon_Previews.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 29.01.2023.
-//
-
 import Foundation
 import SwiftUI
 
