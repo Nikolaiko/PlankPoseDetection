@@ -33,13 +33,18 @@ struct AuthorizedFeature {
         case switchTab(MainViewTabEnum)
     }
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        switch action {
-        case .switchTab(let newTab):
-            state = buildStateForTab(newTab: newTab)
-            return .none
-        default:
-            return .none
+    var body: some Reducer<State, Action> {
+        Scope(state: \.homeTab, action: \.homeTab) {
+            HomeFeature()
+        }
+        Reduce { state, action in
+            switch action {
+            case .switchTab(let newTab):
+                state = buildStateForTab(newTab: newTab)
+                return .none
+            default:
+                return .none
+            }
         }
     }
 
