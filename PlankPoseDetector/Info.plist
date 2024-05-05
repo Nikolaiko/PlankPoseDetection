@@ -6,6 +6,7 @@
 	<array>
 		<string>Poppins-Bold.ttf</string>
 		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-Medium.ttf</string>
 	</array>
 	<key>UILaunchScreen</key>
 	<dict>

@@ -5,23 +5,16 @@ struct HomeView: View {
     let stateStore: StoreOf<HomeFeature>
 
     var body: some View {
-        GeometryReader { geom in
-            VStack {
-                List {
-                    ForEach(stateStore.loadedArticles) { currentArticle in
-                        HStack {
-                            Text(currentArticle.title)
-                            AsyncImage(url: currentArticle.imageUrl) { loaded in
-                                loaded.image?
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }
-                        }
-                    }
-                }
+        ScrollView {
+            ForEach(stateStore.loadedArticles) { currentArticle in
+                ArticleShortDataRow(
+                    imageUrl: currentArticle.imageUrl,
+                    title: currentArticle.title,
+                    subtitle: currentArticle.subtitle
+                )
+                .padding(.horizontal, 30.0)
             }
         }
-        .background(Color.red)
         .onAppear {
             stateStore.send(.loadArticles)
         }

@@ -1,6 +1,6 @@
 import Foundation
 import ComposableArchitecture
-import ArticlesJsonProvider
+import ArticlesProvider
 
 @Reducer
 struct HomeFeature {

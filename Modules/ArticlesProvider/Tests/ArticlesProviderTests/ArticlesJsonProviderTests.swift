@@ -1,5 +1,5 @@
 import XCTest
-@testable import ArticlesJsonProvider
+@testable import ArticlesProvider
 
 final class ArticlesJsonProviderTests: XCTestCase {
     private let provider = ArticlesJsonProvider()

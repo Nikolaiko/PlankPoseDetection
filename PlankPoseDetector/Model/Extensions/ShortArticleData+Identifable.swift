@@ -1,5 +1,5 @@
 import Foundation
-import ArticlesJsonProvider
+import ArticlesProvider
 
 extension ShortArticleInfo: Identifiable {
     public var id: String { title }
