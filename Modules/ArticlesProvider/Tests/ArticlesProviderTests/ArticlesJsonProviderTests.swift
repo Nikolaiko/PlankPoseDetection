@@ -21,4 +21,14 @@ final class ArticlesJsonProviderTests: XCTestCase {
             XCTAssertNotNil(article.imageUrl, "Картинка у статьи \(article.title), не должна быть пустой")
         }
     }
+
+    func testGetWrongIdContentFails() {
+        let loadedString = provider.getArticleContent(id: "wrongId")
+        XCTAssertNil(loadedString, "Несуществующий id должен вернуть nil")
+    }
+
+    func testGetRealIdNotNil() {
+        let loadedString = provider.getArticleContent(id: "1")
+        XCTAssertNotNil(loadedString, "Верный id должен вернуть какое-то значение")
+    }
 }

@@ -1,19 +1,20 @@
 import ComposableArchitecture
 import Foundation
+import ArticlesTab
 
 @Reducer
 struct AuthorizedFeature {
     
     @ObservableState
     enum State {
-        case homeTab(HomeFeature.State)
+        case articlesTab(ArticlesTab.State)
         case statsTab(StatisticsFeature.State)
         case galleryTab(GalleryFeature.State)
         case settingsTab(SettingsFeature.State)
 
         var mainTabEnumValue: MainViewTabEnum {
             switch self {
-            case .homeTab:
+            case .articlesTab:
                 return .home
             case .statsTab:
                 return .statistics
@@ -26,7 +27,7 @@ struct AuthorizedFeature {
     }
 
     enum Action {
-        case homeTab(HomeFeature.Action)
+        case articlesTab(ArticlesTab.Action)
         case statsTab(StatisticsFeature.Action)
         case galleryTab(GalleryFeature.Action)
         case settingsTab(SettingsFeature.Action)
@@ -34,8 +35,8 @@ struct AuthorizedFeature {
     }
 
     var body: some Reducer<State, Action> {
-        Scope(state: \.homeTab, action: \.homeTab) {
-            HomeFeature()
+        Scope(state: \.articlesTab, action: \.articlesTab) {
+            ArticlesTab()
         }
         Reduce { state, action in
             switch action {
@@ -51,7 +52,7 @@ struct AuthorizedFeature {
     private func buildStateForTab(newTab: MainViewTabEnum) -> AuthorizedFeature.State {
         switch newTab {
         case .home:
-            return .homeTab(HomeFeature.State())
+            return .articlesTab(ArticlesTab.State())
         case .gallery:
             return .galleryTab(GalleryFeature.State())
         case .settings:

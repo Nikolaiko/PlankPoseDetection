@@ -8,9 +8,9 @@ struct AppTabsView: View {
         GeometryReader { geom in
             VStack {
                 switch store.state {
-                case .homeTab:
-                    if let store = store.scope(state: \.homeTab, action: \.homeTab) {
-                        HomeView(stateStore: store)
+                case .articlesTab:
+                    if let store = store.scope(state: \.articlesTab, action: \.articlesTab) {
+                        ArticlesView(stateStore: store)
                     }
                 case .statsTab:
                     if let store = store.scope(state: \.statsTab, action: \.statsTab) {

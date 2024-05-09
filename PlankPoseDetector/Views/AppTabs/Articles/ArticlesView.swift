@@ -1,8 +1,9 @@
 import SwiftUI
 import ComposableArchitecture
+import ArticlesTab
 
-struct HomeView: View {
-    let stateStore: StoreOf<HomeFeature>
+struct ArticlesView: View {
+    let stateStore: StoreOf<ArticlesTab>
 
     var body: some View {
         ScrollView {

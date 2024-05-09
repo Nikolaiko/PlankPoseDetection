@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import Dependencies
+import ArticlesTab
 
 @Reducer
 struct AppFeature {
@@ -26,7 +27,7 @@ struct AppFeature {
                 state.destination = .onBoarding(OnBoardingFeature.State())
                 return .none
             case .goToMainView:
-                state.destination = .mainView(AuthorizedFeature.State.homeTab(HomeFeature.State()))
+                state.destination = .mainView(AuthorizedFeature.State.articlesTab(ArticlesTab.State()))
                 return .none
             case .checkOnboardingState:
                 let onBoardingCompleted = userDataService.isOnBoardingCompleted()

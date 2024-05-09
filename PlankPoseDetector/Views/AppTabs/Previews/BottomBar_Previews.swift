@@ -1,17 +1,20 @@
 import Foundation
 import SwiftUI
 import ComposableArchitecture
+import ArticlesTab
 
-#Preview("AppTabs_HomeTab_Preview") {
+let state = AuthorizedFeature.State.articlesTab(ArticlesTab.State())
+
+#Preview("AppTabs_ArticlesTab_Preview") {
     GeometryReader { geometry in
         VStack {
             Spacer()
             AppBottomBar(
                 geometry: geometry,
                 store: Store(
-                    initialState: AuthorizedFeature.State.homeTab(HomeFeature.State()), reducer: {
-                        AuthorizedFeature()
-                    })
+                    initialState: state,
+                    reducer: { AuthorizedFeature() }
+                )
             )
         }
     }
