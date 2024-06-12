@@ -11,6 +11,7 @@ public struct ArticlesTab {
     public struct State {
         public var isLoading: Bool
         public var loadedArticles: [ShortArticleInfo]
+        public var stack = StackState<Path.State>()
 
         public init(isLoading: Bool = false, loadedArticles: [ShortArticleInfo] = []) {
             self.isLoading = isLoading
@@ -20,16 +21,21 @@ public struct ArticlesTab {
 
     public enum Action {
         case loadArticles
+        case stackAction(StackActionOf<Path>)
     }
 
-    @Dependency(\.articlesProvider) var aritclesProvider: any ArticlesProvider
+    @Dependency(\.articlesProvider) var aritclesProvider: ArticlesProvider
 
-    public func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        switch action {
-        case .loadArticles:
-            state.loadedArticles = aritclesProvider.getAllArticlesInfo()
-            print(aritclesProvider.getAllArticlesInfo())
-            return .none
+    public var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .loadArticles:
+                state.loadedArticles = aritclesProvider.allProvidersInfo()
+                return .none
+            default:
+                return .none
+            }
         }
+        .forEach(\.stack, action: \.stackAction)
     }
 }

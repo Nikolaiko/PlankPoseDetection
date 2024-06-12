@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../ArticlesProvider"),
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.9.2")
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.9.3")
     ],
     targets: [
         .target(

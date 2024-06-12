@@ -1,20 +1,22 @@
 import XCTest
-@testable import ArticlesProvider
+import ArticlesProvider
+
+@testable import ArticlesProviderLive
 
 final class ArticlesJsonProviderTests: XCTestCase {
-    private let provider = ArticlesJsonProvider()
+    private let provider = ArticlesProvider.liveValue
 
     func testGetAllArticlesNotFailing() {
-        XCTAssertNoThrow(provider.getAllArticlesInfo(), "Загрузка не должна приводить к исключению")
+        XCTAssertNoThrow(provider.allProvidersInfo(), "Загрузка не должна приводить к исключению")
     }
 
     func testGetAllArticlesNotNull() {
-        let loadedArticles = provider.getAllArticlesInfo()
+        let loadedArticles = provider.allProvidersInfo()
         XCTAssertFalse(loadedArticles.isEmpty, "Загруженный список не должен быть пустым")
     }
 
     func testGetAllArticlesHaveImages() {
-        let loadedArticles = provider.getAllArticlesInfo()
+        let loadedArticles = provider.allProvidersInfo()
         XCTAssertFalse(loadedArticles.isEmpty, "Загруженный список не должен быть пустым")
 
         for article in loadedArticles {
@@ -23,12 +25,12 @@ final class ArticlesJsonProviderTests: XCTestCase {
     }
 
     func testGetWrongIdContentFails() {
-        let loadedString = provider.getArticleContent(id: "wrongId")
+        let loadedString = provider.articleContent("wrongId")
         XCTAssertNil(loadedString, "Несуществующий id должен вернуть nil")
     }
 
     func testGetRealIdNotNil() {
-        let loadedString = provider.getArticleContent(id: "1")
+        let loadedString = provider.articleContent("1")
         XCTAssertNotNil(loadedString, "Верный id должен вернуть какое-то значение")
     }
 }
