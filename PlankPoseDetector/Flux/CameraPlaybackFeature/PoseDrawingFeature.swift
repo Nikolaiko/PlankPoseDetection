@@ -32,7 +32,7 @@ struct PoseDrawingFeature: Reducer {
                 state.processingFrame = true
                 return Effect.run { send in
                     let uiImage = UIImage(cgImage: currentImage)
-                    let points = detector.detectPoseOnImage(image: uiImage)
+                    let points = detector.detectPoses(currentImage)
                     let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: points)
                     await send(.processImageResult(resultImage))
                 }

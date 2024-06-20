@@ -1,10 +1,3 @@
-//
-//  PoseJointExtensions.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 18.02.2023.
-//
-
 import Foundation
 import Vision
 
@@ -15,7 +8,6 @@ extension PoseJoint.Name {
             return .leftShoulder
         case .rightShoulder:
             return .rightShoulder
-
         case .neck:
             return .neck
         case .root:

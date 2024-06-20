@@ -52,8 +52,9 @@ struct WorkoutFeature: Reducer {
         case .processImage:
             state.isProcessing = true
             let image = state.sourceImage
+            guard let cgImage = image.cgImage else { return .none }
             return Effect.run { send in
-                let points = detector.detectPoseOnImage(image: image)
+                let points = detector.detectPoses(cgImage)
                 let resultImage = painter.drawPointsOnImage(sourceImage: image, points: points)
                 await send(.processImageResult(resultImage))
             }
@@ -78,7 +79,7 @@ struct WorkoutFeature: Reducer {
                 return Effect.run { send in
                     var resultImage: UIImage?
                     if let snapshot = try? await generator.image(at: currentTime) {
-                        let points = detector.detectPoseOnImage(image: UIImage(cgImage: snapshot.image))
+                        let points = detector.detectPoses(snapshot.image)
                         resultImage = painter.drawPointsOnImage(
                             sourceImage: UIImage(cgImage: snapshot.image),
                             points: points

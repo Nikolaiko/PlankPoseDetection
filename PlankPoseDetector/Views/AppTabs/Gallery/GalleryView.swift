@@ -1,10 +1,3 @@
-//
-//  GalleryView.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 21.02.2023.
-//
-
 import SwiftUI
 import PhotosUI
 import AVKit
@@ -16,52 +9,50 @@ struct GalleryView: View {
     @State private var selectedItem: PhotosPickerItem?
 
     var body: some View {
-        WithViewStore(stateStore, observe: { $0 }) { viewStore in            
-            GeometryReader { geometry in
-                VStack {
-                    ZStack {
-                        if viewStore.bodyFrame == nil {
-                            SavedFilesExplorer(
-                                filesList: viewStore.savedFilesList) { selectedFile in
-                                    viewStore.send(.saveDataToTempFolderResult(selectedFile.url))
-                                }
-                        } else {
-                            VideoPlayer(player: viewStore.activePlayer)
-                            FrameView(image: viewStore.bodyFrame)
-                            VideoPlayerOverlay(
-                                isPlaying: viewStore.activePlayer?.isPlaying() ?? false,
-                                geometry: geometry,
-                                onBackButton: {
-                                    viewStore.send(.backToGallery)
-                                },
-                                onPlayPause: { viewStore.send(.togglePlayerState) }
-                            )
-                        }
-                        if viewStore.loadingVideo || viewStore.loadingFilesList {
-                            ProgressView()
-                        }
+        GeometryReader { geometry in
+            VStack {
+                ZStack {
+                    if stateStore.bodyFrame == nil {
+                        SavedFilesExplorer(
+                            filesList: stateStore.savedFilesList) { selectedFile in
+                                stateStore.send(.saveDataToTempFolderResult(selectedFile.url))
+                            }
+                    } else {
+                        VideoPlayer(player: stateStore.activePlayer)
+                        FrameView(image: stateStore.bodyFrame)
+                        VideoPlayerOverlay(
+                            isPlaying: stateStore.activePlayer?.isPlaying() ?? false,
+                            geometry: geometry,
+                            onBackButton: {
+                                stateStore.send(.backToGallery)
+                            },
+                            onPlayPause: { stateStore.send(.togglePlayerState) }
+                        )
                     }
-                    if viewStore.bodyFrame == nil {
-                        PhotosPicker(
-                            selection: $selectedItem,
-                            matching: .videos,
-                            photoLibrary: .shared()) {
-                                Text("Загрузить видео из галлереи")
-                            }
-                            .onChange(of: selectedItem) { newItem in
-                                viewStore.send(.startLoadingVideoFromGallery)
-                                Task {
-                                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                        viewStore.send(.loadedVideoDataFromGallery(data))
-                                    }
-                                }
-                            }
+                    if stateStore.loadingVideo || stateStore.loadingFilesList {
+                        ProgressView()
                     }
                 }
-                .onAppear {
-                    viewStore.send(.startLoadingFilesList)
+                if stateStore.bodyFrame == nil {
+                    PhotosPicker(
+                        selection: $selectedItem,
+                        matching: .videos,
+                        photoLibrary: .shared()) {
+                            Text("Загрузить видео из галлереи")
+                        }
+                        .onChange(of: selectedItem) {
+                            stateStore.send(.startLoadingVideoFromGallery)
+                            Task {
+                                if let data = try? await selectedItem?.loadTransferable(type: Data.self) {
+                                    stateStore.send(.loadedVideoDataFromGallery(data))
+                                }
+                            }
+                        }
                 }
-            }            
+            }
+            .onAppear {
+                stateStore.send(.startLoadingFilesList)
+            }
         }
     }
 }

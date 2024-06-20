@@ -12,13 +12,24 @@ let package = Package(
     products: [
         .library(
             name: "PoseDetection",
-            targets: ["PoseDetection"])
+            targets: ["PoseDetection"]
+        )
     ],
-    targets: [
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.3.0")
+    ],
+    targets: [        
         .target(
-            name: "PoseDetection"),
+            name: "PoseDetection",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ]
+        ),
         .testTarget(
             name: "PoseDetectionTests",
-            dependencies: ["PoseDetection"])
+            dependencies: [
+                "PoseDetection"
+            ]
+        )
     ]
 )

@@ -38,6 +38,9 @@ struct AuthorizedFeature {
         Scope(state: \.articlesTab, action: \.articlesTab) {
             ArticlesTab()
         }
+        Scope(state: \.galleryTab, action: \.galleryTab) {
+            GalleryFeature()
+        }
         Reduce { state, action in
             switch action {
             case .switchTab(let newTab):

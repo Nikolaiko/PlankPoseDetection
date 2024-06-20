@@ -1,7 +1,7 @@
 import XCTest
-@testable import DrawPoseJoints
+@testable import DrawPoseJoint
 
-final class DrawPoseJointsTests: XCTestCase {
+final class DrawPoseJointTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
