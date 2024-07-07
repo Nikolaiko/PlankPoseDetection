@@ -10,11 +10,7 @@ let package = Package(
         .library(
             name: "ArticlesProvider",
             targets: ["ArticlesProvider"]
-        ),
-//        .library(
-//          name: "ArticlesProviderLive",
-//          targets: ["ArticlesProviderLive"]
-//        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.3.0")
@@ -32,19 +28,8 @@ let package = Package(
         .testTarget(
             name: "ArticlesProviderTests",
             dependencies: [
-                "ArticlesProvider",
-                //"ArticlesProviderLive"
+                "ArticlesProvider"
             ]
-        ),
-//        .target(
-//          name: "ArticlesProviderLive",
-//          dependencies: [
-//            .product(name: "Dependencies", package: "swift-dependencies"),
-//            "ArticlesProvider"
-//          ],
-//          resources: [
-//            .process("Resources")
-//          ]
-//        )
+        )
     ]
 )

@@ -1,15 +1,9 @@
-//
-//  SavedFilesExplorer.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 18.03.2023.
-//
-
 import SwiftUI
+import AppFilesManager
 
 struct SavedFilesExplorer: View {
     let filesList: [SavedVideoFile]
-    let onItemTap: SelectingFileCallback?
+    let onItemTap: ((SavedVideoFile) -> Void)?
 
     var body: some View {
         List {

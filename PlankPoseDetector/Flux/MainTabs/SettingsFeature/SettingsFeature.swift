@@ -1,12 +1,6 @@
-//
-//  SettingsFeature.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 23.01.2023.
-//
-
 import Foundation
 import ComposableArchitecture
+import AppFilesManager
 
 struct SettingsFeature: Reducer {
     struct State: Equatable {
@@ -22,7 +16,7 @@ struct SettingsFeature: Reducer {
         case binding(BindingAction<State>)
     }
 
-    @Dependency(\.appFileManagerPlayer) var appFileManager: AppFileManager
+    @Dependency(\.fileManager) var appFileManager: AppFilesManager
     @Dependency(\.hudMessenger) var hudMessenger: HUDMessenger
 
     func reduce(into state: inout State, action: Action) -> Effect<Action> {

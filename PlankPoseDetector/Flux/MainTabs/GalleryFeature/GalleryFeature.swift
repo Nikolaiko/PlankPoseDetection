@@ -3,6 +3,8 @@ import UIKit
 import AVFoundation
 import ComposableArchitecture
 import PoseDetection
+import AppVideoPlayer
+import AppFilesManager
 
 @Reducer
 struct GalleryFeature {
@@ -36,8 +38,8 @@ struct GalleryFeature {
         case readyToClose(MainViewTabEnum)
     }
 
-    @Dependency(\.appAvPlayer) var appAvPlayer: GalleryVideoPlayer
-    @Dependency(\.appFileManagerPlayer) var appFileManager: AppFileManager
+    @Dependency(\.videoPlayer) var appAvPlayer: AppVideoPlayer
+    @Dependency(\.fileManager) var appFileManager: AppFilesManager
     @Dependency(\.poseDetector) var detector: PoseDetector
     @Dependency(\.paintService) var painter: DrawImageService
     @Dependency(\.poseEstimation) var poseEstimation: PoseEstimationService
@@ -61,17 +63,17 @@ struct GalleryFeature {
                 return .none
             case .loadedVideoDataFromGallery(let videoData):
                 return Effect.run { send in
-                    print("Loaded: \(videoData)")
-                    await send(.saveDataToTempFolderResult(appFileManager.loadDataFromUrl(videoData: videoData)))
+                    let data = appFileManager.loadDataFromUrl(videoData)
+                    await send(.saveDataToTempFolderResult(data))
                 }
             case .saveDataToTempFolderResult(let urlResult):
                 state.loadingVideo = false
                 if let fileUrl = urlResult {
-                    state.activePlayer = appAvPlayer.player
-                    appAvPlayer.loadItemFromUrl(fileUrl: fileUrl)
+                    state.activePlayer = appAvPlayer.playerInstance()
+                    appAvPlayer.loadItemFromUrl(fileUrl)
                     appAvPlayer.play()
                     return Effect.run { send in
-                        for await currentFrame in appAvPlayer.framesStream! {
+                        for await currentFrame in appAvPlayer.streamInstance()! {
                             await send(.processFrame(currentFrame))
                         }
                     }

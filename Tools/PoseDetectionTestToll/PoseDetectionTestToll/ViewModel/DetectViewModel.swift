@@ -8,9 +8,10 @@
 import Foundation
 import PoseDetection
 import SwiftUI
+import Vision
 
 class DetectViewModel: ObservableObject {
-    private let detection = VisionPoseDetection()
+    private let detection = PoseDetector.liveValue
     private let drawing = CGImagePainter()
     private let bundle = Bundle.main
 
@@ -21,11 +22,14 @@ class DetectViewModel: ObservableObject {
         let image = NSImage(contentsOf: imageUrl!)!
         var imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         let imageRef = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)!
-        let poses = detection.detectPoseOnImage(image: imageRef)
+        let poses = detection.detectPoses(imageRef)
 
         result = drawing.drawPointsOnImage(sourceImage: imageRef, points: poses)
 
-        print(poses)
+        print("Joints count: \(poses.count)")
+        for pose in poses {
+            print("Key: \(pose.key.rawValue) : Value: \(pose.value)")
+        }
     }
 }
 

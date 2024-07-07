@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "PoseDetection",
     platforms: [
-        .iOS(.v14),
+        .iOS(.v14),        
         .macOS(.v13)
     ],
     products: [
@@ -29,6 +29,9 @@ let package = Package(
             name: "PoseDetectionTests",
             dependencies: [
                 "PoseDetection"
+            ],
+            resources: [
+                .process("Resources")
             ]
         )
     ]
