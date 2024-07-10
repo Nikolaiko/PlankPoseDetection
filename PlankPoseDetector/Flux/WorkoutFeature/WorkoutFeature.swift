@@ -11,6 +11,7 @@ import UIKit
 import Dependencies
 import AVFoundation
 import PoseDetection
+import DrawPoseJoint
 
 struct WorkoutFeature: Reducer {
 
@@ -45,7 +46,7 @@ struct WorkoutFeature: Reducer {
     }
 
     @Dependency(\.poseDetector) var detector: PoseDetector
-    @Dependency(\.paintService) var painter: DrawImageService
+    @Dependency(\.paintService) var painter: DrawPoseJoint
 
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
@@ -55,7 +56,7 @@ struct WorkoutFeature: Reducer {
             guard let cgImage = image.cgImage else { return .none }
             return Effect.run { send in
                 let points = detector.detectPoses(cgImage)
-                let resultImage = painter.drawPointsOnImage(sourceImage: image, points: points)
+                let resultImage = painter.drawPointsOnImage(image, points)
                 await send(.processImageResult(resultImage))
             }
         case .processImageResult(let imageResult):
@@ -81,8 +82,8 @@ struct WorkoutFeature: Reducer {
                     if let snapshot = try? await generator.image(at: currentTime) {
                         let points = detector.detectPoses(snapshot.image)
                         resultImage = painter.drawPointsOnImage(
-                            sourceImage: UIImage(cgImage: snapshot.image),
-                            points: points
+                            UIImage(cgImage: snapshot.image),
+                            points
                         )
                     }
                     await send(.processImageResult(resultImage))                    

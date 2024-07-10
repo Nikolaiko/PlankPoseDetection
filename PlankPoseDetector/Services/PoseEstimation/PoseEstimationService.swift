@@ -7,6 +7,7 @@
 
 import Foundation
 import PoseDetection
+import CommonModels
 
 protocol PoseEstimationService {
     func estimatePoseJoints(

@@ -1,19 +1,13 @@
-//
-//  PoseDrawingState.swift
-//  PlankPoseDetector
-//
-//  Created by Nikolai Baklanov on 08.02.2023.
-//
-
 import Foundation
 import UIKit
 import ComposableArchitecture
 import PoseDetection
+import DrawPoseJoint
 
 struct PoseDrawingFeature: Reducer {
 
     @Dependency(\.poseDetector) var detector: PoseDetector
-    @Dependency(\.paintService) var painter: DrawImageService
+    @Dependency(\.paintService) var painter: DrawPoseJoint
 
     struct State: Equatable {
         var currentFrame: UIImage?
@@ -33,7 +27,7 @@ struct PoseDrawingFeature: Reducer {
                 return Effect.run { send in
                     let uiImage = UIImage(cgImage: currentImage)
                     let points = detector.detectPoses(currentImage)
-                    let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: points)
+                    let resultImage = painter.drawPointsOnTransparentImage(uiImage,points)
                     await send(.processImageResult(resultImage))
                 }
             } else {

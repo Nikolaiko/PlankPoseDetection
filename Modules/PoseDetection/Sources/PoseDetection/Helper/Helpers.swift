@@ -1,5 +1,6 @@
 import Foundation
 import Vision
+import CommonModels
 
 func convertObservationToJoint(
     sourceImage: CGImage,

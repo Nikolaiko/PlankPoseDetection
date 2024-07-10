@@ -1,6 +1,7 @@
 import Foundation
 import Vision
 import Dependencies
+import CommonModels
 
 extension PoseDetector: DependencyKey {
     public static var liveValue = Self(

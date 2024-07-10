@@ -5,20 +5,24 @@ import PackageDescription
 
 let package = Package(
     name: "DrawPoseJoint",
-    platforms: [
-        .iOS(.v14),
-        .macOS(.v13)
-    ],
+    platforms: [.iOS(.v14)],
     products: [
-        .library(
-            name: "DrawPoseJoint",
-            targets: ["DrawPoseJoint"]),
+        .library(name: "DrawPoseJoint", targets: ["DrawPoseJoint"])
     ],
-    targets: [        
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.3.0"),
+        .package(path: "./AppDevPackage")
+    ],
+    targets: [
         .target(
-            name: "DrawPoseJoint"),
+            name: "DrawPoseJoint",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "CommonModels", package: "AppDevPackage")
+            ]
+        ),
         .testTarget(
             name: "DrawPoseJointTests",
-            dependencies: ["DrawPoseJoint"]),
+            dependencies: ["DrawPoseJoint"])
     ]
 )

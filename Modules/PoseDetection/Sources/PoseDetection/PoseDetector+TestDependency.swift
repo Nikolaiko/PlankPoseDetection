@@ -1,5 +1,6 @@
 import Foundation
 import Dependencies
+import CommonModels
 
 extension PoseDetector: TestDependencyKey {
     public static var testValue = Self(

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import PointMath
-import LineMath
+import Math
 import PoseDetection
+import CommonModels
 
 class PlankPoseEstimation: PoseEstimationService {
     private static let acceptedVariationPercent: Double = 3

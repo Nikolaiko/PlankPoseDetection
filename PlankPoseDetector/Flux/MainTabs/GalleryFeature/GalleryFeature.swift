@@ -5,6 +5,7 @@ import ComposableArchitecture
 import PoseDetection
 import AppVideoPlayer
 import AppFilesManager
+import DrawPoseJoint
 
 @Reducer
 struct GalleryFeature {
@@ -41,7 +42,7 @@ struct GalleryFeature {
     @Dependency(\.videoPlayer) var appAvPlayer: AppVideoPlayer
     @Dependency(\.fileManager) var appFileManager: AppFilesManager
     @Dependency(\.poseDetector) var detector: PoseDetector
-    @Dependency(\.paintService) var painter: DrawImageService
+    @Dependency(\.paintService) var painter: DrawPoseJoint
     @Dependency(\.poseEstimation) var poseEstimation: PoseEstimationService
 
     public var body: some ReducerOf<Self> {
@@ -88,7 +89,8 @@ struct GalleryFeature {
                         let uiImage = UIImage(cgImage: currentImage)
                         let points = detector.detectPoses(currentImage)
                         let estimated = poseEstimation.estimatePoseJoints(joints: points, imageSize: uiImage.size)
-                        let resultImage = painter.drawPointsOnTransparentImage(sourceImage: uiImage, points: estimated)
+                        let resultImage = painter.drawPointsOnTransparentImage(uiImage,
+                                                                              estimated)
                         await send(.processFrameResult(resultImage))
                     }
                 } else {

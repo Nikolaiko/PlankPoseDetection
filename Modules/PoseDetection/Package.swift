@@ -5,24 +5,20 @@ import PackageDescription
 
 let package = Package(
     name: "PoseDetection",
-    platforms: [
-        .iOS(.v14),        
-        .macOS(.v13)
-    ],
+    platforms: [.iOS(.v14), .macOS(.v13)],
     products: [
-        .library(
-            name: "PoseDetection",
-            targets: ["PoseDetection"]
-        )
+        .library(name: "PoseDetection", targets: ["PoseDetection"])
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.3.0")
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.3.0"),
+        .package(path: "./AppDevPackage")
     ],
     targets: [        
         .target(
             name: "PoseDetection",
             dependencies: [
-                .product(name: "Dependencies", package: "swift-dependencies")
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "CommonModels", package: "AppDevPackage")
             ]
         ),
         .testTarget(
