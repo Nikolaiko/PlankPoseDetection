@@ -6,22 +6,40 @@ import PoseDetection
 import AppVideoPlayer
 import AppFilesManager
 import DrawPoseJoint
+import PoseEstimation
 
 @Reducer
-struct GalleryFeature {
+public struct GalleryTab {
+
+    public init() { }
 
     @ObservableState
-    struct State: Equatable {
-        var activePlayer: AVPlayer?
-        var bodyFrame: CGImage?
-        var savedFilesList: [SavedVideoFile] = []
+    public struct State: Equatable {
+        public var activePlayer: AVPlayer?
+        public var bodyFrame: CGImage?
+        public var savedFilesList: [SavedVideoFile]
 
-        var loadingVideo = false
-        var processingImage = false
-        var loadingFilesList = false
+        public var loadingVideo: Bool
+        public var processingImage: Bool
+        public var loadingFilesList: Bool
+
+        public init(activePlayer: AVPlayer? = nil,
+                    bodyFrame: CGImage? = nil,
+                    savedFilesList: [SavedVideoFile] = [],
+                    loadingVideo: Bool = false,
+                    processingImage: Bool = false,
+                    loadingFilesList: Bool = false
+        ) {
+            self.activePlayer = activePlayer
+            self.bodyFrame = bodyFrame
+            self.savedFilesList = savedFilesList
+            self.loadingVideo = loadingVideo
+            self.processingImage = processingImage
+            self.loadingFilesList = loadingFilesList
+        }
     }
 
-    enum Action {
+    public enum Action {
         case startLoadingFilesList
         case loadingFilesListResult([SavedVideoFile])
 
@@ -34,9 +52,6 @@ struct GalleryFeature {
 
         case togglePlayerState
         case backToGallery
-
-        case prepareToClose(MainViewTabEnum)
-        case readyToClose(MainViewTabEnum)
     }
 
     @Dependency(\.videoPlayer) var appAvPlayer: AppVideoPlayer
@@ -49,7 +64,6 @@ struct GalleryFeature {
         Reduce { state, action in
             switch action {
             case .startLoadingFilesList:
-                print("startLoadingFilesList")
                 state.loadingFilesList = true
                 return Effect.run { send in
                     await send(.loadingFilesListResult(appFileManager.getSavedFiles()))
@@ -59,8 +73,7 @@ struct GalleryFeature {
                 state.savedFilesList = loadedFiles
                 return .none
             case .startLoadingVideoFromGallery:
-                state.loadingVideo = true
-                print("startLoadingVideoFromGallery")
+                state.loadingVideo = true                
                 return .none
             case .loadedVideoDataFromGallery(let videoData):
                 return Effect.run { send in
@@ -110,12 +123,7 @@ struct GalleryFeature {
             case .backToGallery:
                 appAvPlayer.stop()
                 state.bodyFrame = nil
-                return Effect.send(.startLoadingFilesList)
-            case .prepareToClose(let newTabId):
-                appAvPlayer.stop()
-                return Effect.send(.readyToClose(newTabId))
-            default:
-                return .none
+                return Effect.send(.startLoadingFilesList)                        
             }
         }
     }

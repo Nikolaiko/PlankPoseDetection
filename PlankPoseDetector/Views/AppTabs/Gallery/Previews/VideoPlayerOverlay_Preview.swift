@@ -1,35 +1,35 @@
+////
+////  VideoPlayerOverlay_Preview.swift
+////  PlankPoseDetector
+////
+////  Created by Nikolai Baklanov on 13.05.2023.
+////
 //
-//  VideoPlayerOverlay_Preview.swift
-//  PlankPoseDetector
+//import Foundation
+//import SwiftUI
 //
-//  Created by Nikolai Baklanov on 13.05.2023.
+//struct VideoPlayerOverlayPlayingPreview: PreviewProvider {
+//    static var previews: some View {
+//        GeometryReader { geom in
+//            VideoPlayerOverlay(
+//                isPlaying: true,
+//                geometry: geom,
+//                onBackButton: nil,
+//                onPlayPause: nil
+//            )
+//        }
+//    }
+//}
 //
-
-import Foundation
-import SwiftUI
-
-struct VideoPlayerOverlayPlayingPreview: PreviewProvider {
-    static var previews: some View {
-        GeometryReader { geom in
-            VideoPlayerOverlay(
-                isPlaying: true,
-                geometry: geom,
-                onBackButton: nil,
-                onPlayPause: nil
-            )
-        }
-    }
-}
-
-struct VideoPlayerOverlayPausePreview: PreviewProvider {
-    static var previews: some View {
-        GeometryReader { geom in
-            VideoPlayerOverlay(
-                isPlaying: false,
-                geometry: geom,
-                onBackButton: nil,
-                onPlayPause: nil
-            )
-        }
-    }
-}
+//struct VideoPlayerOverlayPausePreview: PreviewProvider {
+//    static var previews: some View {
+//        GeometryReader { geom in
+//            VideoPlayerOverlay(
+//                isPlaying: false,
+//                geometry: geom,
+//                onBackButton: nil,
+//                onPlayPause: nil
+//            )
+//        }
+//    }
+//}

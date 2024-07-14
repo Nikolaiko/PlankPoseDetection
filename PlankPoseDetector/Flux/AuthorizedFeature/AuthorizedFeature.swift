@@ -1,6 +1,7 @@
 import ComposableArchitecture
 import Foundation
 import ArticlesTab
+import GalleryTab
 
 @Reducer
 struct AuthorizedFeature {
@@ -9,7 +10,7 @@ struct AuthorizedFeature {
     enum State {
         case articlesTab(ArticlesTab.State)
         case statsTab(StatisticsFeature.State)
-        case galleryTab(GalleryFeature.State)
+        case galleryTab(GalleryTab.State)
         case settingsTab(SettingsFeature.State)
 
         var mainTabEnumValue: MainViewTabEnum {
@@ -29,7 +30,7 @@ struct AuthorizedFeature {
     enum Action {
         case articlesTab(ArticlesTab.Action)
         case statsTab(StatisticsFeature.Action)
-        case galleryTab(GalleryFeature.Action)
+        case galleryTab(GalleryTab.Action)
         case settingsTab(SettingsFeature.Action)
         case switchTab(MainViewTabEnum)
     }
@@ -39,7 +40,7 @@ struct AuthorizedFeature {
             ArticlesTab()
         }
         Scope(state: \.galleryTab, action: \.galleryTab) {
-            GalleryFeature()
+            GalleryTab()
         }
         Reduce { state, action in
             switch action {
@@ -57,7 +58,7 @@ struct AuthorizedFeature {
         case .home:
             return .articlesTab(ArticlesTab.State())
         case .gallery:
-            return .galleryTab(GalleryFeature.State())
+            return .galleryTab(GalleryTab.State())
         case .settings:
             return .settingsTab(SettingsFeature.State())
         case .statistics:

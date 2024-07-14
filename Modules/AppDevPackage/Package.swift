@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "AppDevPackage",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS(.v14), .macOS(.v13)],
     products: [
         .library(name: "Math", targets: ["Math"]),
         .library(name: "CommonModels", targets: ["CommonModels"])

@@ -2,9 +2,10 @@ import SwiftUI
 import PhotosUI
 import AVKit
 import ComposableArchitecture
+import GalleryTab
 
 struct GalleryView: View {
-    let stateStore: StoreOf<GalleryFeature>
+    let stateStore: StoreOf<GalleryTab>
 
     @State private var selectedItem: PhotosPickerItem?
 
