@@ -31,7 +31,7 @@ public struct PoseEstimationService {
         } else if checkElbowPoseHands(joints, acceptedValue) {
             poseType = .elbow
         }
-
+        
         guard poseType != .undefined else { return joints }
 
         checkBack(joints: joints, poseType: poseType, acceptedValue: acceptedValue)

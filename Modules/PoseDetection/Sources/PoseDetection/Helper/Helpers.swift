@@ -20,11 +20,11 @@ func convertObservationToJoint(
         else { return }
 
         if jointName == .leftWrist {
-            print("Left W Not Normalized : \(currentPoint.location)")
+            //print("Left W Not Normalized : \(currentPoint.location)")
         }
 
         if jointName == .leftShoulder {
-            print("Left S Not Normalized : \(currentPoint.location)")
+            //print("Left S Not Normalized : \(currentPoint.location)")
         }
 
         var normalized: CGPoint = VNImagePointForNormalizedPoint(

@@ -6,4 +6,3 @@ public extension AVPlayer {
         return rate != 0 && error == nil
     }
 }
-

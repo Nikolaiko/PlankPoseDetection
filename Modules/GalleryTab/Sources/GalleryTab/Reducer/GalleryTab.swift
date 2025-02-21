@@ -47,7 +47,7 @@ public struct GalleryTab {
         case loadedVideoDataFromGallery(Data)
         case saveDataToTempFolderResult(URL?)
 
-        case processFrame(CGImage?)
+        case processFrame(CGImage?) 
         case processFrameResult(UIImage)
 
         case togglePlayerState
@@ -55,6 +55,8 @@ public struct GalleryTab {
     }
 
     @Dependency(\.videoPlayer) var appAvPlayer: AppVideoPlayer
+
+    //var appAvPlayer: AppAVPlayer = AppAVPlayer()
     @Dependency(\.fileManager) var appFileManager: AppFilesManager
     @Dependency(\.poseDetector) var detector: PoseDetector
     @Dependency(\.paintService) var painter: DrawPoseJoint
@@ -84,6 +86,8 @@ public struct GalleryTab {
                 state.loadingVideo = false
                 if let fileUrl = urlResult {
                     state.activePlayer = appAvPlayer.playerInstance()
+                    //state.activePlayer = appAvPlayer.player
+                    //appAvPlayer.loadItemFromUrl(fileUrl: fileUrl)
                     appAvPlayer.loadItemFromUrl(fileUrl)
                     appAvPlayer.play()
                     return Effect.run { send in
@@ -96,6 +100,7 @@ public struct GalleryTab {
                     return .none
                 }
             case .processFrame(let image):
+                print("processFrame: \(image), inProgress: \(state.processingImage)")
                 if let currentImage = image, state.processingImage == false {
                     state.processingImage = true
                     return Effect.run { send in

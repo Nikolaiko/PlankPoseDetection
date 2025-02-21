@@ -9,8 +9,8 @@ extension AppVideoPlayer: DependencyKey {
         var framesStream: AsyncStream<CGImage?>?
 
         var imageGenerator: AVAssetImageGenerator?
-        var timer = RepeatingTimer(timeInterval: 0.01)
-        var streamBuilder: () -> AsyncStream<CGImage?> = {
+        let timer = RepeatingTimer(timeInterval: 0.01)
+        let streamBuilder: () -> AsyncStream<CGImage?> = {
             return AsyncStream<CGImage?> { continuation in
                 continuation.onTermination = { _ in
                     continuation.finish()
@@ -21,6 +21,9 @@ extension AppVideoPlayer: DependencyKey {
                         at: player.currentTime(),
                         actualTime: nil
                     )
+                    print("Video player live player generator: \(imageGenerator)")
+                    //print("Video player live player.currentTime: \(CMTimeGetSeconds(player.currentTime()))")
+                    print("Video player live snapshot: \(snapshot)")
                     continuation.yield(snapshot)
                 }
             }
@@ -38,7 +41,6 @@ extension AppVideoPlayer: DependencyKey {
 
             imageGenerator = AVAssetImageGenerator(asset: player.currentItem!.asset)
             imageGenerator?.appliesPreferredTrackTransform = true
-
         } play: {
             if framesStream == nil {
                 framesStream = streamBuilder()

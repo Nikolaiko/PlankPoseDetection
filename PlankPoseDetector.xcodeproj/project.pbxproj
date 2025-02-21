@@ -112,6 +112,8 @@
 		91E7740529A5292200E44C9D /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740429A5292200E44C9D /* StatisticsView.swift */; };
 		91E7740729A5294700E44C9D /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7740629A5294700E44C9D /* GalleryView.swift */; };
 		91FFC2372BE7A93D00848EAB /* Fonts+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFC2362BE7A93D00848EAB /* Fonts+Styles.swift */; };
+		91FFED062CACE43000A23B51 /* AppVideoPlayerLive in Frameworks */ = {isa = PBXBuildFile; productRef = 91FFED052CACE43000A23B51 /* AppVideoPlayerLive */; };
+		91FFED092CACE51200A23B51 /* PoseEstimationLive in Frameworks */ = {isa = PBXBuildFile; productRef = 91FFED082CACE51200A23B51 /* PoseEstimationLive */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,11 +234,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FFED062CACE43000A23B51 /* AppVideoPlayerLive in Frameworks */,
 				912B6A6C2BECCDEC008A53FF /* ArticlesTab in Frameworks */,
 				9165494C2C43C94100D501DD /* GalleryTab in Frameworks */,
 				915B74D72C43D07300C3AE35 /* AppFilesManagerLive in Frameworks */,
 				91670B532BB09C0C00E18CEB /* ComposableArchitecture in Frameworks */,
 				911C66CE29859ED000E7D4D4 /* SwiftDevPackage in Frameworks */,
+				91FFED092CACE51200A23B51 /* PoseEstimationLive in Frameworks */,
 				91C1A1BD2BB993C4004C0972 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,6 +925,8 @@
 				912B6A6B2BECCDEC008A53FF /* ArticlesTab */,
 				9165494B2C43C94100D501DD /* GalleryTab */,
 				915B74D62C43D07300C3AE35 /* AppFilesManagerLive */,
+				91FFED052CACE43000A23B51 /* AppVideoPlayerLive */,
+				91FFED082CACE51200A23B51 /* PoseEstimationLive */,
 			);
 			productName = PlankPoseDetector;
 			productReference = 917BD06C297EB49100F57E6D /* PlankPoseDetector.app */;
@@ -1385,6 +1391,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91C1A1BB2BB993C4004C0972 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		91FFED052CACE43000A23B51 /* AppVideoPlayerLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppVideoPlayerLive;
+		};
+		91FFED082CACE51200A23B51 /* PoseEstimationLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PoseEstimationLive;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

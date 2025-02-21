@@ -11,8 +11,8 @@ extension PoseEstimationService: DependencyKey {
             var leftCheckState: PoseJoint.Validation = .unchecked
             var rightCheckState: PoseJoint.Validation = .unchecked
 
-            if let leftWristPos = joints[.leftWrist]?.position,
-               let leftShoulderPos = joints[.leftShoulder]?.position {
+            if let leftWristPos = joints[PoseJoint.Name.leftWrist]?.position,
+               let leftShoulderPos = joints[PoseJoint.Name.leftShoulder]?.position {
 
                 if PointMath.isPointsNearEnougthX(
                     first: leftWristPos,
@@ -25,8 +25,8 @@ extension PoseEstimationService: DependencyKey {
                 }
             }
 
-            if let rightWristPos = joints[.leftWrist]?.position,
-               let rightShoulderPos = joints[.leftShoulder]?.position {
+            if let rightWristPos = joints[PoseJoint.Name.leftWrist]?.position,
+               let rightShoulderPos = joints[PoseJoint.Name.leftShoulder]?.position {
 
                 if PointMath.isPointsNearEnougthX(
                     first: rightWristPos,
@@ -42,32 +42,32 @@ extension PoseEstimationService: DependencyKey {
             if rightCheckState == .correct ||
                 leftCheckState == .correct {
                 poseWasDetected = true
-                joints[.leftWrist]?.validationStatus = .correct
-                joints[.leftElbow]?.validationStatus = .correct
-                joints[.leftShoulder]?.validationStatus = .correct
+                joints[PoseJoint.Name.leftWrist]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.leftElbow]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.leftShoulder]?.validationStatus = PoseJoint.Validation.correct
 
-                joints[.rightWrist]?.validationStatus = .correct
-                joints[.rightElbow]?.validationStatus = .correct
-                joints[.rightShoulder]?.validationStatus = .correct
+                joints[PoseJoint.Name.rightWrist]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.rightElbow]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.rightShoulder]?.validationStatus = PoseJoint.Validation.correct
             } else {
                 poseWasDetected = false
-                joints[.leftWrist]?.validationStatus = .wrong
-                joints[.leftElbow]?.validationStatus = .wrong
-                joints[.leftShoulder]?.validationStatus = .wrong
+                joints[PoseJoint.Name.leftWrist]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.leftElbow]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.leftShoulder]?.validationStatus = PoseJoint.Validation.wrong
 
-                joints[.rightWrist]?.validationStatus = .wrong
-                joints[.rightElbow]?.validationStatus = .wrong
-                joints[.rightShoulder]?.validationStatus = .wrong
+                joints[PoseJoint.Name.rightWrist]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.rightElbow]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.rightShoulder]?.validationStatus = PoseJoint.Validation.wrong
             }
             return poseWasDetected
         } checkElbowPoseHands: { joints, acceptedVariationValue in
             var poseWasDetected = false
-            var leftCheckState: PoseJoint.Validation = .unchecked
-            var rightCheckState: PoseJoint.Validation = .unchecked
+            var leftCheckState: PoseJoint.Validation = PoseJoint.Validation.unchecked
+            var rightCheckState: PoseJoint.Validation = PoseJoint.Validation.unchecked
 
-            if let leftWristPos = joints[.leftWrist]?.position,
-               let leftShoulderPos = joints[.leftShoulder]?.position,
-               let leftElbowPos = joints[.leftElbow]?.position {
+            if let leftWristPos = joints[PoseJoint.Name.leftWrist]?.position,
+               let leftShoulderPos = joints[PoseJoint.Name.leftShoulder]?.position,
+               let leftElbowPos = joints[PoseJoint.Name.leftElbow]?.position {
 
                 if PointMath.isPointsNearEnougthY(
                     first: leftWristPos,
@@ -78,15 +78,15 @@ extension PoseEstimationService: DependencyKey {
                     second: leftElbowPos,
                     value: acceptedVariationValue
                 ) {
-                    leftCheckState = .correct
+                    leftCheckState = PoseJoint.Validation.correct
                 } else {
-                    leftCheckState = .wrong
+                    leftCheckState = PoseJoint.Validation.wrong
                 }
             }
 
-            if let rightWristPos = joints[.leftWrist]?.position,
-               let rightShoulderPos = joints[.leftShoulder]?.position,
-               let rightElbowPos = joints[.rightElbow]?.position {
+            if let rightWristPos = joints[PoseJoint.Name.leftWrist]?.position,
+               let rightShoulderPos = joints[PoseJoint.Name.leftShoulder]?.position,
+               let rightElbowPos = joints[PoseJoint.Name.rightElbow]?.position {
 
                 if PointMath.isPointsNearEnougthY(
                     first: rightWristPos,
@@ -97,51 +97,51 @@ extension PoseEstimationService: DependencyKey {
                     second: rightElbowPos,
                     value: acceptedVariationValue
                 ) {
-                    rightCheckState = .correct
+                    rightCheckState = PoseJoint.Validation.correct
                 } else {
-                    rightCheckState = .wrong
+                    rightCheckState = PoseJoint.Validation.wrong
                 }
             }
 
-            if rightCheckState == .correct ||
-                leftCheckState == .correct {
+            if rightCheckState == PoseJoint.Validation.correct ||
+                leftCheckState == PoseJoint.Validation.correct {
                 poseWasDetected = true
-                joints[.leftWrist]?.validationStatus = .correct
-                joints[.leftElbow]?.validationStatus = .correct
-                joints[.leftShoulder]?.validationStatus = .correct
+                joints[PoseJoint.Name.leftWrist]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.leftElbow]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.leftShoulder]?.validationStatus = PoseJoint.Validation.correct
 
-                joints[.rightWrist]?.validationStatus = .correct
-                joints[.rightElbow]?.validationStatus = .correct
-                joints[.rightShoulder]?.validationStatus = .correct
+                joints[PoseJoint.Name.rightWrist]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.rightElbow]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.rightShoulder]?.validationStatus = PoseJoint.Validation.correct
             } else {
                 poseWasDetected = false
-                joints[.leftWrist]?.validationStatus = .wrong
-                joints[.leftElbow]?.validationStatus = .wrong
-                joints[.leftShoulder]?.validationStatus = .wrong
+                joints[PoseJoint.Name.leftWrist]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.leftElbow]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.leftShoulder]?.validationStatus = PoseJoint.Validation.wrong
 
-                joints[.rightWrist]?.validationStatus = .wrong
-                joints[.rightElbow]?.validationStatus = .wrong
-                joints[.rightShoulder]?.validationStatus = .wrong
+                joints[PoseJoint.Name.rightWrist]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.rightElbow]?.validationStatus = PoseJoint.Validation.wrong
+                joints[PoseJoint.Name.rightShoulder]?.validationStatus = PoseJoint.Validation.wrong
             }
 
             return poseWasDetected
         } checkBodyForElbowPose: { joints, acceptedVariationValue in
-            guard let neckPos = joints[.neck]?.position,
-                  let rootPos = joints[.root]?.position else { return }
+            guard let neckPos = joints[PoseJoint.Name.neck]?.position,
+                  let rootPos = joints[PoseJoint.Name.root]?.position else { return }
 
             if PointMath.isPointsNearEnougthY(
                 first: neckPos,
                 second: rootPos,
                 value: acceptedVariationValue
             ) {
-                joints[.neck]?.validationStatus = .correct
-                joints[.root]?.validationStatus = .correct
+                joints[PoseJoint.Name.neck]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.root]?.validationStatus = PoseJoint.Validation.correct
             }
 
-            guard let anklePos = joints[.leftAnkle]?.position ?? joints[.rightAnkle]?.position else { return }
-            guard let rootPos = joints[.root]?.position,
-                  let leftKnee = joints[.leftKnee]?.position,
-                  let rightKnee = joints[.rightKnee]?.position else { return }
+            guard let anklePos = joints[PoseJoint.Name.leftAnkle]?.position ?? joints[PoseJoint.Name.rightAnkle]?.position else { return }
+            guard let rootPos = joints[PoseJoint.Name.root]?.position,
+                  let leftKnee = joints[PoseJoint.Name.leftKnee]?.position,
+                  let rightKnee = joints[PoseJoint.Name.rightKnee]?.position else { return }
 
             let bodyLine = LineMath.calculateLineParameters(point1: anklePos, point2: rootPos)
             var crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: leftKnee)
@@ -149,8 +149,8 @@ extension PoseEstimationService: DependencyKey {
             var variation = PointMath.vectorLength(vectorCoors: vector)
 
             if variation <= acceptedVariationValue {
-                joints[.leftKnee]?.validationStatus = .correct
-                joints[.leftAnkle]?.validationStatus = .correct
+                joints[PoseJoint.Name.leftKnee]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.leftAnkle]?.validationStatus = PoseJoint.Validation.correct
             }
 
             crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: rightKnee)
@@ -158,15 +158,15 @@ extension PoseEstimationService: DependencyKey {
             variation = PointMath.vectorLength(vectorCoors: vector)
 
             if variation <= acceptedVariationValue {
-                joints[.rightKnee]?.validationStatus = .correct
-                joints[.rightAnkle]?.validationStatus = .correct
+                joints[PoseJoint.Name.rightKnee]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.rightAnkle]?.validationStatus = PoseJoint.Validation.correct
             }
         } checkBodyForStraitPose: { joints, acceptedVariationValue in
-            guard let anklePos = joints[.leftAnkle]?.position ?? joints[.rightAnkle]?.position else { return }
-            guard let neckPos = joints[.neck]?.position,
-                  let rootPos = joints[.root]?.position,
-                  let leftKnee = joints[.leftKnee]?.position,
-                  let rightKnee = joints[.rightKnee]?.position else { return }
+            guard let anklePos = joints[PoseJoint.Name.leftAnkle]?.position ?? joints[PoseJoint.Name.rightAnkle]?.position else { return }
+            guard let neckPos = joints[PoseJoint.Name.neck]?.position,
+                  let rootPos = joints[PoseJoint.Name.root]?.position,
+                  let leftKnee = joints[PoseJoint.Name.leftKnee]?.position,
+                  let rightKnee = joints[PoseJoint.Name.rightKnee]?.position else { return }
 
             let bodyLine = LineMath.calculateLineParameters(point1: anklePos, point2: neckPos)
             var crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: rootPos)
@@ -174,8 +174,8 @@ extension PoseEstimationService: DependencyKey {
             var variation = PointMath.vectorLength(vectorCoors: vector)
 
             if variation <= acceptedVariationValue {
-                joints[.neck]?.validationStatus = .correct
-                joints[.root]?.validationStatus = .correct
+                joints[PoseJoint.Name.neck]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.root]?.validationStatus = PoseJoint.Validation.correct
             }
 
             crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: leftKnee)
@@ -183,8 +183,8 @@ extension PoseEstimationService: DependencyKey {
             variation = PointMath.vectorLength(vectorCoors: vector)
 
             if variation <= acceptedVariationValue {
-                joints[.leftKnee]?.validationStatus = .correct
-                joints[.leftAnkle]?.validationStatus = .correct
+                joints[PoseJoint.Name.leftKnee]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.leftAnkle]?.validationStatus = PoseJoint.Validation.correct
             }
 
             crossPoint = LineMath.findNearestPointFromStartOnLine(line: bodyLine, start: rightKnee)
@@ -192,8 +192,8 @@ extension PoseEstimationService: DependencyKey {
             variation = PointMath.vectorLength(vectorCoors: vector)
 
             if variation <= acceptedVariationValue {
-                joints[.rightKnee]?.validationStatus = .correct
-                joints[.rightAnkle]?.validationStatus = .correct
+                joints[PoseJoint.Name.rightKnee]?.validationStatus = PoseJoint.Validation.correct
+                joints[PoseJoint.Name.rightAnkle]?.validationStatus = PoseJoint.Validation.correct
             }
         }
     }
