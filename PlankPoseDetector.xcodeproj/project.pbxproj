@@ -907,7 +907,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 917BD07A297EB49200F57E6D /* Build configuration list for PBXNativeTarget "PlankPoseDetector" */;
 			buildPhases = (
-				919594D229BCD27C00BCB5C6 /* ShellScript */,
+				91B79A622E2B78B20077624B /* ShellScript */,
 				917BD068297EB49100F57E6D /* Sources */,
 				917BD069297EB49100F57E6D /* Frameworks */,
 				917BD06A297EB49100F57E6D /* Resources */,
@@ -940,7 +940,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					917BD06B297EB49100F57E6D = {
 						CreatedOnToolsVersion = 14.2;
@@ -994,7 +994,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		919594D229BCD27C00BCB5C6 /* ShellScript */ = {
+		91B79A622E2B78B20077624B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1161,8 +1161,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1221,8 +1223,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1249,8 +1253,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlankPoseDetector/Preview Content\"";
-				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PlankPoseDetector/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
@@ -1283,8 +1287,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlankPoseDetector/Preview Content\"";
-				DEVELOPMENT_TEAM = ZWXN4J2VCP;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PlankPoseDetector/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need camera for pose detection";
@@ -1346,7 +1350,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.3;
+				minimumVersion = 1.20.2;
 			};
 		};
 		91C1A1BB2BB993C4004C0972 /* XCRemoteSwiftPackageReference "R.swift" */ = {

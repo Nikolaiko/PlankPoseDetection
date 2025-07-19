@@ -1,20 +1,20 @@
 [
   {
     "id": "1",
-    "title": "Title 1",
-    "subtitle": "Subtitle 1",
+    "title": "Планка - Википедия",
+    "subtitle": "Основные пункты википедии",
     "imageName": "image1"
   },
   {
     "id": "2",
-    "title": "Title 2",
-    "subtitle": "Subtitle 2",
+    "title": "Планка - основные моменты",
+    "subtitle": "Как правильно выполнять, основные ошибки",
     "imageName": "image2"
   },
   {
     "id": "3",
-    "title": "Title 3",
-    "subtitle": "Subtitle 3",
+    "title": "Бесполезное упражнение - планка",
+    "subtitle": "О планке",
     "imageName": "image3"
   }
 ]
